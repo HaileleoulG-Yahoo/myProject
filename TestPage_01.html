@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Page Title</title>
+
+    <!-- Font awsome -->
+    <script src="https://kit.fontawesome.com/e28e0ee020.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon"
+        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/assets/favicon.ico" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/css/styles.css"
+        rel="stylesheet" />
+
+
+    <!-- Side navbar - start -->
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+
+    <!-- Side navbar - end -->
+
+
+    <style>
+        /* To strip and make SharePoint page blank - START */
+        #O365_NavHeader,
+        #suitBarTop,
+        #sideNavBox,
+        #s4-titlerow,
+        #titleAreaBox,
+        #s4-ribbonrow,
+        #WebPartWPQ5_ChromeTitle {
+            display: none;
+        }
+
+        div#suiteBarTop.ms-fullWidth {
+            display: none;
+        }
+
+        div#suitBarTop.ms-fullWidth {
+            display: none;
+        }
+
+        #contentBox {
+            margin-left: 20px !important;
+        }
+
+        div#s4-titlerow.ms-dialogHidden {
+            display: none !important;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        /* To strip and make SharePoint page blank - END */
+
+
+        /* Setting the max-width of the page */
+        .container-xxl,
+        .container-xl,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container {
+            max-width: 1600px;
+        }
+
+
+        #contentRow {
+            padding-top: 0px;
+        }
+
+        /* in progress */
+
+        #contentBox {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+
+        /* Removes white space under footer */
+        #s4-bodyContainer {
+            padding-bottom: 0px !important;
+        }
+
+
+        /* Fotter top and bottom margin  */
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+            margin-top: 1.5rem !important;
+        }
+
+
+        /* Removes white space under footer */
+        .ms-webpartzone-cell {
+            margin: 0px !important;
+        }
+
+        /* Font style for text on top nav bar and body */
+
+        li,
+        p,
+        h1,
+        button {
+            font-family: Arial;
+        }
+
+
+        /* Style for footer - START */
+        #footer-logo {
+            width: 175px;
+        }
+
+        #footer-logo-row {
+            text-align: center;
+        }
+
+
+
+        /* Style for footer - END */
+
+
+        #House-HR-Hub-Logo {
+            width: 250px;
+            padding-top: 1rem;
+        }
+
+
+        /* Set the width of search button - START */
+        #House-HR-Hub-Logo-Row>div>button {
+            min-width: 0rem;
+        }
+
+        div.input-group {
+            padding-top: 2rem !important;
+            width: 18rem;
+            position: absolute;
+            right: 0;
+            margin: auto;
+        }
+
+        /* Set the width of search button - END */
+
+
+        /* Set the style for search box with max-width 1000px - START */
+        @media all and (max-width: 1000px) {
+
+            #House-HR-Hub-Logo {
+                width: 200px;
+
+            }
+
+            #House-HR-Hub-Logo-Row {
+                text-align: left;
+            }
+
+            #SearchKey {
+                max-width: 10rem;
+            }
+
+            #House-HR-Hub-Logo-Row>div>button {
+                min-width: 0rem;
+            }
+
+
+            div.input-group {
+                width: 14rem;
+            }
+
+        }
+
+        /* Set the style for search box with max-width 1000px - END */
+
+
+        @media all and (max-width: 1200px) {
+
+            #leftNavColumn {
+                display: none;
+            }
+
+        }
+
+
+        @media all and (max-width: 1000px) {
+
+            #House-HR-Hub-Logo {
+                width: 200px;
+
+            }
+
+            #House-HR-Hub-Logo-Row {
+                text-align: left;
+            }
+
+        }
+
+
+        /* Style top navbar - START */
+        @media all and (min-width: 992px) {
+            .navbar .dropdown-menu-end {
+                right: 0;
+                left: auto;
+            }
+
+            .navbar .nav-item .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s;
+                margin-top: 0;
+            }
+
+            .navbar .nav-item:hover .nav-link {
+                color: #fff;
+            }
+
+            .navbar .dropdown-menu.fade-down {
+                top: 80%;
+                transform: rotateX(-75deg);
+                transform-origin: 0% 0%;
+            }
+
+            .navbar .dropdown-menu.fade-up {
+                top: 180%;
+            }
+
+            .navbar .nav-item:hover .dropdown-menu {
+                transition: .3s;
+                opacity: 1;
+                visibility: visible;
+                top: 100%;
+                transform: rotateX(0deg);
+            }
+
+            /* margin for links on top navbar */
+            .navbar-dark .navbar-nav .nav-link {
+                margin: 1rem 3rem;
+            }
+
+            /* removing padding for links on top navbar */
+            .navbar {
+                padding-bottom: 0rem;
+                padding-top: 0rem;
+            }
+
+            /* background for hiring/developing/retaining dropdowns  */
+            ul.dropdown-menu.fade-up#hiring-dropdown,
+            ul.dropdown-menu.fade-up#developing-dropdown,
+            ul.dropdown-menu.fade-up#retaining-dropdown,
+            ul.dropdown-menu.fade-up#additional-services-dropdown {
+                background: rgb(236, 235, 235);
+            }
+
+
+            /* hovering effect on hiring dropdown */
+            ul#hiring-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
+                background: #005B8F;
+                color: white;
+                text-decoration: none;
+                font-style: italic;
+            }
+
+            /* hovering effect on developing dropdown */
+            ul#developing-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
+                background: #027353;
+                color: white;
+                text-decoration: none;
+                font-style: italic;
+            }
+
+            /* retaining effect on hiring dropdown */
+            ul#retaining-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
+                background: #F2BD1D;
+                color: white;
+                text-decoration: none;
+                font-style: italic;
+            }
+
+            /* hovering effect on Additional Services dropdown */
+            ul#additional-services-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
+                background: gray;
+                color: white;
+                text-decoration: none;
+                font-style: italic;
+            }
+
+            ul#additional-services-dropdown.dropdown-menu.fade-up {
+                font-size: 22px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-weight: bold;
+            }
+
+        }
+
+        .navbar {
+            background: #005B8F;
+        }
+
+        a.nav-link {
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a.dropdown-item {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a.nav-link.dropdown-toggle::after {
+            display: none;
+        }
+
+        a.nav-link.dropdown-toggle {
+            color: #005B8F;
+            font-weight: bold;
+        }
+
+        /* setting dropdowns color to black */
+        #additional-services-dropdown>li>a,
+        #retaining-dropdown>li>a,
+        #developing-dropdown>li>a,
+        #hiring-dropdown>li>a {
+            color: black;
+        }
+
+        /* Style top navbar - END */
+
+
+
+
+        /* Style for left sidebar - START */
+
+        /* LEFT SIDEBAR STYLE - START */
+
+        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.7em;
+            color: #999;
+        }
+
+        a,
+        a:hover,
+        a:focus {
+            color: inherit;
+            text-decoration: none;
+            /* transition: all 0.3s; */
+        }
+
+        .navbar {
+            padding: 15px 10px;
+            background: #fff;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 40px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-btn {
+            box-shadow: none;
+            outline: none !important;
+            border: none;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px dashed #ddd;
+            margin: 40px 0;
+        }
+
+
+
+        /* ---------  SIDEBAR STYLE ---------- */
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        #sidebar {
+            /* min-width: 200px;
+      max-width: 250px; */
+            width: 240px;
+            background: #003349;
+            color: #fff;
+            transition: all 0.5s;
+
+            border-color: #003349;
+            border-width: 10px;
+
+        }
+
+        #sidebar.active {
+            margin-left: -250px;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #6d7fcc;
+        }
+
+        /* #sidebar ul.components {
+      padding: 20px 0;
+      border-bottom: 1px solid #47748b;
+    } */
+
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        #sidebar ul li a:hover {
+            color: black;
+            background: #fff;
+        }
+
+
+        /* Highlight 'Developing' section and bold 'Professional Growth' link */
+
+        a#developing {
+            color: black;
+            background: #f7f3f3;
+            font-weight: bold;
+        }
+
+        #ProfessionalGrowth {
+            font-weight: bold;
+        }
+
+        /* Highlight 'Hiring' section and bold 'Recruiting & Selecting' @ page load  - END */
+
+
+
+        /* customizing Hiring section - START  */
+        #sidebar ul li.active>a,
+        a#hiring[aria-expanded="true"] {
+            color: black;
+            background: #f7f3f3;
+            font-weight: bold;
+        }
+
+
+        ul ul#hiringSubmenu a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #f7f3f3;
+            color: black;
+        }
+
+        /* customizing Hirection section - END  */
+
+
+
+        /* customizing Developing section - START  */
+        #sidebar ul li.active>a,
+        a#developing[aria-expanded="true"] {
+            color: black;
+            background: #f7f3f3;
+            font-weight: bold;
+        }
+
+        ul ul#developingSubmenu a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #f7f3f3;
+            color: black;
+        }
+
+        /* customizing Developing section - END  */
+
+
+
+        /* customizing Retaining section - START  */
+        #sidebar ul li.active>a,
+        a#retaining[aria-expanded="true"] {
+            color: black;
+            background: #f7f3f3;
+            font-weight: bold;
+        }
+
+        ul ul#retainingSubmenu a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #f7f3f3;
+            color: black;
+        }
+
+        /* customizing Retaining section - END  */
+
+
+
+        #home,
+        #hiring,
+        #developing,
+        #retaining,
+        #AdditionalServices,
+        li#ResumeBank_link>a#ResumeBank {
+            font-weight: bold;
+        }
+
+
+
+        a[data-toggle="collapse"] {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #b4b8c9;
+        }
+
+
+
+        /* --------  MEDIAQUERIES  --------- */
+
+        @media (max-width: 768px) {
+            #sidebar {
+                margin-left: -250px;
+            }
+
+            #sidebar.active {
+                margin-left: 0;
+            }
+
+            #sidebarCollapse span {
+                display: none;
+            }
+        }
+
+
+        ol.breadcrumb {
+            background-color: #f7f3f3;
+        }
+
+        nav.navbar.navbar-expand-lg.navbar-dark {
+            margin: 0px;
+            padding: 0;
+        }
+
+        .card-title,
+        .card-text {
+            color: white;
+        }
+
+        #page-description {
+            color: black;
+        }
+
+
+        ul#hiring-dropdown,
+        ul#developing-dropdown,
+        ul#retaining-dropdown {
+            font-size: 22px;
+        }
+
+
+        #home,
+        #AdditionalServices,
+        #ResumeBank {
+            color: white;
+        }
+
+
+        #hiringSubmenu,
+        #developingSubmenu,
+        #retainingSubmenu {
+            font-size: 20px;
+        }
+
+        a.sidebar-link {
+            color: white;
+        }
+
+        /* LEFT SIDEBAR STYLE - END */
+
+        /* Style for left sidebar - END */
+
+
+
+        /* Search box custom - START */
+        .btn-outline-primary {
+            color: white;
+            border-color: white;
+        }
+
+        /* Search box custom - END */
+
+
+
+        /* center an element in div */
+        .center-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+
+        /* Style for top nav text font  */
+
+        a.nav-link {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+
+        /* Style for modal-dialog width to 50rem - START */
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 50rem;
+            }
+        }
+
+        /* Style for modal-dialog width to 50rem - END */
+
+
+
+        /* Style adjust width of list of skills in modal - START */
+
+        .container.position-container {
+            width: 80%;
+        }
+
+        /* Style adjust width of list of skills in modal - END */
+
+
+    /* To resize the captiol icons for rating of Featured Skills */
+    .container img.capitol-icon {
+      /* width: 6%; */
+      width: 1.25rem;
+    }
+
+
+    button.accordion-button.collapsed{
+        padding-top:.75rem;
+        padding-bottom:.5rem;
+    }
+
+
+                /* Style for size of icons */
+                .zoom-icon{
+            width:35%;
+        }
+
+        /* Style for hovering effect on icons */
+        .zoom-icon:hover {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Safari 3-8 */
+            transform: scale(0.75);
+        }  
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- Top navigation bar -->
+    <div id="topNavigationBar">
+
+    </div>
+
+
+
+
+
+    <!-- Breadcrumb -->
+    <div class="container-fluid" style="background-color:#f7f3f3;">
+    
+        <div class="row" style="padding:0% 8%;">
+    
+            <div class="row">
+                <nav aria-label="breadcrumb" style="font-size:18px;">
+                    <ol class="breadcrumb" style="padding:1% 0%; margin:0;">
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Home.aspx">House
+                                HR Hub</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Developing.aspx">Developing</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ProfessionalGrowth.aspx">Professional
+                                Growth</a></li>
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx">House
+                                Career
+                                Paths</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">District Career Path</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Page header -->
+    <div class="container-fluid" style="background-color:#f7f3f3;">
+
+        <div class="row" style="padding:0% 6%;">
+
+            <div class="row" >
+
+                <div class="container-fluid" style="padding-bottom:2rem;">
+
+                    <div class="row">
+
+                        <!-- <div class="col-1 d-flex align-items-center justify-content-center"> -->
+                        <div class="col-1" style="padding-top:2rem;">
+
+                            <img src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-HUB-Icon-District.png"
+                                alt="" style="width:7rem;">                          
+
+                        </div>
+
+                        <div class="col-9" style="padding-left:3rem;">
+
+                            <h1
+                                style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
+                                District : House Career Path
+                            </h1>
+
+                            <div class="row">
+
+                                <p style="text-align:justify; color:black; text-decoration: line-through;">The Administrative Career Path outlines
+                                    roles, responsibilities, skills, sample career options, and associated training
+                                    opportunities for staff who are interested in important operational functions of
+                                    a House office. Click the button to the right to view an overview of what career
+                                    development looks like within this path.
+                                </p>
+
+                                <p style="text-align:justify; color:black; text-decoration: line-through;"> The career path below is interactive.
+                                    Please click on the boxes or arrows to find out more about the specific position
+                                    or additional information about moving from one position to another. Dotted
+                                    lines represent more challenging career movements.
+                                </p>
+
+                                <p style="text-align:justify; color:black; text-decoration: line-through;">The image below is
+                                    interactive. Please click on the boxes or
+                                    arrows to find out more about the specific position or additional information
+                                    about
+                                    moving from one position to another. Dotted lines represent more challenging
+                                    career
+                                    movements.
+                                </p>
+
+                                <p
+                                    style="text-align:justify; font-style:italic; font-size:18px; margin:0; color:black; text-decoration: line-through;">
+                                    Note: The content presented is intended for developmental purposes only.
+                                    Position titles, paths, and opportunities in individual Member offices may
+                                    differ.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- <div class="col-2 d-flex align-items-center justify-content-center"> -->
+                        <div class="col-2" style="padding-top:3rem;">
+
+                            <button type="button" class="btn" style="background-color:#005B8F; color:white; width:12rem;">District Career <br>Path Overview</button>
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- District track image with mapping -->
+    <div class="container-fluid" style="padding: 0rem 8%;">
+
+
+        <div class="row">
+
+            <div class="center-item">
+
+                <div class="container">
+
+                    <img src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Career-Paths-District-Track.png"
+                        style="background-image:no-repeat; display:inline-flex;" usemap="#image-map" class="map mx-auto d-block" alt="" >
+
+                </div>
+
+            </div>
+
+            <!-- Map Details - START -->
+
+            <map name="image-map">
+
+
+                <!-- ADJUSTED - START -->
+
+
+                <!-- Intern -->
+                <area shape="rect" coords="36,98,152,164.5" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropIntern" onclick="position_modal('Intern');">
+
+                <!-- Staff Assistant -->
+                <area shape="rect" coords="206.6,98.4,324.3,165" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropStaffAssistant" onclick="position_modal('Staff Assistant');">
+
+                <!-- Caseworker -->
+                <area shape="rect" coords="455.5,98,600,164.5" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropCaseworker" onclick="position_modal('Caseworker');">
+
+                <!-- Field Representative - Position -->
+                <area shape="rect" coords="455.6,222,600,288" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropFieldRepresentative" onclick="position_modal('Field Representative');">
+
+                <!-- District Scheduler - Position -->
+                <area shape="rect" coords="455.7,345,600.3,412" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropDistrictScheduler" onclick="position_modal('District Scheduler');">
+
+                <!-- Scheduler/Executive Assistant -->
+                <area shape="rect" coords="456.3,487.5,600,554" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropSchedulerExecutiveAssistant" onclick="position_modal('Scheduler/Executive Assistant');">
+
+                <!-- Legislative Assistant -->
+                <area shape="rect" coords="456,565.4,600,631.4" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropLegislativeAssistant" onclick="position_modal('Legislative Assistant');">
+
+                <!-- District Director -->
+                <area shape="rect" coords="701,98,817,164.5" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropDistrictDirector" onclick="position_modal('District Director');">
+
+                <!-- Deputy Chief of Staff -->
+                <area shape="rect" coords="871,258,987.5,325" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropDeputyChiefofStaff" onclick="position_modal('Deputy Chief of Staff');">
+
+                <!-- Chief of Staff -->
+                <area shape="rect" coords="1043,98,1161,165.5" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropChiefofStaff" onclick="position_modal('Chief of Staff');">
+
+
+                <!-- MY SAMPLE -->
+                <!-- HHHH-1 HHHH-2 - Position -->
+                <!-- <area shape="rect" coords="381,180,494, 242" alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropHHHH-1HHHH-2" onclick="position_modal('HHHH-1 HHHH-2');"> -->
+
+
+                <!-- Intern to Staff Assistant -->
+                <area shape="poly" coords="149,125,186,125,186,118,210,130,186,142,186,135,149,135,149,125"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropIntern-to-StaffAssistant" onclick="career_path_modal('Intern', 'Staff Assistant')">
+
+
+
+                <!-- Staff Assistant To Field Representative -->
+                <area shape="poly" coords="330,125,390,125,390,250,434,250,434,243,458,255,434,267,434,260,380,260,380,135,330,135,330,125"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropStaffAssistant-to-FieldRepresentative" onclick="career_path_modal('Staff Assistant', 'Field Representative')">
+
+
+                <!-- Staff Assistant To District Scheduler -->
+                <area shape="poly" coords="330,125,390,125,390,362,434,362,434,355,458,367,434,379,434,372,380,372,380,135,330,135,330,125"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropStaffAssistant-to-DistrictScheduler" onclick="career_path_modal('Staff Assistant', 'District Scheduler')">
+
+
+                <!-- Field Representative To Scheduler/Executive Assistant -->
+                <!-- <area shape="poly" coords="340,283,457,283,457,293,350,293,350,518,433,518,433,511,457,523,433,535,433,528,340,528,340,283"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropFieldRepresentative-to-SchedulerExecutiveAssistant" onclick="career_path_modal('Field Representative', 'Scheduler/Executive Assistant')"> -->
+
+
+                <!-- Caseworker To District Director -->
+                    <area shape="poly" coords="599,108,681,108,681,102,705,113,681,124,681,118,599,118,599,108"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropCaseworker-to-DistrictDirector" onclick="career_path_modal('Caseworker', 'District Director')">
+
+
+                <!-- District Scheduler To Legislative Assistant -->
+                <area shape="poly" coords="341,388,458,388,458,398,351,398,351,591,434,591,434,584,458,596,434,608,434,601,341,601,341,388"
+                alt="" onfocus="blur();" title="" data-toggle="modal"
+                data-target="#staticBackdropDistrictScheduler-to-LegislativeAssistant" onclick="career_path_modal('District Scheduler', 'Legislative Assistant')">
+
+
+                <!-- District Scheduler To Caseworker -->
+                <area shape="poly" coords="598,148,622,136,622,143,650,143,650,385.5,598,385.5,598,375.5,640,375.5,640,153,622,153,622,160,598,148"
+                alt="" onfocus="blur();" title="" data-toggle="modal"
+                data-target="#staticBackdropDistrictScheduler-to-Caseworker" onclick="career_path_modal('District Scheduler', 'Caseworker')">
+
+
+                <!-- District Scheduler To Field Representative -->
+                <area shape="poly" coords="534,346,522,346,522,314,517,314,528,290,539,314,534,314,534,346"
+                alt="" onfocus="blur();" title="" data-toggle="modal"
+                data-target="#staticBackdropDistrictScheduler-to-FieldRepresentative" onclick="career_path_modal('District Scheduler', 'Field Representative')">
+
+
+                <!-- District Scheduler To Scheduler/Executive Assistant -->
+                <area shape="poly" coords="523,414,533,414,533,462,539,462,528,486,517,462,523,462,523,414"
+                alt="" onfocus="blur();" title="" data-toggle="modal"
+                data-target="#staticBackdropDistrictScheduler-to-SchedulerExecutiveAssistant" onclick="career_path_modal('District Scheduler', 'Scheduler/Executive Assistant')">
+
+
+                <!-- Caseworker To Field Representative -->
+                <area shape="poly" coords="528,165,541,180,533,180,533,208,541,208,528,223,515,208,523,208,523,180,515,180,528,165"
+                alt="" onfocus="blur();" title="" data-toggle="modal"
+                data-target="#staticBackdropCaseworker-to-FieldRepresentative" onclick="career_path_modal_bidirectional('Caseworker','Field Representative')">
+
+
+
+                <!-- Caseworker To Legislative Assistant -->
+                <area shape="poly" coords="600,124,663,124,663,602,624,602,624,609,600,597,624,585,624,592,653,592,653,134,600,134,600,124"
+                alt="" onfocus="blur();" title="" data-toggle="modal"
+                data-target="#staticBackdropCaseworker-to-LegislativeAssistant" onclick="career_path_modal('Caseworker', 'Legislative Assistant')">
+
+
+                <!-- Field Representative To District Director -->
+                <area shape="poly" coords="598,251,727,251,727,189,720,189,732,165,744,189,737,189,737,261,598,261,598,251"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropFieldRepresentative-to-DistrictDirector" onclick="career_path_modal('Field Representative', 'District Director')">
+
+
+                <!-- District Director To Deputy Chief of Staff -->
+                <area shape="poly" coords="753,165,763,165,763,283,848,283,848,276,872,288,848,300,848,293,753,293,753,165"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropDistrictDirector-to-DeputyChiefofStaff" onclick="career_path_modal('District Director', 'Deputy Chief of Staff')">
+
+
+                <!-- District Director To Chief of Staff -->
+                <area shape="poly" coords="820,115,1022,115,1022,109,1046,120,1022,131,1022,125,820,125,820,115"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropDistrictDirector-to-ChiefofStaff" onclick="career_path_modal('District Director', 'Chief of Staff')">
+
+
+                <!-- Deputy Chief of Staff to Chief of Staff -->
+                <area shape="poly" coords="988,284,1095,284,1095,193,1088,193,1100,169,1112,193,1105,193,1105,294,988,294,988,284"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropDeputyChiefofStaff-to-ChiefofStaff" onclick="career_path_modal('Deputy Chief of Staff', 'Chief of Staff')">
+
+
+
+                <!-- Position-1 to Position-2 -->
+                <!-- <area shape="poly" coords="324,205,361,205,361,195,385,210,361,225,361,215,324,215,324,205"
+                    alt="" onfocus="blur();" title="" data-toggle="modal"
+                    data-target="#staticBackdropPosition-1-to-Position-2" onclick="career_path_modal('Position-1', 'Position-2')"> -->
+
+
+                <!-- ADJUSTED - END -->
+
+            </map>
+
+            <!-- Map Details - END -->
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Short cuts to other tracks -->
+    <div class="container-fluid" style="padding: 0rem 20%; background-color: #f7f3f3;" id="CareerTracks">
+
+        <!-- <p
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px; text-decoration: line-through;" >
+            Explore the various Career Paths at the U.S. House of Representatives</p>
+        <p style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left; padding-top:.75rem; text-decoration: line-through;">Click on one of the four paths below to get started.</p> -->
+
+        <div class="row">
+
+            <div class="container">
+                <div class="row" style="margin-top:2rem; margin-bottom:2rem;">
+                    <div class="col-md-3">
+
+                        <div class="center-item">
+
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Administrative.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Administrative.png"
+                                    alt="" >
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
+                            Administrative</P>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="center-item">
+
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Communications.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Communications.png"
+                                    alt="" >
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
+                            Communications</P>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="center-item">
+
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/District.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-District.png"
+                                    alt="" >
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">District
+                        </P>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="center-item">
+
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Legislative.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Legislative.png"
+                                    alt="" >
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">Legislative
+                        </P>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+
+
+    <!-- Modals -->
+    <div class="container-fluid" style="padding: 0rem 2rem;">
+
+
+        <div id="leftNavigation" Style="display:none;">
+        </div>
+
+
+        <!-- Intern -->
+        <div id="Intern-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Staff Asssitant -->
+        <div id="StaffAsssitant-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Scheduler/Executive Assistant -->
+        <div id="SchedulerExecutiveAssistant-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Operations Director -->
+        <div id="OperationsDirector-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+        <!-- Legislative Assistant  -->
+        <div id="LegislativeAssistant-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Deputy Chief of Staff -->
+        <div id="DeputyChiefofStaff-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Chief of Staff -->
+        <div id="ChiefofStaff-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <div id="PressAssistant-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Press Secretary -->
+        <div id="PressSecretary-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Communications Director -->
+        <div id="CommunicationsDirector-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Legislative Correspondent -->
+        <div id="LegislativeCorrespondent-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- District Director -->
+        <div id="DistrictDirector-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <div id="Caseworker-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Field Representative -->
+        <div id="FieldRepresentative-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- District Scheduler -->
+        <div id="DistrictScheduler-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Legislative Director -->
+        <div id="LegislativeDirector-Position">
+            <!-- populated dynamically  -->
+        </div>
+
+
+<!-- CONNECTIONS - START -->
+
+
+        <!-- 'Intern' To 'Staff Assistant' -->
+        <div id="Intern-to-StaffAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+
+        <!-- 'Deputy Chief of Staff' To 'Chief of Staff' -->
+        <div id="DeputyChiefofStaff-to-ChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Staff Assistant to Field Representative -->
+        <div id="StaffAssistant-to-FieldRepresentative-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+       <!-- Staff Assistant to District Scheduler -->
+        <div id="StaffAssistant-to-DistrictScheduler-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Field Representative to Scheduler/Executive Assistant -->
+        <div id="FieldRepresentative-to-SchedulerExecutiveAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Caseworker - to - District Director -->
+        <div id="Caseworker-to-DistrictDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Caseworker - to - District Scheduler -->
+        <div id="Caseworker-to-DistrictScheduler-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Caseworker - to - Legislative Assistant -->
+        <div id="Caseworker-to-LegislativeAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- Field Representative - to - District Director -->
+        <div id="FieldRepresentative-to-DistrictDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- District Director - to - Deputy Chief of Staff -->
+        <div id="DistrictDirector-to-DeputyChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- District Director - to - Chief of Staff -->
+        <div id="DistrictDirector-to-ChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'District Scheduler' To 'Legislative Assistant' -->
+        <div id="DistrictScheduler-to-LegislativeAssistant-Career-Path">
+		<!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Caseworker' To 'Field Representative' -->
+        <div id="Caseworker-to-FieldRepresentative-Career-Path">
+		<!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Field Representative' To 'Caseworker' -->
+        <div id="FieldRepresentative-to-Caseworker-Career-Path">
+            <!-- populated dynamically  -->
+            </div>
+
+
+
+        <!-- 'District Scheduler' To 'Field Representative' -->
+        <div id="DistrictScheduler-to-FieldRepresentative-Career-Path">
+		<!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'District Scheduler' To 'Scheduler/Executive Assistant' -->
+        <div id="DistrictScheduler-to-SchedulerExecutiveAssistant-Career-Path">
+		<!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'District Scheduler' To 'Caseworker' -->
+        <div id="DistrictScheduler-to-Caseworker-Career-Path">
+		<!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Staff Assistant' To 'Scheduler/Executive Assistant' -->
+        <div id="StaffAssistant-to-SchedulerExecutiveAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Scheduler/Executive Assistant' To 'Operations Director' -->
+        <div id="SchedulerExecutiveAssistant-to-OperationsDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Scheduler/Executive Assistant' To 'Legislative Assistant' -->
+        <div id="SchedulerExecutiveAssistant-to-LegislativeAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Operations Director' To 'Chief of Staff' -->
+        <div id="OperationsDirector-to-ChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Operations Director' To 'Deputy Chief ofS taff' -->
+        <div id="OperationsDirector-to-DeputyChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Staff Assistant' to 'Press Assistant' -->
+        <div id="StaffAssistant-to-PressAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Press Assistant' to 'Press Secretary' -->
+        <div id="PressAssistant-to-PressSecretary-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Press Secretary' to 'Communications Director' -->
+        <div id="PressSecretary-to-CommunicationsDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+        <!-- 'Communications Director' to 'Chief of Staff' -->
+        <div id="CommunicationsDirector-to-ChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+        <!-- 'Press Assistant' to 'Legislative Correspondent' -->
+        <div id="PressAssistant-to-LegislativeCorrespondent-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+        <!-- 'Press Secretary' to 'Legislative Assistant' -->
+        <div id="PressSecretary-to-LegislativeAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+        <!-- 'Communications Director' to 'District Director' -->
+        <div id="CommunicationsDirector-to-DistrictDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+        <!-- 'Communications Director', 'Deputy Chief of Staff' -->
+        <div id="CommunicationsDirector-to-DeputyChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Press Assistant' to 'Legislative Assistant' -->
+        <div id="PressAssistant-to-LegislativeAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Staff Assistant' to 'Legislative Correspondent' -->
+        <div id="StaffAssistant-to-LegislativeCorrespondent-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Correspondent' To 'Press Assistant' -->
+        <div id="LegislativeCorrespondent-to-PressAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Correspondent' To 'Press Secretary' -->
+        <div id="LegislativeCorrespondent-to-PressSecretary-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Correspondent' To 'Field Representative' -->
+        <div id="LegislativeCorrespondent-to-FieldRepresentative-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Correspondent' To 'Legislative Assistant' -->
+        <div id="LegislativeCorrespondent-to-LegislativeAssistant-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Assistant' To 'Press Secretary' -->
+        <div id="LegislativeAssistant-to-PressSecretary-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Assistant' To 'District Director' -->
+        <div id="LegislativeAssistant-to-DistrictDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Assistant' To 'Legislative Director' -->
+        <div id="LegislativeAssistant-to-LegislativeDirector-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Director' To - 'Deputy Chief of Staff' -->
+        <div id="LegislativeDirector-to-DeputyChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+        <!-- 'Legislative Director' To - 'Chief of Staff' -->
+        <div id="LegislativeDirector-to-ChiefofStaff-Career-Path">
+            <!-- populated dynamically  -->
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- Page footer -->
+    <div id="Footer">
+
+    </div>
+
+
+
+    <!-- JS and associated script for Maphlight effects - START -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('.map').maphilight();
+        });
+
+        $.fn.maphilight.defaults = {
+            fill: false,
+            fillColor: '005b8f',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: '005B8F',
+            strokeOpacity: 1,
+            //   strokeWidth: 10,
+            strokeWidth: 3,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.8,
+            shadowPosition: 'inside',
+            shadowFrom: false,
+        }
+
+    </script>
+
+
+
+
+    <!-- JS and associated script for Maphlight effects - END -->
+
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/IP/SiteAssets/CareerCompass/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Plugin JavaScript -->
+    <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/IP/SiteAssets/CareerCompass/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- HouseHrHub - JS    -->
+    <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
+
+
+    <!-- HouseHrHubVisitors JS    -->
+    <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
+
+
+    <!-- DownloadResource JS    -->
+    <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script>
+
+
+  <!-- CareerPath JS    -->
+  <script
+    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/wip-js/Career_Paths_TestPage_03.js"></script>
+
+
+</body>
+
+</html>
