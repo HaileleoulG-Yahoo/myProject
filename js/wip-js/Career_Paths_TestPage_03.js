@@ -686,7 +686,7 @@ function career_path_modal_bidirectional(position_1, position_2) {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel"
-                                style="margin-left:1.25rem;">Select ....</h5>
+                                style="margin-left:1.25rem;">Select a path below.</h5>
                             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
                                 style="margin-top: .25rem; min-width:4rem;"></button>
                         </div>
