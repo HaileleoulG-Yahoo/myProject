@@ -625,11 +625,6 @@
 
 
 
-
-
-
-
-
         /* Search box custom - START */
         .btn-outline-primary {
             color: white;
@@ -639,7 +634,6 @@
         /* Search box custom - END */
 
 
-        /* !!!!!   Styles for HR Career Path - STARTS FROM HERE  !!!!!! */
 
         /* center an element in div */
         .center-item {
@@ -648,53 +642,71 @@
             justify-content: center;
         }
 
-        /* Style for compare images - START */
-        img.compareImage {
-            border: 2px solid #52b8f3;
+
+
+
+        /* Style for top nav text font  */
+
+        a.nav-link {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        #spinner,    
-        #Intern_To_StaffAssistant,
-        #StaffAssistant_To_SchedulerExecutiveAssistant,
-        #SchedulerExecutiveAssistant_To_OperationsDirector,
-        #OperationsDirector_To_DeputyChiefOfStaff,
-        #DeputyChiefOfStaff_To_ChiefOfStaff,
-        #InProgress {
-            display: none;
+
+
+        /* Style for size of icons */
+        .zoom-icon {
+            width: 35%;
         }
 
-        /* Style for compare images - END */
+        /* Style for hovering effect on icons */
+        .zoom-icon:hover {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Safari 3-8 */
+            transform: scale(0.75);
+        }
 
 
-                /* START */
 
-                a.nav-link {
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        div.center-item>img{
+	        width:68%;
+        }
+
+
+        @media all and (max-width: 1500px) {
+
+            div.center-item>img{
+	        width:85%;
+        }
+
+        }  
+        
+        #alertMessage{
+            display:none;
+        }
+
+
 
         /* END */
-
     </style>
 
 </head>
 
 <body>
 
-    <!-- To insert background image -->
 
 
-    <!-- Top navbar  - START -->
 
+    <!-- Top navigation bar -->
     <div id="topNavigationBar">
 
     </div>
 
-    <!-- Top navbar - END  -->
 
 
-    <!-- Page content - START -->
-
+    <!-- Breadcrumb -->
     <div class="container-fluid" style="background-color:#f7f3f3;">
 
         <div class="row" style="padding:0% 8%;">
@@ -717,104 +729,114 @@
                 </nav>
             </div>
 
+        </div>
+
+    </div>
+
+
+
+    <!-- Page header -->
+    <div class="container-fluid" style="background-color:#f7f3f3;">
+
+        <div class="row" style="padding:0% 6%;">
+
             <div class="row">
 
-                <div class="container-fluid">
+                <div class="container-fluid" style="padding-bottom:2rem;">
 
                     <div class="row">
 
-                        <div class="col-md-9 col-lg-9 col-xl-9 mx-auto">
+
+                        <div class="col-9" style="padding-left:3rem;">
 
                             <h1
                                 style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
                                 House Career Paths
                             </h1>
 
-                            <p id="page-description"
-                                style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The House Human Resources Hub's career paths are designed as a developmental resource specifically for staff within the U.S. House of Representatives. The pathing tools outline the unique roles, responsibilities, skills, sample career options, and associated training opportunities for 16 positions within the Member office community.  Each of the 16 positions align within one of four main career tracks (Administrative, Communications, District, and Legislative).  </p>
+                            <div class="row" id="header">
 
                                 <p id="page-description"
-                                style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> All House staff are invited to use these resources to explore career possibilities and to develop short-and-longer-range individual developmental training plan.  To get started, view the overall mapping, explore specific career paths, or compare different positions via the buttons on the right.
-                                
+                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The House
+                                    Human
+                                    Resources Hub's career paths are designed as a developmental resource specifically
+                                    for
+                                    staff within the U.S. House of Representatives. The pathing tools outline the unique
+                                    roles, responsibilities, skills, sample career options, and associated training
+                                    opportunities for 16 positions within the Member office community. Each of the 16
+                                    positions align within one of four main career paths (Administrative,
+                                    Communications,
+                                    District, and Legislative). </p>
+
+                                <p id="page-description"
+                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> All House
+                                    staff
+                                    are invited to use these resources to explore career possibilities and to develop
+                                    short-and-longer-range individual developmental training plan. To get started, view
+                                    the
+                                    overall mapping, explore specific career paths, or compare different positions via
+                                    the
+                                    buttons on the right.
+
                                 </p>
 
-                                <p id="page-description"
-                                style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> View the overall mapping, explore specific career paths, or compare different positions via the buttons on the right.</p>
-
                                 <p
-                                style="text-align:left; font-style:italic; padding-bottom:2rem; font-size:18px; margin:0; color:black;">
-                                Note: The content presented is intended for developmental purposes only. Position titles, paths, and opportunities in individual Member offices may differ.
-                            </p>
-                                
-
-                        </div>
-
-                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
-
-                            <div style="height:1rem;"></div>
-
-                            <div class="row" style="height:3.5rem;">
-
-
-                                <div style="text-align:center;">
-
-                                    <button type="button" class="btn"
-                                        style="background-color:brown; color:white; padding-top:1rem; padding-bottom:1rem; width:75%;"><a
-                                            style="color:white; text-decoration:none;" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/TestPage_06.aspx#CareerPathMap">Show
-                                            Me Path Map</a></button>
-
-                                </div>
-
-                            </div>
-
-                            <div style="height:2rem;">
-
-                            </div>
-
-                            <div class="row" style="height:3.5rem;">
-
-                                <div style="text-align:center;">
-
-                                    <button type="button" class="btn"
-                                        style="background-color:brown; color:white; padding-top:1rem; padding-bottom:1rem; width:75%;"><a
-                                            style="color:white; text-decoration:none;" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/TestPage_06.aspx#CareerTracks">Show Me Career Tracks</a></button>
-
-                                </div>
-
-                            </div>
-
-                            <div style="height:2rem;">
-
-                            </div>
-
-                            <div class="row" style="height:3.5rem;">
-
-                                <div style="text-align:center;">
-
-                                    <button type="button" class="btn"
-                                        style="background-color:brown; color:white; padding-top:1rem; padding-bottom:1rem; width:75%;" ><a 
-                                        style="color:white; text-decoration:none;" href="#CompareTwoPositions">
-                                        Compare Two Positions
-                                    </a>
-                                    </button>
-
-                                </div>
+                                    style="text-align:left; font-style:italic; padding-bottom:2rem; font-size:18px; margin:0; color:black;">
+                                    Note: The content presented is intended for developmental purposes only. Position
+                                    titles, paths, and opportunities in individual Member offices may differ.
+                                </p>
 
                             </div>
 
                         </div>
 
+                        <div class="col-3"
+                            style="display: flex; align-items: center; flex-wrap: wrap; height: 20rem; padding-top:5rem; padding-left:2rem;">
 
+                            <div class="row row-flex">
+
+                                <button type="button" class="btn"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;" href="#">View Overall Career Map
+                                    </a></button>
+
+                            </div>
+
+                            <div class="row row-flex">
+
+                                <button type="button" class="btn"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;" href="#">Explore Career Paths
+                                    </a></button>
+
+                            </div>
+
+                            <div class="row row-flex">
+
+                                <button type="button" class="btn"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;" href="#">Explore Career Paths
+                                    </a></button>
+
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
-
             </div>
         </div>
+    </div>
+
+
+
+
+    <!-- Disable left navigation -->
+    <div id="leftNavigation" Style="display:none;">
 
     </div>
 
+
+
+    <!-- Compare two positions -->
     <div class="container-fluid" style="padding: 3rem 8rem;">
 
         <p id="CompareTwoPositions"
@@ -826,371 +848,296 @@
             different positions in the following drop-down menus to see a skill comparison, and click on Compare button.
         </p>
 
-        <div class="row">
+        <div class="container" style="padding-bottom:4rem;">
+            <div class="row">
+                <div class="container">
+                    <div class="row" style="float:none;margin:auto;">
+                        <div class="col-sm">
 
-            <div class="col">
+                            <select id="Starting_Position" name="Starting_Position" class="form-control form-select"
+                                style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;" onchange="change_Starting_Position()">
+                                <option value="0">
+                                    Select starting position</option>
+                            </select>
 
-                <div style="text-align:left;">
+                        </div>
+                        <div class="col-sm">
 
-                    <p style="font-weight:bold; color:black; font-size:1.25rem;">Starting Position</p>
+                            <select id="Desired_Position" name="Desired_Position" class="form-control form-select"
+                                style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;">
+                                <option value="0">Select desired position</option>
+                            </select>
 
-
-                    <div style="width:60%;">
-
-                        <select class="form-control form-control-lg" id="StartingPosition">
-                            <option>Caseworker</option>
-                            <!-- <option>Chief of Staff</option> -->
-                            <option>Communications Director</option>
-                            <option>Deputy Chief of Staff</option>
-                            <option>District Director</option>
-                            <option>District Scheduler</option>
-                            <option>Field Representative</option>
-                            <option>Intern</option>
-                            <option>Legislative Assistant</option>
-                            <option>Legislative Correspondent</option>
-                            <option>Legislative Director</option>
-                            <option>Operations Director</option>
-                            <option>Press Assistant</option>
-                            <option>Press Secretary</option>
-                            <option>Scheduler/Executive Assistant</option>
-                            <option>Staff Assistant</option>
-                        
-                        </select>
-
+                        </div>
+                        <div class="col-sm">
+                            <button id="compare" type="button" class="btn" onclick="ComparePositions()"
+                                style="background-color:brown; color:white; min-width:18rem;">
+                                Compare</button>
+                        </div>
                     </div>
-
-
-
                 </div>
-
             </div>
-
-            <div class="col">
-
-                <div style="text-align:left;">
-
-
-                    <p style="font-weight:bold; color:black; font-size:1.25rem;">Desired Position</p>
-
-
-                    <div style="width:60%;">
-
-                        <select class="form-control form-control-lg" id="DesiredPosition">
-<!-- 
-                            <option>Intern</option>
-                            <option>Staff Assistant</option>
-                            <option>Scheduler/Executive Assistant</option>
-                            <option>Operations Director</option>
-                            <option>Press Assistant</option>
-                            <option>Press Secretary</option>
-                            <option>Communications Director</option>
-                            <option>District Scheduler</option>
-                            <option>Caseworker</option>
-                            <option>Field Representative</option>
-                            <option>District Director</option>
-                            <option>Legislative Correspondent</option>
-                            <option>Legislative Assistant</option>
-                            <option>Legislative Director</option>
-                            <option>Deputy Chief of Staff</option>
-                            <option>Chief of Staff</option> -->
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
 
-        <div class="row">
 
-            <div class="row" style="padding-top:5rem;padding-bottom:5rem;">
 
-                <div style="text-align:left;">
-
-                    <button id="compare" type="button" class="btn" onclick="ComparePositions()"
-                        style="background-color:brown; color:white; padding-top:1rem; padding-bottom:1rem; min-width:10rem;">
-                        Compare</button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="row">
+        <!-- div to display the image -->
+        <div id="FullComparingPositions" class="row" style="min-height:15rem; padding-top:2rem;">
 
             <!-- Spinner -->
 
-            <div class="text-center" id="spinner">
+            <!-- <div class="text-center" id="spinner" style="padding-top:5rem;">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
+            </div> -->
+
+
+            <div id="InProgress">                
             </div>
 
-
-
-            <div id="InProgress">
-                <h3 style="color: #003349;"> Configuration for comparing the selected positions in progress .... </h3>
-            </div>
-
-
-            <div id="Intern_To_StaffAssistant">
-
-                <h3 style="color: #003349;"> Intern to Staff Assistant </h3>
-
-                <img class="compareImage"
-                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Intern_to_StaffAssistant_Full.PNG"
-                    width="1000">
-            </div>
-
-
-
-            <div id="StaffAssistant_To_SchedulerExecutiveAssistant">
-
-                <h3 style="color: #003349;"> Staff Assistant to Scheduler / Executive Assistant </h3>
-
-                <img class="compareImage"
-                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/StaffAssistant_to_DCScheduler_Full.PNG"
-                    width="1000">
-            </div>
-
-
-            <div id="SchedulerExecutiveAssistant_To_OperationsDirector">
-
-                <h3 style="color: #003349;"> Scheduler / Executive Assistant to Operations Director </h3>
-
-                <img class="compareImage"
-                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/DCScheduler_to_OperationsDirector_Full.PNG"
-                    width="1000">
-            </div>
-
-            <div id="OperationsDirector_To_DeputyChiefOfStaff">
-
-                <h3 style="color: #003349;"> Operations Director to Deputy Chief Of Staff </h3>
-
-                <img class="compareImage"
-                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/OperationsDirector_to_DeputyChiefofStaff_Full.PNG"
-                    width="1000">
-            </div>
-
-            <div id="DeputyChiefOfStaff_To_ChiefOfStaff">
-
-                <h3 style="color: #003349;"> Deputy Chief of Staff to Chief of Staff </h3>
-
-                <img class="compareImage"
-                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/IMAGE-PLACEHOLDER.png"
-                    width="1000">
-            </div>
-
+            <div class="alert alert-info" id="alertMessage">
+                You must select desired position
+              </div>
 
         </div>
     </div>
 
 
-    <!-- Page content - END -->
+
+    <!-- Links to other paths -->
+    <div class="container-fluid" style="padding: 1rem 8%; background-color: #f7f3f3;" id="CareerTracks">
+
+        <p
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
+            Explore the various Career Paths at the U.S. House of Representatives</p>
+        <p
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left;">
+            Click on one of the four paths below to get started.</p>
+
+        <div class="row">
+
+            <div class="container" style="width:70%;">
+                <div class="row" style="margin-bottom:2rem;">
+                    <div class="col-md-3">
+
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Administrative.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Administrative.png"
+                                    alt="">
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
+                            Administrative</P>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Communications.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Communications.png"
+                                    alt="">
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
+                            Communications</P>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/District.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-District.png"
+                                    alt="">
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">District
+                        </P>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Legislative.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Legislative.png"
+                                    alt="">
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">Legislative
+                        </P>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
-    <!-- footer - START -->
 
+    <!-- Page footer -->
     <div id="Footer">
 
     </div>
 
-    <!-- footer - END  -->
+
 
     <script>
 
-        // Refer the resource on the following link to create cascaded dropdowns 
 
-        // https://www.bing.com/videos/search?q=cascade+dropdown+sharepoint+javascript&&view=detail&mid=93D1EED9C0F378769F0A93D1EED9C0F378769F0A&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dcascade%2Bdropdown%2Bsharepoint%2Bjavascript%26FORM%3DHDRSC3
-
-
-
-        var CareerPathData = [
-
-        ["Intern","Staff Assistant"],
-
-        ["Staff Assistant","District Scheduler"],
-        ["Staff Assistant","Field Representative"],,
-        ["Staff Assistant","Legislative Correspondent"],
-        ["Staff Assistant","Press Assistant"],
-        ["Staff Assistant","Scheduler/Executive Assistant"],
-
-        ["Scheduler/Executive Assistant","Legislative Assistant"],
-        ["Scheduler/Executive Assistant","Operations Director"],
-
-        ["Operations Director","Chief of Staff"],
-        ["Operations Director","Deputy Chief of Staff"],
-
-        ["Deputy Chief of Staff","Chief of Staff"],
-
-        ["Caseworker","District Director"],
-        ["Caseworker","Field Representative"],
-        ["Caseworker","Legislative Assistant"],
-
-        ["Communications Director","Chief of Staff"],
-        ["Communications Director","Deputy Chief of Staff"],
-        ["Communications Director","District Director"],
-
-        ["District Director","Chief of Staff"],
-        ["District Director","Deputy Chief of Staff"],
-
-        ["District Scheduler","Caseworker"],
-        ["District Scheduler","Field Representative"],
-        ["District Scheduler","Scheduler/Executive Assistant"],
-
-        ["Field Representative","Caseworker"],
-        ["Field Representative","District Director"],
-        ["Field Representative","Legislative Assistant"],
-
-        ["Legislative Assistant","District Director"],
-        ["Legislative Assistant","Legislative Director"],
-        ["Legislative Assistant","Press Secretary"],
-
-        ["Legislative Correspondent","Field Representative"],
-        ["Legislative Correspondent","Legislative Assistant"],
-        ["Legislative Correspondent","Press Assistant"],
-        ["Legislative Correspondent","Press Secretary"],
-
-        ["Legislative Director","Chief of Staff"],
-        ["Legislative Director","Deputy Chief of Staff"],
-
-        ["Press Assistant","Legislative Assistant"],
-        ["Press Assistant","Legislative Correspondent"],
-        ["Press Assistant","Press Secretary"],
-
-        ["Press Secretary","Communications Director"],
-        ["Press Secretary","Legislative Assistant"]
-
-
-        ];
-
-
-        function makeDropDown(data, DesiredPositionFilter){
-
-            const filteredArray = data.filter(r => r[0] === DesiredPositionFilter);
-
-            const uniqueOptions = new Set();
-
-            filteredArray.forEach(r => uniqueOptions.add(r[1]));
-
-            const uniqueList = [...uniqueOptions];
-
-            const selectDesiredPosition = document.getElementById("DesiredPosition");
-
-            selectDesiredPosition.innerHTML = "";
-
-            uniqueList.forEach( item =>{
-
-                const option = document.createElement ("option");
-                option.textContent = item;
-                selectDesiredPosition.appendChild(option);
-
-            });
-        }
-
-
-        function applyDropdown(){
-
-            const selectStartingPosition = document.getElementById("StartingPosition").value;
-            makeDropDown(CareerPathData,selectStartingPosition);
-
-        }
-
-        document.getElementById("StartingPosition").addEventListener("change",applyDropdown);
+        var Compare_Two_Positions = "";
 
 
 
+        $(document).ready(function () {
 
+            retrive_Starting_Positions();
 
-        // console.log(filteredArray);
-        // console.log(uniqueList);
-
-        
+        });
 
 
 
         function ComparePositions() {
 
-            // Display spinner and remove any existing image.
-            document.getElementById("spinner").style.display = "block";
-            document.getElementById("InProgress").style.display = "none";
-
-            document.getElementById("Intern_To_StaffAssistant").style.display = "none";
-            document.getElementById("StaffAssistant_To_SchedulerExecutiveAssistant").style.display = "none";
-            document.getElementById("SchedulerExecutiveAssistant_To_OperationsDirector").style.display = "none";
-            document.getElementById("OperationsDirector_To_DeputyChiefOfStaff").style.display = "none";
-            document.getElementById("DeputyChiefOfStaff_To_ChiefOfStaff").style.display = "none";
-
-
-
-
-            // Get values of Staring Position and Desired Position
-            var StartedPosition = document.getElementById("StartingPosition");
-            var ValueStartedPosition = StartedPosition.value;
-            var DesiredPosition = document.getElementById("DesiredPosition");
-            var ValueDesiredPosition = DesiredPosition.value;
-
-            // Message for Inpgoress element
-            var htmlMessage = `<h3 style="color: #003349;"> Configuration for comparing <b> ${ValueStartedPosition} </b> with <b> ${ValueDesiredPosition} </b> in progress ...</h3>`;
-
+            //document.getElementById("spinner").style.display = "block";
 
             setTimeout(() => {
 
                 //Remove spinner after delay
-                document.getElementById("spinner").style.display = "none";
-                
+                //document.getElementById("spinner").style.display = "none";
 
-                if (ValueStartedPosition == ValueDesiredPosition) {
+            var StartingPositionValue = $("#Starting_Position option:selected").text();
+            var DesiredPositionValue = $("#Desired_Position option:selected").text();            
 
-                    htmlMessage = `<h3 style="color: #003349;"> Starting Position and Desired Position must be different </h3>`;
-                    document.getElementById('InProgress').innerHTML = htmlMessage;
-                    document.getElementById("InProgress").style.display = "block";
+            if (DesiredPositionValue =="Select desired position"){
 
-                } else if (ValueStartedPosition == "Intern" && ValueDesiredPosition == "Staff Assistant") {
+                //document.getElementById("alertMessage").style.display = "block";
 
-                        document.getElementById("Intern_To_StaffAssistant").style.display = "block";
-                        document.getElementById("InProgress").style.display = "none";
+            }
 
-                    } else if (ValueStartedPosition == "Staff Assistant" && ValueDesiredPosition == "Scheduler/Executive Assistant") {
 
-                        document.getElementById("StaffAssistant_To_SchedulerExecutiveAssistant").style.display = "block";
-                        document.getElementById("InProgress").style.display = "none";
+            oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
 
-                    } else if (ValueStartedPosition == "Scheduler/Executive Assistant" && ValueDesiredPosition == "Operations Director") {
+            $.ajax({
 
-                        document.getElementById("SchedulerExecutiveAssistant_To_OperationsDirector").style.display = "block";
-                        document.getElementById("InProgress").style.display = "none";
+                url: oDataCompareTwoPositions,
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    //console.log("Sucess : Retured results :",results);
+                    var items = data.d.results;
+                    var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
+                    var htmlFullComparingPositions = `  <div class="center-item">    
+                            <img src="${URL_Full_Comparing_Positions_Value}" alt="">
 
-                    }else if (ValueStartedPosition == "Operations Director" && ValueDesiredPosition == "Deputy Chief of Staff") {
-
-                        document.getElementById("OperationsDirector_To_DeputyChiefOfStaff").style.display = "block";
-                        document.getElementById("InProgress").style.display = "none";
-
-                    } else if (ValueStartedPosition == "Deputy Chief of Staff" && ValueDesiredPosition == "Chief of Staff") {
-
-                        document.getElementById("DeputyChiefOfStaff_To_ChiefOfStaff").style.display = "block";
-                        document.getElementById("InProgress").style.display = "none";
-                    } else {
-
-                    //document.getElementById("InProgress").style.display = "block";
-                    document.getElementById('InProgress').innerHTML = htmlMessage;
-                    document.getElementById("InProgress").style.display = "block";
-
+                        </div>
+                    `;
+                    //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
+                    document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
+                },
+                error: function (data) {
+                    console.log("Error : Ajax failed ");
+                    alert("Error: " + data);
                 }
+            });
 
-            }, 3000); //set the delay to 3000 miliseconds
-
-
+        }, 500); //set the delay to 3000 miliseconds
 
         }
 
 
 
+        function change_Starting_Position() {
+            var Starting_Position_Text = $("#Starting_Position option:selected").text();
+            var CompareTwoPositions = $.grep(Compare_Two_Positions, function (element) {
+                return element.Starting_Position.Job_Title == Starting_Position_Text;
+            })
+            $('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
+            for (var i = 0; i < CompareTwoPositions.length; i++) {
+                var item = CompareTwoPositions[i];
+
+                //$("#Desired_Position").append("<option value='" + item.ID + "' health-monitor='" + item.HealthMonitorId + "'>" + item.Title + "</option>");
+                $("#Desired_Position").append("<option value='" + item.ID + "'>" + item.Desired_Position.Job_Title + "</option>");
+            }
+        }
+
+
+
+        function retrive_Starting_Positions() {
+            // use internal name of each column as required
+            $.ajax
+                ({
+                    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc",
+                    //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Office Health Monitors')/items?$select=*,HealthMonitor/Id,HealthMonitor/Title&$expand=HealthMonitor",
+                    type: "GET",
+                    async: false,
+                    headers:
+                    {
+                        "Accept": "application/json;odata=verbose",
+                        "Content-Type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "IF-MATCH": "*",
+                        "X-HTTP-Method": null
+                    },
+                    cache: false,
+                    success: function (data) {
+                        Compare_Two_Positions = data.d.results;
+                        for (var i = 0; i < data.d.results.length; i++) {
+                            var item = data.d.results[i];
+                            //  $("#Desired_Position").append("<option value='"+item.ID+"' health-monitor='"+item.HealthMonitorId+"'>"+item.Title+"</option>");  
+                        }
+
+                        var lookup = {};
+                        var items = data.d.results;
+                        var result = [];
+
+
+
+                        for (var item, i = 0; item = items[i++];) {
+                            var name = item.Starting_Position.Job_Title;
+
+                            if (!(name in lookup)) {
+                                lookup[name] = 1;
+                                result.push(name);
+                                $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");
+
+                                //$("#Starting_Position").append("<option value='" + item.ID + "' health-monitor='" + item.HealthMonitorId + "'>" + item.BusinessUnit + "</option>");
+                            }
+                        }
+                    },
+                    error: function (data) {
+                        alert(data.responseJSON.error);
+                    }
+
+
+                });
+
+        }
+
+
     </script>
+
+
+
 
 
 
@@ -1212,14 +1159,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
-     <!-- HouseHrHub - WIP - JS    -->
-    <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/wip-js/HouseHrHub-wip.js"></script>
+    <!-- HouseHrHub - WIP - JS    -->
+    <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/wip-js/HouseHrHub-wip.js"></script>
 
 
     <!-- HouseHrHubVisitors JS    -->
     <script
         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
-        
+
 
     <!-- DownloadResource JS    -->
     <script
