@@ -687,6 +687,18 @@
             display:none;
         }
 
+        /* Style for Compare button */
+
+        #compare{
+            width:12rem;
+        }
+
+        #compare:hover{
+            background-color: #62B5E5;
+            font-weight:bold;
+          
+        }
+
 
 
         /* END */
@@ -724,7 +736,11 @@
                         <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
                                 href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ProfessionalGrowth.aspx">Professional
                                 Growth</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">House Career Paths</li>
+                                <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                    href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx">House
+                                    Career
+                                    Paths</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Compre Two Positions</li>
                     </ol>
                 </nav>
             </div>
@@ -751,7 +767,7 @@
 
                             <h1
                                 style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
-                                House Career Paths
+                                House Career Paths - Compare Two Positions
                             </h1>
 
                             <div class="row" id="header">
@@ -797,7 +813,7 @@
 
                                 <button type="button" class="btn"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                        style="color:white; text-decoration:none;" href="#">View Overall Career Map
+                                        style="color:white; text-decoration:none;" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#OverallCareerMap">View Overall Career Map
                                     </a></button>
 
                             </div>
@@ -806,7 +822,7 @@
 
                                 <button type="button" class="btn"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                        style="color:white; text-decoration:none;" href="#">Explore Career Paths
+                                        style="color:white; text-decoration:none;" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ComparePositions.aspx#CareerPathTracks">Explore Career Paths
                                     </a></button>
 
                             </div>
@@ -815,7 +831,7 @@
 
                                 <button type="button" class="btn"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                        style="color:white; text-decoration:none;" href="#">Explore Career Paths
+                                        style="color:white; text-decoration:none;" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ComparePositions.aspx#CompareTwoPositions">Compare Positions
                                     </a></button>
 
                             </div>
@@ -837,9 +853,9 @@
 
 
     <!-- Compare two positions -->
-    <div class="container-fluid" style="padding: 3rem 8rem;">
+    <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0;" id="CompareTwoPositions">
 
-        <p id="CompareTwoPositions"
+        <p 
             style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
             Compare Two Positions</p>
         <p
@@ -848,7 +864,7 @@
             different positions in the following drop-down menus to see a skill comparison, and click on Compare button.
         </p>
 
-        <div class="container" style="padding-bottom:4rem;">
+        <div class="container" style="padding-bottom:1rem;">
             <div class="row">
                 <div class="container">
                     <div class="row" style="float:none;margin:auto;">
@@ -871,7 +887,7 @@
                         </div>
                         <div class="col-sm">
                             <button id="compare" type="button" class="btn" onclick="ComparePositions()"
-                                style="background-color:brown; color:white; min-width:18rem;">
+                                style="background-color:brown; color:white;">
                                 Compare</button>
                         </div>
                     </div>
