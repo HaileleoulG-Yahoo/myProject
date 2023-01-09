@@ -22,13 +22,6 @@
     rel="stylesheet" />
 
 
-
-  <!-- CSS for HR Hub -->
-  <link href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/css/HouseHrHub.css"
-    rel="stylesheet" />
-
-
-    
   <!-- Side navbar - start -->
 
   <!-- Bootstrap CSS CDN -->
@@ -46,8 +39,6 @@
     crossorigin="anonymous"></script>
 
   <!-- Side navbar - end -->
-
-
 
 
   <style>
@@ -134,18 +125,92 @@
       font-family: Arial;
     }
 
+
     /* Style for footer - START */
     #footer-logo {
       width: 175px;
     }
 
-
     #footer-logo-row {
       text-align: center;
     }
 
-    
     /* Style for footer - END */
+
+
+    #House-HR-Hub-Logo {
+      width: 250px;
+      padding-top: 1rem;
+    }
+
+
+    /* Set the width of search button - START */
+    #House-HR-Hub-Logo-Row>div>button {
+      min-width: 0rem;
+    }
+
+    div.input-group {
+      padding-top: 2rem !important;
+      width: 18rem;
+      position: absolute;
+      right: 0;
+      margin: auto;
+    }
+
+    /* Set the width of search button - END */
+
+
+    /* Set the style for search box with max-width 1000px - START */
+    @media all and (max-width: 1000px) {
+
+      #House-HR-Hub-Logo {
+        width: 200px;
+
+      }
+
+      #House-HR-Hub-Logo-Row {
+        text-align: left;
+      }
+
+      #SearchKey {
+        max-width: 10rem;
+      }
+
+      #House-HR-Hub-Logo-Row>div>button {
+        min-width: 0rem;
+      }
+
+
+      div.input-group {
+        width: 14rem;
+      }
+
+    }
+
+    /* Set the style for search box with max-width 1000px - END */
+
+
+    @media all and (max-width: 1200px) {
+
+      #leftNavColumn {
+        display: none;
+      }
+
+    }
+
+
+    @media all and (max-width: 1000px) {
+
+      #House-HR-Hub-Logo {
+        width: 200px;
+
+      }
+
+      #House-HR-Hub-Logo-Row {
+        text-align: left;
+      }
+
+    }
 
 
     /* Style top navbar - START */
@@ -237,8 +302,20 @@
         font-style: italic;
       }
 
-        /* hovering effect on New Member Resources dropdown */
-        ul#new-member-resources-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
+      ul#additional-services-dropdown.dropdown-menu.fade-up {
+        font-size: 22px;
+      }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: white;
+        font-weight: bold;
+      }
+
+    }
+
+
+      /* hovering effect on New Member Resources dropdown - START */
+      ul#new-member-resources-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
         background: #A89968;
         color: white;
         text-decoration: none;
@@ -250,17 +327,7 @@
         font-size: 22px;
       }
 
-      ul#additional-services-dropdown.dropdown-menu.fade-up{
-        font-size:22px;
-      }
-
-
-      .navbar-dark .navbar-nav .nav-link {
-        color: white;
-        font-weight: bold;
-      }
-
-    }
+	/* hovering effect on New Member Resources dropdown - END */
 
 
     .navbar {
@@ -287,372 +354,19 @@
     }
 
     /* setting dropdowns color to black */
-    #additional-services-dropdown > li > a,
-    #retaining-dropdown > li > a,
-    #developing-dropdown > li > a,
-    #hiring-dropdown > li > a {
-      color:black;
+    #additional-services-dropdown>li>a,
+    #retaining-dropdown>li>a,
+    #developing-dropdown>li>a,
+    #hiring-dropdown>li>a {
+      color: black;
     }
 
     /* Style top navbar - END */
 
 
 
-    /* Hover effect on cards - START */
-    .card:hover {
-      transform: scale(0.8);
-    }
 
-    .card {
-      transition: transform 0.2s ease;
-    }
-
-    .card {
-      box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
-      border-radius: 0;
-      border: 0;
-    }
-
-    /* Hover effect on cards - END */
-
-
-    /* styles for card - START */
-    P.card-title {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    P.card-text {
-      font-size: 16px;
-    }
-
-    img {
-      width: 20%;
-      padding-bottom: 10px;
-    }
-
-    div.card {
-      width: 100%;
-      height: 325px;
-    }
-
-    /* styles for card - END */
-
-
-    #House-HR-Hub-Logo {
-      width: 250px;
-      padding-top: 1rem;
-    }
-
-
-    /* Set the width of search button - START */
-    #House-HR-Hub-Logo-Row>div>button {
-      min-width: 0rem;
-    }
-
-    div.input-group {
-      padding-top: 2rem !important;
-      width: 18rem;
-      position: absolute;
-      right: 0;
-      margin: auto;
-    }
-
-    /* Set the width of search button - END */
-
-
-
-
-    @media all and (min-width: 1630px) {
-
-      /* P.card-title{
-font-size:17px;
-font-weight: bold;
-} */
-
-      /* P.card-text{
-font-size:14px;
-} */
-
-      /* img{
-width:22%;
-} */
-
-      div.card {
-        height: 350px;
-        width: 110%;
-      }
-
-      /* #leftNavColumn{
-  display:none;
-} */
-
-
-
-
-    }
-
-    @media all and (max-width: 1630px) {
-
-      /* P.card-title{
-font-size:17px;
-font-weight: bold;
-} */
-
-      P.card-text{
-font-size:15px;
-}
-
-      /* img{
-width:22%;
-} */
-
-      div.card {
-        height: 350px;
-        width: 120%;
-      }
-
-
-      /* #leftNavColumn{
-display:none;
-} */
-
-
-
-    }
-
-    @media all and (max-width: 1490px) {
-
-/* P.card-title{
-font-size:17px;
-font-weight: bold;
-} */
-
-P.card-text{
-font-size:15px;
-}
-
-/* img{
-width:22%;
-} */
-
-div.card {
-  height: 350px;
-  width:140%;
-}
-
-#leftNavColumn{
-display:none;
-}
-
-}
-
-
-    @media all and (max-width: 1200px) {
-
-      div.card {
-        height: 325px;
-        width: 80%;
-        margin: 2rem;
-      }
-
-      /* #leftNavColumn {
-        display: none;
-      } */
-
-    }
-
-
-    /* @media all and (max-width: 1136px) {
-
-      div.card {
-        height: 325px;
-        width: 80%;
-        margin: 2rem;
-      }
-
-    } */
-
-
-
-    @media all and (max-width: 992px) {
-
-      div.card {
-        height: 450px;
-        Width: 100%;
-        margin: 2rem;
-      }
-
-    }
-
-
-
-    /* Set the style for box with max-width 1000px - START */
-    @media all and (max-width: 991px) {
-
-      #House-HR-Hub-Logo {
-        width: 200px;
-
-      }
-
-      #House-HR-Hub-Logo-Row {
-        text-align: left;
-      }
-
-      #SearchKey {
-        max-width: 10rem;
-      }
-
-      #House-HR-Hub-Logo-Row>div>button {
-        min-width: 0rem;
-      }
-
-
-      div.input-group {
-        width: 14rem;
-      }
-
-      div.card {
-        height: 350px;
-        Width: 100%;
-        margin: 2rem;
-      }
-
-    }
-
-
-
-
-    /* @media all and (max-width: 950px) {
-
-      div.card {
-        height: 350px;
-        Width: 100%;
-        margin: 2rem;
-      }
-
-    } */
-
-
-
-    @media all and (max-width: 800px) {
-
-      /* P.card-title{
-      font-size:17px;
-      font-weight: bold;
-      } */
-
-      /* P.card-text{
-      font-size:14px;
-      } */
-
-      /* img{
-      width:22%;
-      } */
-
-      div.card {
-        height: 300px;
-      }
-
-
-
-    }
-
-
-    @media all and (max-width: 768px) {
-
-      /* P.card-title{
-      font-size:17px;
-      font-weight: bold;
-      } */
-
-      /* P.card-text{
-      font-size:14px;
-      } */
-
-      img {
-        width: 12%;
-      }
-
-      /* div.card{
-      width:100%;
-      height: 275px; 
-      }*/
-
-      div.card {
-        width: 100%;
-        height: 275px;
-        margin: 2rem;
-      }
-
-    }
-
-
-    @media all and (max-width: 650px) {
-
-      /* P.card-title{
-      font-size:17px;
-      font-weight: bold;
-      } */
-
-      /* P.card-text{
-      font-size:14px;
-      } */
-
-      /* img{
-      width:22%;
-      } */
-
-      /* div.card{
-      width:100%;
-      height: 275px; 
-      }*/
-
-      /* div.card{
-        width:70%;
-      } */
-
-    }
-
-
-
-    @media all and (max-width: 574px) {
-
-      /* P.card-title{
-      font-size:17px;
-      font-weight: bold;
-      } */
-
-      /* P.card-text{
-      font-size:14px;
-      } */
-
-      /* img{
-      width:22%;
-      } */
-
-      /* div.card{
-      width:100%;
-      height: 275px; 
-      }*/
-
-      div.card {
-        width: 70%;
-      }
-
-    }
-
-
-    /* Search box custom - START */
-    .btn-outline-primary {
-      color: white;
-      border-color: white;
-    }
-
-    /* Search box custom - END */
-
-
-
+    /* Style for left sidebar - START */
 
     /* LEFT SIDEBAR STYLE - START */
 
@@ -676,7 +390,7 @@ display:none;
     a:focus {
       color: inherit;
       text-decoration: none;
-      transition: all 0.3s;
+      /* transition: all 0.3s; */
     }
 
     .navbar {
@@ -701,7 +415,9 @@ display:none;
       margin: 40px 0;
     }
 
-    /* ----------- SIDEBAR STYLE  ---------- */
+
+
+    /* ---------  SIDEBAR STYLE ---------- */
 
     .wrapper {
       display: flex;
@@ -712,13 +428,14 @@ display:none;
     #sidebar {
       /* min-width: 200px;
       max-width: 250px; */
-      width:240px;
+      width: 240px;
       background: #003349;
       color: #fff;
       transition: all 0.5s;
 
       border-color: #003349;
       border-width: 10px;
+
     }
 
     #sidebar.active {
@@ -730,10 +447,10 @@ display:none;
       background: #6d7fcc;
     }
 
-    #sidebar ul.components {
+    /* #sidebar ul.components {
       padding: 20px 0;
       border-bottom: 1px solid #47748b;
-    }
+    } */
 
     #sidebar ul p {
       color: #fff;
@@ -752,16 +469,20 @@ display:none;
     }
 
 
-    /* Highlight 'Hiring' section and bold 'Recruiting & Selecting' @ page load  - START */
+    /* Highlight 'retaining' section and bold 'Engaging & Supporting Staff' @ page load  - START */
     /* Note : The 'Hiring' sub sections gets expanded by js */
 
-    a#hiring {
+    a#retaining {
       color: black;
       background: #f7f3f3;
       font-weight: bold;
     }
 
-    /* Highlight 'Hiring' section and bold 'Recruiting & Selecting' @ page load  - END */
+    #EngagingAndSupportingStaff {
+      font-weight: bold;
+    }
+
+    /* Highlight 'retaining' section and bold 'Engaging & Supporting Staff' @ page load  - END */
 
 
 
@@ -772,6 +493,7 @@ display:none;
       background: #f7f3f3;
       font-weight: bold;
     }
+
 
     ul ul#hiringSubmenu a {
       font-size: 0.9em !important;
@@ -833,6 +555,7 @@ display:none;
     }
 
 
+
     a[data-toggle="collapse"] {
       position: relative;
     }
@@ -853,7 +576,7 @@ display:none;
 
 
 
-    /* ----------    MEDIAQUERIES  ------------------- */
+    /* --------  MEDIAQUERIES  --------- */
 
     @media (max-width: 768px) {
       #sidebar {
@@ -904,8 +627,6 @@ display:none;
     }
 
 
-
-
     #hiringSubmenu,
     #developingSubmenu,
     #retainingSubmenu {
@@ -917,6 +638,101 @@ display:none;
     }
 
     /* LEFT SIDEBAR STYLE - END */
+
+    /* Style for left sidebar - END */
+
+
+
+
+    /* Style with accordion - START */
+    button.accordion-button.collapsed:hover {
+      background: #005B8F;
+      color: white;
+    }
+
+    button.accordion-button {
+      font-size: 20px;
+    }
+
+    button.accordion-button.collapsed {
+      font-size: 20px;
+    }
+
+    .accordion-collapse {
+      font-size: 18px;
+    }
+
+    button:active {
+      background: #005B8F;
+      color: white;
+      font-size: 20px;
+    }
+
+    div.accordion-body {
+      background: #a0cfeb63;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: #005B8F;
+      color: white;
+    }
+
+    div.accordion-body {
+      text-align: left;
+    }
+
+    .coming {
+      font-style: italic;
+      font-weight: bold;
+    }
+
+
+    /*** To adjust the size of the icons on accordion heading */
+    img {
+      width: 4%;
+    }
+
+
+    #EmployeeExperience-white,
+    #Telework-white,
+    #EmployeeWellness-white,
+    #AdditionalEngagingAndSupportingEmployeeServices-white,
+    #Diversity-white,
+    #FMLA-white,
+    #AdditionalRecruitingAndSelectingServices-white {
+      display: none;
+    }
+
+    /* Style with accordion - END */
+
+
+
+    /* Search box custom - START */
+    .btn-outline-primary {
+      color: white;
+      border-color: white;
+    }
+
+    /* Search box custom - END */
+
+
+
+    /* Style for document links */
+    a.document {
+      color: blue;
+    }
+
+    a.document:hover {
+      color: red;
+    }
+
+    .coming>span {
+      white-space: nowrap;
+      color: black;
+    }
+
+    /* Style for document links */
+
 
 
     /* Style for adjusting font size for Top-Nav links- START */
@@ -937,7 +753,6 @@ display:none;
   <!-- To insert background image -->
 
 
-
   <!-- Top navbar  - START -->
 
   <div id="topNavigationBar">
@@ -956,33 +771,32 @@ display:none;
       <div class="row">
         <nav aria-label="breadcrumb" style="font-size:18px;">
           <ol class="breadcrumb" style="padding:1% 0%; margin:0;">
-            <li class="breadcrumb-item" aria-current="page"><a class="link_breadcrum" style="text-decoration:underline;"
-                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Home.aspx">House HR
-                Hub</a>
+            <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Home.aspx">House
+                HR Hub</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Hiring</li>
+            <li class="breadcrumb-item " aria-current="page"><a style="text-decoration:underline;"
+                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Retaining.aspx">Retaining</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"> Engaging & Supporting Staff </li>
           </ol>
         </nav>
       </div>
 
       <div class="row">
-        <h1 id="page-title"
+        <h1
           style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
-          Hiring
+          Engaging & Supporting Staff
         </h1>
-        <p id="page-description" style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;">Looking for
-          help with bringing in the
-          best staff
-          for your
-          office? The <span style="font-weight:bold">Hiring</span> section provides resources to assist with recruiting and selecting job applicants,
-          setting salary and benefits, onboarding staff, and setting up a new House office.  </p>
+        <p id="page-description" style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The tools and
+          resources in this section provide insights and ideas on engaging and supporting staff. </p>
       </div>
     </div>
 
   </div>
 
 
-  <div class="container-fluid " style="padding: 3rem 0rem; min-height:400px;">
+  <div class="container-fluid" style="padding: 3rem 0rem; min-height:400px;">
 
     <div class="row" style="padding:0% 8%;">
 
@@ -991,72 +805,506 @@ display:none;
 
         <div id="leftNavColumn" class="col-md-3 col-lg-3 col-xl-3 mx-auto">
 
+
           <!-- Left NavBar -->
           <div id="leftNavigation" style="width:250px; text-align:left;">
 
-            <!-- New left nav - START -->
-
-
-            <!-- New left nav - END -->
 
           </div>
 
         </div>
 
-        <div class="col-md-6 col-lg-6 col-xl-2 mx-auto">
-          <!-- Card # 1 -->
-          <div class="card" style="background-color: #005B8F; font:arial; border-radius: 8%;">
-            <div class="card-body" style="color:white;">
-              <p class="card-title"> <img class="card-icon"
-                  src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon-white_Recruiting%26Selecting.svg"
-                  alt="Recruiting & Selecting"><br> Recruiting & Selecting </p>
-              <p class="card-text"> Resources to support the recruiting and selecting process, including job posting
-                examples, interview tips, testing materials, and communications. </p>
-              <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Recruiting&Selecting.aspx#"
-                class="btn stretched-link"></a>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-lg-6 col-xl-2 mx-auto">
-          <!-- Card # 2 -->
-          <div class="card" style="background-color: #005B8F; font:arial; border-radius: 8%;">
-            <div class="card-body" style="color:white;">
-              <p class="card-title"> <img class="card-icon"
-                  src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon-white_Salary%26Benefits.svg"
-                  alt="Salary & Benefits"><br> Salary & Benefits </p>
-              <p class="card-text"> Guidance on setting and communicating salaries and benefits, including policies,
-                compensation study data, and talking points for discussing with staff. </p>
-              <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Salary&Benefits.aspx#" class="btn stretched-link"></a>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-9 col-lg-9 col-xl-9 mx-auto">
+          <!-- Accordion -->
 
-        <div class="col-md-6 col-lg-6 col-xl-2 mx-auto">
-          <!-- Card # 3 -->
-          <div class="card" style="background-color: #005B8F; font:arial; border-radius: 8%;">
-            <div class="card-body" style="color:white;">
-              <p class="card-title"> <img class="card-icon"
-                  src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon-white_onboarding.svg"
-                  alt="Onboarding"><br> Onboarding </p>
-              <p class="card-text"> Strategies to help new staff settle into a new position, including checklists to
-                complete the onboarding process. </p>
-              <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Onboarding.aspx#" class="btn stretched-link"></a>
-            </div>
-          </div>
-        </div>
+          <div class="row" style="max-width:1200px; text-align:center;">
 
-        <div class="col-md-6 col-lg-6 col-xl-2 mx-auto">
-          <!-- Card # 4 -->
-          <div class="card" style="background-color: #005B8F; font:arial; border-radius: 8%;">
-            <div class="card-body" style="color:white;">
-              <p class="card-title"> <img class="card-icon"
-                  src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icons-white_setting-up-an-office.svg"
-                  alt="Onboarding"><br> Setting Up An Office </p>
-              <p class="card-text"> Resources to assist with setting up a new office, including Members, Committees, and employee handbooks. </p>
-              <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/SettingUpAnOffice.aspx#" class="btn stretched-link"></a>
+            <div class="accordion accordion-flush" id="accordionFlushEngagingAndSupportingStaff">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-EmployeeExperience">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseEmployeeExperience" aria-expanded="false"
+                    aria-controls="flush-collapseEmployeeExperience"
+                    style="font-weight: bold; font-family: Arial; font-weight: 20px;"
+                    onclick="iconToggleFunction('EmployeeExperience')">
+                    <img class="icon" id="EmployeeExperience-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icons_employee-experience.svg"
+                      alt="">
+                    <img class="icon" id="EmployeeExperience-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icons-white_employee-experience.svg"
+                      alt="">
+                    &nbsp Employee Experience &nbsp 
+                    
+                    <!-- <img class="icon" id="NewResourceIcon"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/NewResourceIcon1.svg"
+                      style="width:4%; -ms-transform: rotate(10deg); transform: rotate(10deg);" alt=""> -->
+
+                      <!-- &nbsp <a title="Popular resource"><img class="icon"
+                        id="Fire-EmployeeExperience"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                        style="width:15%;" alt="" title="Popular Resources"></a> -->
+
+                  </button>
+                </h2>
+                <div id="flush-collapseEmployeeExperience" class="accordion-collapse collapse" aria-labelledby="flush-EmployeeExperience"
+                  data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document"
+                        href="https://housenet.house.gov/sites/housenet.house.gov/files/documents/oea_retreat_services_2021.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('House Office Retreats')"> House Office Retreats </a><br>
+
+                      <a class="document" href="https://www.youtube.com/watch?v=QKC13xG7A-c"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Chiefs Chat Podcast Episode 2: Staff Retention Tips and Best Practices')">
+                        Chiefs' Chat Podcast Episode 2: Staff Retention Tips & Best Practices </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span>  -->
+                        
+                        <br>
+
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Quick%20Tips%20for%20Providing%20Staff%20Recognition.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Quick Tips for Providing Staff Recognition')"> Quick Tips for
+                        Providing Staff Recognition </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span>  -->
+                        
+                        <br>
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Quick%20Tips%20for%20Engaging%20Staff.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Quick Tips for Engaging Staff')"> Quick Tips for Engaging Staff </a>
+
+                      <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span>  -->
+                        
+                        <br>
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Staff%20Engagement%20Survey%20Template.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Staff Engagement Survey Template')"> Staff Engagement Survey Template
+                      </a> 
+                      
+                      <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span>  -->
+                        
+                        <br>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTelework">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTelework" aria-expanded="false"
+                    aria-controls="flush-collapseTelework" style="font-weight: bold; font-family: Arial;"
+                    onclick="iconToggleFunction('Telework')">
+
+                    <img class="icon" id="Telework-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_telework.svg"
+                      alt="">
+
+                    <img class="icon" id="Telework-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon-white_telework.svg"
+                      alt="">
+
+                    &nbsp Telework &nbsp 
+                    
+                    <!-- <img class="icon" id="NewResourceIcon"
+                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/NewResourceIcon1.svg"
+                    style="width:4%; -ms-transform: rotate(10deg); transform: rotate(10deg);" alt=""> -->
+
+                    &nbsp 
+                    
+                    <!-- <a title="Popular resource"><img class="icon"
+                      id="Fire-Telework"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                      style="width:15%;" alt="" title="Popular Resources"></a> -->
+
+                  </button>
+                </h2>
+                <div id="flush-collapseTelework" class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTelework" data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document" href="https://cha.house.gov/member-services/handbooks/telecommuting-resources"
+                      style="text-decoration:none;" target="_blank"
+                      onclick="downloadResource('CHA Telecommuting Resources')">
+                      CHA Telecommuting Resources </a> 
+                      
+                      <!-- <span
+                      style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                      New! </span>  -->
+                      
+                      <br>
+
+                      <a class="document"
+                        href="https://housenet.house.gov/sites/housenet.house.gov/files/documents/healthy-teleworking-as-a-manager-oea.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Healthy Teleworking Tips as a Manager')"> Healthy Teleworking Tips as
+                        a Manager </a>
+                        
+                        <!-- &nbsp <img class="icon" id="NewResourceIcon"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                        style="width:2%;" alt="" title="Popular Resources"> -->
+                        
+                        <br>
+                      <a class="document"
+                        href="https://housenet.house.gov/sites/housenet.house.gov/files/documents/healthy-teleworking_employees_04172020.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Healthy Teleworking Tips as an Employee')"> Healthy Teleworking Tips
+                        as an Employee </a><br>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingEmployeeWellness">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseEmployeeWellness" aria-expanded="false"
+                    aria-controls="flush-collapseEmployeeWellness" style="font-weight: bold; font-family: Arial;"
+                    onclick="iconToggleFunction('EmployeeWellness')">
+                    <img class="icon" id="EmployeeWellness-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icons_employee-wellness.svg"
+                      alt="">
+                    <img class="icon" id="EmployeeWellness-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icons-white_wellness.svg"
+                      alt="">
+                    &nbsp Employee Wellness
+
+
+                      <!-- &nbsp <a title="Popular resource"><img class="icon"
+                        id="Fire-EmployeeWellness"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                        style="width:15%;" alt="" title="Popular Resources"></a> -->
+
+                  </button>
+                </h2>
+                <div id="flush-collapseEmployeeWellness" class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingEmployeeWellness" data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document"
+                        href="https://housenet.house.gov/sites/housenet.house.gov/files/documents/compassionfatiguetipsoea.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Compassion Fatigue Tips')"> Compassion Fatigue Tips </a><br>
+                      <a class="document"
+                        href="https://housenet.house.gov/sites/housenet.house.gov/files/documents/compounded-stress_infographic.pdf"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Compounded Stress Infographic')"> Compounded Stress Infographic
+                      </a><br>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-Diversity">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseDiversity" aria-expanded="false"
+                    aria-controls="flush-collapseDiversity" style="font-weight: bold; font-family: Arial;"
+                    onclick="iconToggleFunction('Diversity')">
+                    <img class="icon" id="Diversity-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_diversity.svg"
+                      alt="">
+                    <img class="icon" id="Diversity-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon-white_diversity.svg"
+                      alt="">
+                    &nbsp Diversity 
+
+                      <!-- &nbsp <a title="Popular resource"><img class="icon"
+                        id="Fire-Diversity"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                        style="width:15%;" alt="" title="Popular Resources"></a> -->
+
+                  </button>
+                </h2>
+                <div id="flush-collapseDiversity" class="accordion-collapse collapse"
+                  aria-labelledby="flush-Diversity" data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document" href="https://diversity.house.gov/diversity-house"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('2021 House Compensation and Diversity Study')">
+                        2021 House Compensation & Diversity Study </a> <br>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-FMLA">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFMLA" aria-expanded="false"
+                    aria-controls="flush-collapseFMLA"
+                    style="font-weight: bold; font-family: Arial;"
+                    onclick="iconToggleFunction('FMLA')">
+                    <img class="icon" id="FMLA-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_FMLA.svg"
+                      alt="">
+                    <img class="icon" id="FMLA-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon-white_FMLA.svg"
+                      alt="">
+                    &nbsp Family and Medical Leave Act (FMLA) &nbsp 
+                    
+                    <!-- <img class="icon" id="NewResourceIcon"
+                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/NewResourceIcon1.svg"
+                    style="width:4%; -ms-transform: rotate(10deg); transform: rotate(10deg);" alt=""> -->
+
+                      <!-- &nbsp <a title="Popular resource"><img class="icon"
+                        id="Fire-FMLA"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                        style="width:15%;" alt="" title="Popular Resources"></a> -->
+
+                  </button>
+                </h2>
+                <div id="flush-collapseFMLA" class="accordion-collapse collapse"
+                  aria-labelledby="flush-FMLA"
+                  data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%201%20-%20Notice%20of%20Eligibility.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 1 - Notice of Eligibility')"> Form 1 - Notice of Eligibility </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+                        
+                        <br>
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%202%20-%20FMLA%20Request%20Form.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 2 - FMLA Request Form')"> Form 2 - FMLA Request Form </a>
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+
+                      <br>
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%203%20-%20Designation%20Notice.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 3 - Designation Notice')"> Form 3 - Designation Notice </a>
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+
+                      <br>
+
+                      <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%204%20-%20Certification%20for%20Employee%27s%20Serious%20Health%20Condition.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 4 - Certification for Employees Serious Health Condition')"> Form 4 - Certification for Employee's Serious Health Condition </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+                        
+                        <br>
+
+                        <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%205%20-%20Certification%20for%20Family%20Member%27s%20Serious%20Health%20Condition.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 5 - Certification for Family Members Serious Health Condition')"> Form 5 - Certification for Family Member's Serious Health Condition </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+                        
+                        <br>
+
+                        <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%206%20-%20Certification%20of%20Qualifying%20Exigency.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 6 - Certification of Qualifying Exigency')"> Form 6 - Certification of Qualifying Exigency </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+                        
+                        <br>
+
+                        <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%207%20-%20Certification%20for%20Current%20Servicemember%20Military%20Family%20Leave.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 7 - Certification for Current Servicemember Military Family Leave')"> Form 7 - Certification for Current Servicemember Military Family Leave </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+                        
+                        <br>
+
+                        <a class="document"
+                        href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Form%208%20-%20Certification%20for%20Veteran%20Military%20Family%20Leave.pdf?web=1"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Form 8 - Certification for Veteran Military Family Leave')"> Form 8 - Certification for Veteran Military Family Leave </a> 
+                        
+                        <!-- <span
+                        style="color:red; font-style:italic ; font-weight:bold; font-size:small; vertical-align: text-top;">
+                        New! </span> -->
+                        
+                        <br>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingAdditionalEngagingAndSupportingEmployeeServices">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseAdditionalEngagingAndSupportingEmployeeServices" aria-expanded="false"
+                    aria-controls="flush-collapseAdditionalEngagingAndSupportingEmployeeServices" style="font-weight: bold; font-family: Arial;"
+                    onclick="iconToggleFunction('AdditionalEngagingAndSupportingEmployeeServices')">
+                    <img class="icon" id="AdditionalEngagingAndSupportingEmployeeServices-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_supporting-employees.svg"
+                      alt="">
+                    <img class="icon" id="AdditionalEngagingAndSupportingEmployeeServices-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon-white_supporting-employees.svg"
+                      alt="">
+                    &nbsp Additional Engaging & Supporting Employee Services
+
+                    <!-- &nbsp <a title="Popular resource"><img class="icon"
+                        id="Fire-AdditionalEngagingAndSupportingEmployeeServices"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/Fire.png"
+                        style="width:15%;" alt="" title="Popular Resources"></a> -->
+                  </button>
+                </h2>
+                <div id="flush-collapseAdditionalEngagingAndSupportingEmployeeServices" class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingAdditionalEngagingAndSupportingEmployeeServices" data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document" href="https://wellbeing.house.gov/" style="text-decoration:none;"
+                        target="_blank" onclick="downloadResource('House Center for Well-Being')"> House Center for
+                        Well-Being </a><br>
+                      <a class="document" href="https://www.ocwr.gov/" style="text-decoration:none;"
+                        target="_blank" onclick="downloadResource('Office of Congressional Workplace Rights')"> Office of Congressional Workplace Rights </a><br>
+
+                        <a class="document" href="https://diversity.house.gov/" style="text-decoration:none;"
+                        target="_blank" onclick="downloadResource('Office of Diversity and Inclusion')"> Office of
+                        Diversity & Inclusion </a><br>
+
+                      <a class="document" href="https://employeeadvocacy.house.gov/" style="text-decoration:none;"
+                        target="_blank" onclick="downloadResource('Office of Employee Advocacy')"> Office of Employee
+                        Advocacy </a><br>
+                      <a class="document"
+                        href="https://housenet.house.gov/campus/service-providers/office-of-employee-assistance"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Office of Employee Assistance')"> Office of Employee Assistance
+                      </a><br>
+                      <a class="document"
+                        href="https://housenet.house.gov/campus/service-providers/office-of-the-clerk/office-of-house-employment-counsel"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Office of House Employment Counsel')"> Office of House Employment
+                        Counsel </a><br>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Start -->
+
+ 
+
+
+              <!-- <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-AdditionalEngagingAndSupportingStaffServices">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseAdditionalEngagingAndSupportingStaffServices" aria-expanded="false"
+                    aria-controls="flush-collapseAdditionalEngagingAndSupportingStaffServices"
+                    style="font-weight: bold; font-family: Arial;"
+                    onclick="iconToggleFunction('AdditionalEngagingAndSupportingStaffServices')">
+                    <img class="icon" id="AdditionalEngagingAndSupportingStaffServices-black"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_addt-recruiting-selecting.svg"
+                      alt="">
+                    <img class="icon" id="AdditionalEngagingAndSupportingStaffServices-white"
+                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon-white_addt-recruiting-selecting.svg"
+                      alt="">
+                    &nbsp Additional Recruiting & Selecting Services
+                  </button>
+                </h2>
+                <div id="flush-collapseAdditionalEngagingAndSupportingStaffServices" class="accordion-collapse collapse"
+                  aria-labelledby="flush-AdditionalEngagingAndSupportingStaffServices"
+                  data-bs-parent="#accordionFlushEngagingAndSupportingStaff">
+                  <div class="accordion-body">
+
+                    <div style="margin-left:1rem;">
+
+                      <a class="document" href="https://diversity.house.gov/" style="text-decoration:none;"
+                        target="_blank" onclick="downloadResource('Office of Diversity and Inclusion')"> Office of
+                        Diversity & Inclusion </a><br>
+                      <a class="document" href="https://employeeadvocacy.house.gov/" style="text-decoration:none;"
+                        target="_blank" onclick="downloadResource('Office of Employee Advocacy')"> Office of Employee
+                        Advocacy </a><br>
+                      <a class="document"
+                        href="https://housenet.house.gov/campus/service-providers/office-of-general-counsel"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Office of General Counsel')"> Office of General Counsel </a><br>
+                      <a class="document"
+                        href="https://housenet.house.gov/campus/service-providers/office-of-the-clerk/office-of-house-employment-counsel"
+                        style="text-decoration:none;" target="_blank"
+                        onclick="downloadResource('Office of House Employment Counsel')"> Office of House Employment
+                        Counsel </a><br>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- End  -->
+
+
             </div>
+
           </div>
+
+
         </div>
 
       </div>
@@ -1076,12 +1324,168 @@ display:none;
 
   <!-- footer - END  -->
 
+
   <script>
-    $(document).ready(function () {
-      $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-      });
-    });
+
+    function iconToggleFunction(param) {
+
+      console.log("Parameter : ", param);
+
+      if (param == "EmployeeExperience") {
+
+        console.log("Inside if statement");
+        
+        document.getElementById("EmployeeExperience-black").style.display = "none";
+        document.getElementById("EmployeeExperience-white").style.display = "block";
+
+        //document.getElementById("Fire-Telework").style.display = "block";
+
+        document.getElementById("Telework-black").style.display = "block";
+        document.getElementById("Telework-white").style.display = "none";
+
+        document.getElementById("EmployeeWellness-black").style.display = "block";
+        document.getElementById("EmployeeWellness-white").style.display = "none";
+
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-black").style.display = "block";
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-white").style.display = "none";
+
+        document.getElementById("Diversity-black").style.display = "block";
+        document.getElementById("Diversity-white").style.display = "none";
+
+        document.getElementById("FMLA-black").style.display = "block";
+        document.getElementById("FMLA-white").style.display = "none";
+
+        document.getElementById("AdditionalRecruitingAndSelectingServices-black").style.display = "block";
+        document.getElementById("AdditionalRecruitingAndSelectingServices-white").style.display = "none";
+
+      } else if (param == "Telework") {
+        
+        document.getElementById("EmployeeExperience-black").style.display = "block";
+        document.getElementById("EmployeeExperience-white").style.display = "none";
+
+        //document.getElementById("Fire-Telework").style.display = "block";
+
+        document.getElementById("Telework-black").style.display = "none";
+        document.getElementById("Telework-white").style.display = "block";
+
+        document.getElementById("EmployeeWellness-black").style.display = "block";
+        document.getElementById("EmployeeWellness-white").style.display = "none";
+
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-black").style.display = "block";
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-white").style.display = "none";
+
+        document.getElementById("Diversity-black").style.display = "block";
+        document.getElementById("Diversity-white").style.display = "none";
+
+        document.getElementById("FMLA-black").style.display = "block";
+        document.getElementById("FMLA-white").style.display = "none";
+
+        document.getElementById("AdditionalRecruitingAndSelectingServices-black").style.display = "block";
+        document.getElementById("AdditionalRecruitingAndSelectingServices-white").style.display = "none";
+
+      } else if (param == "EmployeeWellness") {
+
+        document.getElementById("EmployeeExperience-black").style.display = "block";
+        document.getElementById("EmployeeExperience-white").style.display = "none";
+
+        //document.getElementById("Fire-Telework").style.display = "block";
+
+        document.getElementById("Telework-black").style.display = "block";
+        document.getElementById("Telework-white").style.display = "none";
+
+        document.getElementById("EmployeeWellness-black").style.display = "none";
+        document.getElementById("EmployeeWellness-white").style.display = "block";
+
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-black").style.display = "block";
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-white").style.display = "none";
+
+        document.getElementById("Diversity-black").style.display = "block";
+        document.getElementById("Diversity-white").style.display = "none";
+
+        document.getElementById("FMLA-black").style.display = "block";
+        document.getElementById("FMLA-white").style.display = "none";
+
+        document.getElementById("AdditionalRecruitingAndSelectingServices-black").style.display = "block";
+        document.getElementById("AdditionalRecruitingAndSelectingServices-white").style.display = "none";
+
+      } else if (param == "AdditionalEngagingAndSupportingEmployeeServices") {
+
+        document.getElementById("EmployeeExperience-black").style.display = "block";
+        document.getElementById("EmployeeExperience-white").style.display = "none";
+
+        //document.getElementById("Fire-Telework").style.display = "block";
+
+        document.getElementById("Telework-black").style.display = "block";
+        document.getElementById("Telework-white").style.display = "none";
+
+        document.getElementById("EmployeeWellness-black").style.display = "block";
+        document.getElementById("EmployeeWellness-white").style.display = "none";
+
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-black").style.display = "none";
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-white").style.display = "block";
+
+        document.getElementById("Diversity-black").style.display = "block";
+        document.getElementById("Diversity-white").style.display = "none";
+
+        document.getElementById("FMLA-black").style.display = "block";
+        document.getElementById("FMLA-white").style.display = "none";
+
+        document.getElementById("AdditionalRecruitingAndSelectingServices-black").style.display = "block";
+        document.getElementById("AdditionalRecruitingAndSelectingServices-white").style.display = "none";
+
+      } else if (param == "Diversity") {
+
+        document.getElementById("EmployeeExperience-black").style.display = "block";
+        document.getElementById("EmployeeExperience-white").style.display = "none";
+
+        //document.getElementById("Fire-Telework").style.display = "block";
+
+        document.getElementById("Telework-black").style.display = "block";
+        document.getElementById("Telework-white").style.display = "none";
+
+        document.getElementById("EmployeeWellness-black").style.display = "block";
+        document.getElementById("EmployeeWellness-white").style.display = "none";
+
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-black").style.display = "block";
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-white").style.display = "none";
+
+        document.getElementById("Diversity-black").style.display = "none";
+        document.getElementById("Diversity-white").style.display = "block";
+
+        document.getElementById("FMLA-black").style.display = "block";
+        document.getElementById("FMLA-white").style.display = "none";
+
+        document.getElementById("AdditionalRecruitingAndSelectingServices-black").style.display = "block";
+        document.getElementById("AdditionalRecruitingAndSelectingServices-white").style.display = "none";
+
+      } else if (param == "FMLA") {
+
+        document.getElementById("EmployeeExperience-black").style.display = "block";
+        document.getElementById("EmployeeExperience-white").style.display = "none";
+
+        //document.getElementById("Fire-Telework").style.display = "block";
+
+        document.getElementById("Telework-black").style.display = "block";
+        document.getElementById("Telework-white").style.display = "none";
+
+        document.getElementById("EmployeeWellness-black").style.display = "block";
+        document.getElementById("EmployeeWellness-white").style.display = "none";
+
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-black").style.display = "block";
+        document.getElementById("AdditionalEngagingAndSupportingEmployeeServices-white").style.display = "none";
+
+        document.getElementById("Diversity-black").style.display = "block";
+        document.getElementById("Diversity-white").style.display = "none";
+
+        document.getElementById("FMLA-black").style.display = "none";
+        document.getElementById("FMLA-white").style.display = "block";
+
+        document.getElementById("AdditionalRecruitingAndSelectingServices-black").style.display = "block";
+        document.getElementById("AdditionalRecruitingAndSelectingServices-white").style.display = "none";
+
+      } 
+
+    }
   </script>
 
 
@@ -1098,17 +1502,19 @@ display:none;
     crossorigin="anonymous"></script>
 
 
+
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 
-
   <!-- HouseHrHub JS    -->
-  <script
-    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
+  <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
 
+  <!-- HouseHrHubVisitors JS    -->
+  <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
 
-      <!-- HouseHrHubVisitors JS    -->
-      <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
+  <!-- DownloadResource JS    -->
+  <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script>
+
 
 </body>
 

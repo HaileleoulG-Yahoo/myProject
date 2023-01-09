@@ -689,11 +689,11 @@
 
         /* Style for Compare button */
 
-        #compare{
+        #compare, #reset{
             width:12rem;
         }
 
-        #compare:hover{
+        #compare:hover, #reset:hover{
             background-color: #62B5E5;
             font-weight:bold;
           
@@ -816,29 +816,28 @@
 
                             <div class="row row-flex">
 
-                                <button type="button" class="btn"
-                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                        style="color:white; text-decoration:none;" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#OverallCareerMap">View Overall Career Map
-                                    </a></button>
-
+                                <button type="button" class="btn" onclick="location.href='https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#OverallCareerMap';"
+                                style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                    style="color:white; text-decoration:none;">View Overall Career Map
+                                </a></button>
+                                
                             </div>
                             
 
-                            <div class="row row-flex">
+                            <div class="row row-flex">                                
 
-                                <button type="button" class="btn"
+                                <button type="button" class="btn" onclick="location.href='#CareerPathTracks';"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                        style="color:white; text-decoration:none;" href="#CareerPathTracks">Explore Career Paths
+                                        style="color:white; text-decoration:none;">Explore Career Paths
                                     </a></button>
 
                             </div>
 
-
                             <div class="row row-flex">
 
-                                <button type="button" class="btn"
+                                <button type="button" class="btn" onclick="location.href='#CompareTwoPositions';"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                        style="color:white; text-decoration:none;" href="#CompareTwoPositions">Compare Positions
+                                        style="color:white; text-decoration:none;">Compare Positions
                                     </a></button>
 
                             </div>
@@ -898,6 +897,13 @@
                                 style="background-color:brown; color:white;">
                                 Compare</button>
                         </div>
+
+                        <div class="col-sm">
+                            <button id="reset" type="button" class="btn" onclick="Reset()"
+                                style="background-color:black; color:white;">
+                                Reset</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -1158,6 +1164,40 @@
         }
 
 
+        function Reset(){
+
+            //window.location.reload();
+
+            //console.log("Rest button clicked ");
+
+             window.location.reload();
+            // console.log("After 0 seconds... ");
+
+            //document.getElementById("CompareTwoPositions").scrollIntoView({behavior: 'smooth'});
+            
+
+            
+
+            setTimeout(function(){
+
+                document.getElementById("CompareTwoPositions").scrollIntoView({behavior: 'smooth'});
+                console.log("After 3 seconds... ");
+
+             }, 3000);
+
+             
+
+
+
+
+            //document.getElementById("FullComparingPositions").innerHTML = ``;
+            //document.getElementById("Starting_Position").innerHTML = `Select starting Position`;
+            //document.getElementById("Desired_Position").innerHTML = `Select desired Position`;
+           // retrive_Starting_Positions();
+
+
+
+        }
     </script>
 
 
