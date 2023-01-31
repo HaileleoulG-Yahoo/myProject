@@ -131,41 +131,7 @@ function downloadResource(documentTitle) {
 
     
 
-    $.ajax({
-        url: oDataUrlResourceDownloadTracker,
-        type: "GET",
-        dataType: "json",
-        headers: {
-            "accept": "application/json;odata=verbose"
-        }
-    }).done(function (data) {
 
-        var items = data.d.results;
-        var counter = items.length;
-
-        // console.log("Doucment Title : ",documentTitle);
-        // console.log("Page Title : ",_pageTitle);
-        console.log("counter : ",counter);
-
-        if (counter == 0) {
-
-            // duplicate item NOT found, new item TO BE CREATED
-            //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
-            createItemResourceDownloadTracker(documentTitle, _FullName, _pageTitle);
-
-        } else {
-
-            // duplicate item found, creating new item skipped
-            //console.log("Duplicate items found");
-        }
-
-    },
-        function (error) {
-
-            //console.error('Ooops error occured during ajax call - Outer', error);
-
-        }
-    );
 
 
 };

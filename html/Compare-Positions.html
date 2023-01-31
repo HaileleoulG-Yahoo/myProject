@@ -670,42 +670,53 @@
 
 
 
-        div.center-item>img{
-	        width:68%;
+        div.center-item>img {
+            width: 68%;
         }
 
 
         @media all and (max-width: 1500px) {
 
-            div.center-item>img{
-	        width:85%;
+            div.center-item>img {
+                width: 85%;
+            }
+
         }
 
-        }  
-        
-        #alertMessage{
-            display:none;
+        #alertMessage,
+        #spinner {
+            display: none;
         }
 
         /* Style for Compare button */
 
-        #compare, #reset{
-            width:12rem;
+        #compare,
+        #reset {
+            width: 12rem;
         }
 
-        #compare:hover, #reset:hover{
+        #compare:hover,
+        #reset:hover {
             background-color: #62B5E5;
-            font-weight:bold;
-          
+            font-weight: bold;
+
+        }
+
+        #Plus{
+            display:none;
         }
 
 
 
         /* END */
 
-        *{
-  scroll-behavior: smooth;
-}
+        * {
+            scroll-behavior: smooth;
+        }
+
+        #career_map_overview_title:hover{
+            cursor:hand;
+        }
     </style>
 
 </head>
@@ -740,11 +751,11 @@
                         <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
                                 href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ProfessionalGrowth.aspx">Professional
                                 Growth</a></li>
-                                <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
-                                    href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx">House
-                                    Career
-                                    Paths</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Compare Positions</li>
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx">House
+                                Career
+                                Paths</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Compare Positions</li>
                     </ol>
                 </nav>
             </div>
@@ -816,15 +827,16 @@
 
                             <div class="row row-flex">
 
-                                <button type="button" class="btn" onclick="location.href='https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#OverallCareerMap';"
-                                style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
-                                    style="color:white; text-decoration:none;">View Overall Career Map
-                                </a></button>
-                                
-                            </div>
-                            
+                                <button type="button" class="btn"
+                                    onclick="location.href='https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#OverallCareerMap';"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;">Career Path Home
+                                    </a></button>
 
-                            <div class="row row-flex">                                
+                            </div>
+
+
+                            <div class="row row-flex">
 
                                 <button type="button" class="btn" onclick="location.href='#CareerPathTracks';"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
@@ -862,7 +874,7 @@
     <!-- Compare two positions -->
     <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0;" id="CompareTwoPositions">
 
-        <p 
+        <p
             style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
             Compare Positions</p>
         <p
@@ -878,7 +890,8 @@
                         <div class="col-sm">
 
                             <select id="Starting_Position" name="Starting_Position" class="form-control form-select"
-                                style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;" onchange="change_Starting_Position()">
+                                style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;"
+                                onchange="change_Starting_Position()">
                                 <option value="0">
                                     Select starting position</option>
                             </select>
@@ -890,6 +903,9 @@
                                 style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;">
                                 <option value="0">Select desired position</option>
                             </select>
+                            <div id="alertMessage" style="text-align:left; color:red;font-size:1rem;">
+                                Select desired position
+                            </div>
 
                         </div>
                         <div class="col-sm">
@@ -910,27 +926,59 @@
         </div>
 
 
+        <!-- Spinner -->
+        <div id="spinner" class="row" style="min-height:15rem; padding-top:2rem;">
 
-        <!-- div to display the image -->
-        <div id="FullComparingPositions" class="row" style="min-height:15rem; padding-top:2rem;">
-
-            <!-- Spinner -->
-
-            <!-- <div class="text-center" id="spinner" style="padding-top:5rem;">
+            <div class="text-center" style="padding-top:5rem;">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
-            </div> -->
-
-
-            <div id="InProgress">                
             </div>
 
-            <div class="alert alert-info" id="alertMessage">
+        </div>
+
+
+        <!-- div to display the image -->
+        <div id="FullComparingPositions" class="row" style="min-height:3rem; padding-top:2rem;">
+
+            <div id="InProgress">
+            </div>
+
+            <!-- <div class="alert alert-info" id="alertMessage">
                 You must select desired position
-              </div>
+            </div> -->
 
         </div>
+
+    </div>
+
+
+
+
+    <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0; display: inline-block">
+
+        <div style="text-align:left; padding:2rem 0rem;">
+
+            <p id="Plus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Plus_Transparent.png" width="3%;" alt="Minus"></p>
+            <p id="Minus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Minus_Transparent.png" width="3%;" alt="Minus"></p>
+             
+            </div>
+
+        <div id="career_path_map" class="row">
+
+            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Career%20Paths/House%20HR%20Hub%20Career%20Paths.pdf" target="blank">
+
+            <div class="center-item">
+
+                <img class="zoom-career-map" style="background-color:white;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Career-Paths-Map.png"
+                    alt="">                
+
+            </div>
+
+        </a>
+
+        </div>
+
     </div>
 
 
@@ -941,8 +989,7 @@
         <p
             style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
             Explore the various Career Paths at the U.S. House of Representatives</p>
-        <p
-            style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left;">
+        <p style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left;">
             Click on one of the four paths below to get started.</p>
 
         <div class="row">
@@ -1048,6 +1095,7 @@
 
         function ComparePositions() {
 
+
             //document.getElementById("spinner").style.display = "block";
 
             setTimeout(() => {
@@ -1055,42 +1103,50 @@
                 //Remove spinner after delay
                 //document.getElementById("spinner").style.display = "none";
 
-            var StartingPositionValue = $("#Starting_Position option:selected").text();
-            var DesiredPositionValue = $("#Desired_Position option:selected").text();            
-
-            if (DesiredPositionValue =="Select desired position"){
-
-                //document.getElementById("alertMessage").style.display = "block";
-
-            }
+                document.getElementById("alertMessage").style.display = "none";
 
 
-            oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
+                var StartingPositionValue = $("#Starting_Position option:selected").text();
+                var DesiredPositionValue = $("#Desired_Position option:selected").text();
 
-            $.ajax({
+                if (DesiredPositionValue == "Select desired position") {
 
-                url: oDataCompareTwoPositions,
-                method: "GET",
-                headers: { "Accept": "application/json; odata=verbose" },
-                success: function (data) {
-                    //console.log("Sucess : Retured results :",results);
-                    var items = data.d.results;
-                    var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
-                    var htmlFullComparingPositions = `  <div class="center-item">    
-                            <img src="${URL_Full_Comparing_Positions_Value}" alt="">
+                    document.getElementById("alertMessage").style.display = "block";
 
-                        </div>
-                    `;
-                    //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
-                    document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
-                },
-                error: function (data) {
-                    console.log("Error : Ajax failed ");
-                    alert("Error: " + data);
+                } else {
+
+                    oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
+
+                    $.ajax({
+
+                        url: oDataCompareTwoPositions,
+                        method: "GET",
+                        headers: { "Accept": "application/json; odata=verbose" },
+                        success: function (data) {
+                            //console.log("Sucess : Retured results :",results);
+                            var items = data.d.results;
+                            var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
+                            var htmlFullComparingPositions = `  <div class="center-item">    
+                                                                <img src="${URL_Full_Comparing_Positions_Value}" alt="">
+                                                                </div>
+                                                            `;
+
+                            //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
+
+                            document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
+
+                        },
+                        error: function (data) {
+                            console.log("Error : Ajax failed ");
+                            alert("Error: " + data);
+                        }
+                    });
+
                 }
-            });
 
-        }, 500); //set the delay to 3000 miliseconds
+
+
+            }, 1500); //set the delay to 3000 miliseconds
 
         }
 
@@ -1101,13 +1157,43 @@
             var CompareTwoPositions = $.grep(Compare_Two_Positions, function (element) {
                 return element.Starting_Position.Job_Title == Starting_Position_Text;
             })
+
             $('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
+
+
+            // for (var i = 0; i < CompareTwoPositions.length; i++) {
+            //     var item = CompareTwoPositions[i];
+
+            //     $("#Desired_Position").append("<option value='" + item.ID + "'>" + item.Desired_Position.Job_Title + "</option>");
+
+            // }
+
+
+            //Initialize array to capture and sort desired position on dropdown
+            let _Job_Title_Array = [];
+
             for (var i = 0; i < CompareTwoPositions.length; i++) {
                 var item = CompareTwoPositions[i];
+                _Job_Title_Array[i] = item.Desired_Position.Job_Title;
 
-                //$("#Desired_Position").append("<option value='" + item.ID + "' health-monitor='" + item.HealthMonitorId + "'>" + item.Title + "</option>");
-                $("#Desired_Position").append("<option value='" + item.ID + "'>" + item.Desired_Position.Job_Title + "</option>");
             }
+
+            //Sort desired position on dropdown
+            _Job_Title_Array = _Job_Title_Array.sort(); 
+            
+            //Remove duplicate element/s from array
+            var _unique_Job_Title_Array = _Job_Title_Array.filter(function(element, index) {
+                    return _Job_Title_Array.indexOf(element) === index;
+                });  
+
+            //console.log(_unique_Job_Title_Array);
+
+            //Populate desired position dropdown
+            for (var i = 0; i < _unique_Job_Title_Array.length; i++) {
+                $("#Desired_Position").append("<option value='" + item.ID + "'>" + _unique_Job_Title_Array[i] + "</option>");
+            }
+
+
         }
 
 
@@ -1116,7 +1202,7 @@
             // use internal name of each column as required
             $.ajax
                 ({
-                    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc",
+                    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc&$top=500",
                     //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Office Health Monitors')/items?$select=*,HealthMonitor/Id,HealthMonitor/Title&$expand=HealthMonitor",
                     type: "GET",
                     async: false,
@@ -1130,7 +1216,7 @@
                     },
                     cache: false,
                     success: function (data) {
-                        Compare_Two_Positions = data.d.results;
+                        Compare_Two_Positions = data.d.results;                        
                         for (var i = 0; i < data.d.results.length; i++) {
                             var item = data.d.results[i];
                             //  $("#Desired_Position").append("<option value='"+item.ID+"' health-monitor='"+item.HealthMonitorId+"'>"+item.Title+"</option>");  
@@ -1150,7 +1236,7 @@
                                 result.push(name);
                                 $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");
 
-                                //$("#Starting_Position").append("<option value='" + item.ID + "' health-monitor='" + item.HealthMonitorId + "'>" + item.BusinessUnit + "</option>");
+                                
                             }
                         }
                     },
@@ -1164,28 +1250,27 @@
         }
 
 
-        function Reset(){
+        function Reset() {
+
+
 
             //window.location.reload();
 
             //console.log("Rest button clicked ");
 
-             window.location.reload();
+            window.location.reload();
             // console.log("After 0 seconds... ");
 
             //document.getElementById("CompareTwoPositions").scrollIntoView({behavior: 'smooth'});
-            
 
-            
+            setTimeout(function () {
 
-            setTimeout(function(){
-
-                document.getElementById("CompareTwoPositions").scrollIntoView({behavior: 'smooth'});
+                document.getElementById("CompareTwoPositions").scrollIntoView({ behavior: 'smooth' });
                 console.log("After 3 seconds... ");
 
-             }, 3000);
+            }, 3000);
 
-             
+
 
 
 
@@ -1193,9 +1278,25 @@
             //document.getElementById("FullComparingPositions").innerHTML = ``;
             //document.getElementById("Starting_Position").innerHTML = `Select starting Position`;
             //document.getElementById("Desired_Position").innerHTML = `Select desired Position`;
-           // retrive_Starting_Positions();
+            // retrive_Starting_Positions();
 
 
+
+        }
+
+        function Toggle_Career_Path_Map(){
+
+            if(document.getElementById('career_path_map').style.display==="none"){
+
+                document.getElementById('career_path_map').style.display = "block";
+                document.getElementById('Minus').style.display = "block";
+                document.getElementById('Plus').style.display = "none";
+
+            }else{
+                document.getElementById('career_path_map').style.display = "none";
+                document.getElementById('Minus').style.display = "none";
+                document.getElementById('Plus').style.display = "block";
+            }
 
         }
     </script>

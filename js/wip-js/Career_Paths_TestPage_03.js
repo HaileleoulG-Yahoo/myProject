@@ -519,7 +519,7 @@ function career_path_modal(position_1, position_2) {
 
     var siteurl = _spPageContextInfo.webAbsoluteUrl;
 
-    oDataCareerPath = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + position_1 + "' and Desired_Position/Job_Title eq '" + position_2 + "'&$top=1";
+    oDataCareerPath = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + position_1 + "' and Desired_Position/Job_Title eq '" + position_2 + "'&$top=1";
 
 
     //console.log("oDataCareerPath:", oDataCareerPath);
@@ -553,6 +553,7 @@ function career_path_modal(position_1, position_2) {
 
                 var _URL_Featured_Skills = item.URL_Featured_Skills;
                 var _div_Id = item.div_Id;
+                var _URL_Connection_Document = item.URL_Connection_Document;
 
 
                 var htmlCareerPathModal = `<div class="modal fade" id="staticBackdrop${_Position_1}-to-${_Position_2}" data-bs-backdrop="static"
@@ -603,7 +604,7 @@ function career_path_modal(position_1, position_2) {
                     <div class="modal-footer" style="justify-content:center">
     
                         <button type="button" class="btn" style="background-color:brown; color:white; width:50%;"><a
-                                style="color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;" href="#">Find
+                                style="color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;" href="${_URL_Connection_Document}">Find
                                 Out
                                 More</a></button>
     
@@ -612,7 +613,9 @@ function career_path_modal(position_1, position_2) {
             </div>
         </div>`;
 
-                // insert 'htmlCareerPathModal' to respective element id
+
+                //console.log("_div_Id : ",_div_Id);
+
                 document.getElementById(_div_Id).innerHTML = htmlCareerPathModal;
                 
 

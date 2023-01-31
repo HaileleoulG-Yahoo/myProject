@@ -340,6 +340,12 @@
 			img.addClass('maphilighted');
 		});
 	};
+
+	var path = window.location.pathname;
+	//console.log("path: ",path);
+
+if(path.includes("Home")){
+
 	$.fn.maphilight.defaults = {
 		fill: true,
 		fillColor: 'FFFFFF',
@@ -363,4 +369,108 @@
 		shadowPosition: 'outside',
 		shadowFrom: false
 	};
+
+}else if(path.includes("TestPage_02") || path.includes("TestPage_07") || path.includes("Administrative")){
+	
+		$.fn.maphilight.defaults = {
+            fill: false,
+            fillColor: '005b8f',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: 'E87722',
+            strokeOpacity: 1,
+            //   strokeWidth: 10,
+            strokeWidth: 3,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.8,
+            shadowPosition: 'inside',
+            shadowFrom: false,
+        }
+	}else if(path.includes("TestPage_03") || path.includes("TestPage_08") || path.includes("Communications")){
+	
+        $.fn.maphilight.defaults = {
+            fill: false,
+            fillColor: '005b8f',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: 'F0B323',
+            strokeOpacity: 1,
+            //   strokeWidth: 10,
+            strokeWidth: 3,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.8,
+            shadowPosition: 'inside',
+            shadowFrom: false,
+        }
+	} else if (path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")){
+
+		$.fn.maphilight.defaults = {
+            fill: false,
+            fillColor: '005b8f',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: '005B8F',
+            strokeOpacity: 1,
+            //   strokeWidth: 10,
+            strokeWidth: 3,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.8,
+            shadowPosition: 'inside',
+            shadowFrom: false,
+        }
+	} else if(path.includes("TestPage_05") || path.includes("TestPage_10") || path.includes("Legislative")){
+
+		$.fn.maphilight.defaults = {
+            fill: false,
+            fillColor: '005b8f',
+            fillOpacity: 0.2,
+            stroke: true,
+            strokeColor: '5C868D',
+            strokeOpacity: 1,
+            //   strokeWidth: 10,
+            strokeWidth: 3,
+            fade: true,
+            alwaysOn: false,
+            neverOn: false,
+            groupBy: false,
+            wrapClass: true,
+            shadow: false,
+            shadowX: 0,
+            shadowY: 0,
+            shadowRadius: 6,
+            shadowColor: '000000',
+            shadowOpacity: 0.8,
+            shadowPosition: 'inside',
+            shadowFrom: false,
+        }
+	}
+
+
 });
