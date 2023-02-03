@@ -878,9 +878,9 @@
             style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
             Compare Positions</p>
         <p
-            style="font-family:Arial, Helvetica, sans-serif; font-size:18px; color:black; text-align:left; margin-bottom:2rem;">
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left; margin-bottom:2rem;">
             Select two
-            different positions in the following drop-down menus to see a skill comparison, and click on Compare button.
+            different positions in the following drop-down menus to see a skill comparison, and click on the <em>Compare</em> button.
         </p>
 
         <div class="container" style="padding-bottom:1rem;">
@@ -941,8 +941,8 @@
         <!-- div to display the image -->
         <div id="FullComparingPositions" class="row" style="min-height:3rem; padding-top:2rem;">
 
-            <div id="InProgress">
-            </div>
+            <!-- <div id="InProgress">
+            </div> -->
 
             <!-- <div class="alert alert-info" id="alertMessage">
                 You must select desired position
@@ -954,14 +954,16 @@
 
 
 
-    <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0;">
 
-        <div style="padding:2rem 0rem; ">
+    <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0; display: inline-block">
 
+        <div style="text-align:left; padding-top:2rem; padding-bottom:0rem;">
             <p id="Plus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Plus_Transparent.png" width="3%;" alt="Minus"></p>
-            <p id="Minus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Minus_Transparent.png" width="3%;" alt="Minus"></p>
-             
-            </div>
+            <p id="Minus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Minus_Transparent.png" width="3%;" alt="Minus"></p>             
+        </div>
+        <div style="padding-bottom:1rem; ">
+            <p style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left;">Refer to the career map overview below to see the typical Member office career paths. You can click on the image to view, save, or print. Use the fields in the drop downs above to compare positions. </p>
+        </div>
 
         <div id="career_path_map" class="row">
 
@@ -1083,7 +1085,6 @@
         var Compare_Two_Positions = "";
 
 
-
         $(document).ready(function () {
 
             retrive_Starting_Positions();
@@ -1099,11 +1100,7 @@
 
             setTimeout(() => {
 
-                //Remove spinner after delay
-                //document.getElementById("spinner").style.display = "none";
-
                 document.getElementById("alertMessage").style.display = "none";
-
 
                 var StartingPositionValue = $("#Starting_Position option:selected").text();
                 var DesiredPositionValue = $("#Desired_Position option:selected").text();
@@ -1126,12 +1123,14 @@
                             var items = data.d.results;
                             var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
                             var htmlFullComparingPositions = `  <div class="center-item">    
-                                                                <img src="${URL_Full_Comparing_Positions_Value}" alt="">
+                                                                    <img src="${URL_Full_Comparing_Positions_Value}" alt="">                                                                
                                                                 </div>
+                                                                <div style = "margin-top: 3rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;">
+                                                                    <p style="color:black; font-style:italic; font-size:1.25rem;">Note: Specialized Skills are focused on the unique job-specific skills that are most important for the respective positions.</p>
+                                                                </div>
+
                                                             `;
-
                             //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
-
                             document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
 
                         },
@@ -1140,11 +1139,7 @@
                             alert("Error: " + data);
                         }
                     });
-
                 }
-
-
-
             }, 1500); //set the delay to 3000 miliseconds
 
         }
@@ -1158,14 +1153,6 @@
             })
 
             $('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
-
-
-            // for (var i = 0; i < CompareTwoPositions.length; i++) {
-            //     var item = CompareTwoPositions[i];
-
-            //     $("#Desired_Position").append("<option value='" + item.ID + "'>" + item.Desired_Position.Job_Title + "</option>");
-
-            // }
 
 
             //Initialize array to capture and sort desired position on dropdown
@@ -1202,7 +1189,6 @@
             $.ajax
                 ({
                     url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc&$top=500",
-                    //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Office Health Monitors')/items?$select=*,HealthMonitor/Id,HealthMonitor/Title&$expand=HealthMonitor",
                     type: "GET",
                     async: false,
                     headers:
@@ -1225,17 +1211,13 @@
                         var items = data.d.results;
                         var result = [];
 
-
-
                         for (var item, i = 0; item = items[i++];) {
                             var name = item.Starting_Position.Job_Title;
 
                             if (!(name in lookup)) {
                                 lookup[name] = 1;
                                 result.push(name);
-                                $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");
-
-                                
+                                $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");                                
                             }
                         }
                     },
@@ -1251,16 +1233,7 @@
 
         function Reset() {
 
-
-
-            //window.location.reload();
-
-            //console.log("Rest button clicked ");
-
             window.location.reload();
-            // console.log("After 0 seconds... ");
-
-            //document.getElementById("CompareTwoPositions").scrollIntoView({behavior: 'smooth'});
 
             setTimeout(function () {
 
@@ -1268,18 +1241,6 @@
                 console.log("After 3 seconds... ");
 
             }, 3000);
-
-
-
-
-
-
-            //document.getElementById("FullComparingPositions").innerHTML = ``;
-            //document.getElementById("Starting_Position").innerHTML = `Select starting Position`;
-            //document.getElementById("Desired_Position").innerHTML = `Select desired Position`;
-            // retrive_Starting_Positions();
-
-
 
         }
 
@@ -1323,9 +1284,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <!-- HouseHrHub - WIP - JS    -->
-    <script
-        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/wip-js/HouseHrHub-wip.js"></script>
+    <!-- HouseHrHub JS    -->
+    <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
 
 
     <!-- HouseHrHubVisitors JS    -->
@@ -1336,6 +1296,7 @@
     <!-- DownloadResource JS    -->
     <script
         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script>
+
 
 
 </body>

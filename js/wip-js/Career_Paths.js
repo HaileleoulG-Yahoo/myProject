@@ -3,895 +3,612 @@
 // jquery ready start
 $(document).ready(function () {
 
-
-    // To load the POSITION modals upon page opening - START
-    
-        var siteurl = _spPageContextInfo.webAbsoluteUrl;
-        oDataCareerPathPosition = siteurl + "/_api/web/lists/getbytitle('Career-Path-Position')/items?$select=Job_Title";
-        //console.log("oDataCareerPathPosition : ", oDataCareerPathPosition);
-    
-        $.ajax({
-    
-            url: oDataCareerPathPosition,
-            method: "GET",
-            headers: { "Accept": "application/json; odata=verbose" },
-    
-            success: function (data) {
-    
-                var items = data.d.results;
-    
-                items.forEach(function (item, index) {
-    
-                    var Job_Title = item.Job_Title;
-                    //console.log("Job_Title : ",Job_Title);
-    
-                    position_modal(Job_Title);
-    
-                });
-    
-            },
-            error: function (data) {
-                alert("Error: " + data);
-            }
-        });
-    
-    // To load the POSITION modals upon page opening - END   
-    
-    
-    
-    
-    // To load the CONNECTION modals upon page opening - START
-    
     var siteurl = _spPageContextInfo.webAbsoluteUrl;
+    oDataCareerPathPosition = siteurl + "/_api/web/lists/getbytitle('Career-Path-Position')/items?$select=Job_Title,Similar_Job_Titles,Job_Summary,Top_Skill_1/Skill_Name,Top_Skill_1_Rating,Top_Skill_2/Skill_Name,Top_Skill_2_Rating,Top_Skill_3/Skill_Name,Top_Skill_3_Rating,Top_Skill_4/Skill_Name,Top_Skill_4_Rating,Top_Skill_5/Skill_Name,Top_Skill_5_Rating,URL_PositionDescription,Top_Skill_2_Definition,Top_Skill_1_Definition,Top_Skill_3_Definition,Top_Skill_4_Definition,Top_Skill_5_Definition,Position_Div_ID&$expand=Top_Skill_1&$expand=Top_Skill_2&$expand=Top_Skill_3&$expand=Top_Skill_4&$expand=Top_Skill_5";
 
-    oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track ne null";
-    
-    //console.log("oDataCareerPathPosition : ", oDataCareerPathConnection);
-    
+    //console.log(": ", oDataCareerPathPosition);
+
     $.ajax({
-    
-        url: oDataCareerPathConnection,
+
+        url: oDataCareerPathPosition,
         method: "GET",
         headers: { "Accept": "application/json; odata=verbose" },
-    
+
         success: function (data) {
-    
+
             var items = data.d.results;
-    
-    
+
             items.forEach(function (item, index) {
-    
-                var _Starting_Position = item.Starting_Position.Job_Title;
-                var _Desired_Position = item.Desired_Position.Job_Title;
-                var _Track = item.Track;
-                // console.log("_Starting_Position : ",_Starting_Position);
-                // console.log("_Desired_Position : ",_Desired_Position);
 
-                  
-                //Confirm the connection is not bi-directional
-                if(!(_Starting_Position =='Caseworker' && _Desired_Position == 'Field Representative')){
+                //Cleaning Position Name - START
+                var _position = item.Job_Title;;
 
-                    career_path_modal(_Starting_Position, _Desired_Position,"_Track");                    
-               
-                }    
-    
+                // Count number of times space character in '_position';
+                var CountCharacter = (_position.split(" ").length - 1);
+
+                // Remove space character/s from '_position' to be used as part of modal ID ;                
+                for (i = 0; i < CountCharacter; i++) {
+                    var _position = _position.replace(" ", "");
+                }
+
+                // Count number of times '/' charcter in '_position';
+                var CountCharacter = (_position.split("/").length - 1);
+
+                // Remove '/' character/s from '_position' to be used as part of modal ID ;                
+                for (i = 0; i < CountCharacter; i++) {
+                    var _position = _position.replace("/", "");
+                }
+
+                //console.log("Position AFTER FOR LOOP", position);
+                //Cleaning Position Name - END
+
+                var _Job_Title = item.Job_Title;
+                var _Similar_Job_Titles = item.Similar_Job_Titles;
+                var _Job_Summary = item.Job_Summary;
+                var _URL_PositionDescription = item.URL_PositionDescription;
+                var _Position_Div_ID = item.Position_Div_ID;
+
+                var _Top_Skill_1 = item.Top_Skill_1.Skill_Name;
+                var _Top_Skill_1_Rating = item.Top_Skill_1_Rating;
+                var _Top_Skill_1_Definition = item.Top_Skill_1_Definition;
+
+                var _Top_Skill_2 = item.Top_Skill_2.Skill_Name;
+                var _Top_Skill_2_Rating = item.Top_Skill_2_Rating;
+                var _Top_Skill_2_Definition = item.Top_Skill_2_Definition;
+
+                var _Top_Skill_3 = item.Top_Skill_3.Skill_Name;
+                var _Top_Skill_3_Rating = item.Top_Skill_3_Rating;
+                var _Top_Skill_3_Definition = item.Top_Skill_3_Definition;
+
+                var _Top_Skill_4 = item.Top_Skill_4.Skill_Name;
+                var _Top_Skill_4_Rating = item.Top_Skill_4_Rating;
+                var _Top_Skill_4_Definition = item.Top_Skill_4_Definition;
+
+                var _Top_Skill_5 = item.Top_Skill_5.Skill_Name;
+                var _Top_Skill_5_Rating = item.Top_Skill_5_Rating;
+                var _Top_Skill_5_Definition = item.Top_Skill_5_Definition;
+
+
+
+                var htmlPositionmodal = `<div class="modal fade" id="${_position}ModalNew" tabindex="-1" aria-labelledby="${_position}ModalLabel" aria-hidden="true"
+                data-bs-backdrop="static">
+                <div class="modal-dialog modal-lg">
+        
+                    <div class="modal-content">
+        
+                        <div id="${_position}-header">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="${_position}ModalLabel" style="margin-left:2.2rem; color:black;">${_Job_Title}
+                                </h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+        
+                        <div id="${_position}-modal-body">
+                            <div class="modal-body">
+                                <div style="text-align:left; width:90%;  margin-left:auto; margin-right:auto;">    
+                                    <p style="color:black; font-size:1.25em;"><b>Similar Job Title(s):</b> ${_Similar_Job_Titles}</p>
+                                    <p style="color:black; font-size:1.1em; text-align:justify;"><b>Job Summary:</b> ${_Job_Summary}</p>
+                                    <p style="color:black; font-size:1.25em;"><b>Featured Skills:</b></p>
+                                    <p style="color:black; font-size:1.1em;">These are the anticipated featured skills and skill
+                                        levels for this position.</p>    
+                                </div>    
+                            </div>
+                        </div>
+        
+                        <div id="${_position}-featured-skills">
+                            <div class="featured-skills">
+                                <div class="accordion" id="accordion${_position}FeaturedSkills">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-${_position}FeaturedSkillsOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseOne-${_position}" aria-expanded="false"
+                                                aria-controls="panelsStayOpen-collapseOne-${_position}">
+                                                <div class="row" style="width:110%;">
+                                                    <div class="col">
+                                                        <b>${_Top_Skill_1}:</b>
+                                                    </div>
+                                                    <div class="col" style="text-align:right;">`;
+
+
+                for (let i = 0; i < _Top_Skill_1_Rating; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
+                }
+
+
+                var Skill_Rating_Gap = 5 - _Top_Skill_1_Rating;
+
+
+                for (let i = 0; i < Skill_Rating_Gap; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
+                }
+
+
+                htmlPositionmodal = htmlPositionmodal +
+
+                    `                                                                
+                                                  </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseOne-${_position}" class="accordion-collapse collapse"
+                                            aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsOne">
+                                            <div class="accordion-body">
+                                                <p style="color:black;">${_Top_Skill_1_Definition}</P>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-${_position}FeaturedSkillsTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseTwo-${_position}" aria-expanded="false"
+                                                aria-controls="panelsStayOpen-collapseTwo-${_position}">
+                                                <div class="row" style="width:110%;">
+                                                    <div class="col">
+                                                        <b>${_Top_Skill_2}:</b>
+                                                    </div>
+                                                    <div class="col" style="text-align:right;">`;
+
+
+                for (let i = 0; i < _Top_Skill_2_Rating; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
+                }
+
+
+                var Skill_Rating_Gap = 5 - _Top_Skill_2_Rating;
+
+
+                for (let i = 0; i < Skill_Rating_Gap; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
+                }
+
+
+                htmlPositionmodal = htmlPositionmodal +
+                    `                                                                
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseTwo-${_position}" class="accordion-collapse collapse"
+                                            aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsTwo">
+                                            <div class="accordion-body">
+                                                <p style="color:black;">${_Top_Skill_2_Definition}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-${_position}FeaturedSkillsThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseThree-${_position}" aria-expanded="false"
+                                                aria-controls="panelsStayOpen-collapseThree-${_position}">
+                                                <div class="row" style="width:110%;">
+                                                    <div class="col">
+                                                        <b>${_Top_Skill_3}:</b>
+                                                    </div>
+                                                    <div class="col" style="text-align:right;">`;
+
+
+                for (let i = 0; i < _Top_Skill_3_Rating; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
+                }
+
+
+                var Skill_Rating_Gap = 5 - _Top_Skill_3_Rating;
+
+
+                for (let i = 0; i < Skill_Rating_Gap; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
+                }
+
+
+
+
+                htmlPositionmodal = htmlPositionmodal +
+                    `
+                                                                
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseThree-${_position}" class="accordion-collapse collapse"
+                                            aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsThree">
+                                            <div class="accordion-body">
+                                                <p style="color:black;">${_Top_Skill_3_Definition}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-${_position}FeaturedSkillsFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseFour-${_position}" aria-expanded="false"
+                                                aria-controls="panelsStayOpen-collapseFour-${_position}">
+                                                <div class="row" style="width:110%;">
+                                                    <div class="col">
+                                                        <b>${_Top_Skill_4}:</b>
+                                                    </div>
+                                                    <div class="col" style="text-align:right;">`;
+
+                for (let i = 0; i < _Top_Skill_4_Rating; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
+                }
+
+
+                var Skill_Rating_Gap = 5 - _Top_Skill_4_Rating;
+
+
+                for (let i = 0; i < Skill_Rating_Gap; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
+                }
+
+
+
+
+                htmlPositionmodal = htmlPositionmodal +
+                    `
+                                                                
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseFour-${_position}" class="accordion-collapse collapse"
+                                            aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsFour">
+                                            <div class="accordion-body">
+                                                <p style="color:black;">${_Top_Skill_4_Definition}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-${_position}FeaturedSkillsFive">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseFive-${_position}" aria-expanded="false"
+                                                aria-controls="panelsStayOpen-collapseFive-${_position}">
+                                                <div class="row" style="width:110%;">
+                                                    <div class="col">
+                                                        <b>${_Top_Skill_5}</b>
+                                                    </div>
+            
+                                                    <div class="col" style="text-align:right;">`;
+
+                for (let i = 0; i < _Top_Skill_5_Rating; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
+                }
+
+
+                var Skill_Rating_Gap = 5 - _Top_Skill_5_Rating;
+
+
+                for (let i = 0; i < Skill_Rating_Gap; i++) {
+
+                    htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                                                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
+                }
+
+
+
+
+                htmlPositionmodal = htmlPositionmodal +
+                    `
+                                                                
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseFive-${_position}" class="accordion-collapse collapse"
+                                            aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsFive">
+                                            <div class="accordion-body">
+                                                <p style="color:black;">"${_Top_Skill_5_Definition}</p>
+                                            </div>
+                                        </div>
+                                    </div>            
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div id="${_position}-modal-footer">
+                            <div class="modal-footer">
+                                <a href="${_URL_PositionDescription}"
+                                    onclick="downloadResource('${_Job_Title} - Position Description');"><button type="button" class="btn"
+                                        style="background-color:brown; color:white; width:100%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
+                                        Sample Position Description </button>
+                                </a>    
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+                </div>`;
+
+
+                // insert 'htmlPositionmodal' to respective element id
+                document.getElementById(_Position_Div_ID).innerHTML = htmlPositionmodal;
+
+
             });
-    
+
         },
         error: function (data) {
             alert("Error: " + data);
         }
-
     });
 
 
-    
-    // To load the CONNECTION modals upon page opening - END 
+    var path = window.location.pathname;
+    var siteurl = _spPageContextInfo.webAbsoluteUrl;
 
-
-    // To load the only existing bi-directional CONNECTION  - START
-    
-    career_path_modal_bidirectional('Caseworker', 'Field Representative', 'District');
-    
-    // To load the only existing bi-directional CONNECTION  - END
-    
-    
-    }); // jquery end
-    
-    
-    
-    
-    function position_modal(position) {
-    
-        //console.log("Position : ",position);
-        //downloadResource(position);
-    
-        var siteurl = _spPageContextInfo.webAbsoluteUrl;
-    
-        oDataCareerPathPosition = siteurl + "/_api/web/lists/getbytitle('Career-Path-Position')/items?$select=Job_Title,Similar_Job_Titles,Job_Summary,Top_Skill_1/Skill_Name,Top_Skill_1_Rating,Top_Skill_2/Skill_Name,Top_Skill_2_Rating,Top_Skill_3/Skill_Name,Top_Skill_3_Rating,Top_Skill_4/Skill_Name,Top_Skill_4_Rating,Top_Skill_5/Skill_Name,Top_Skill_5_Rating,URL_PositionDescription,Top_Skill_2_Definition,Top_Skill_1_Definition,Top_Skill_3_Definition,Top_Skill_4_Definition,Top_Skill_5_Definition,Position_Div_ID&$expand=Top_Skill_1&$expand=Top_Skill_2&$expand=Top_Skill_3&$expand=Top_Skill_4&$expand=Top_Skill_5&$filter=Job_Title eq '" + position + "'&$top=1";
-    
-        //console.log("oDataCareerPathPosition : ", oDataCareerPathPosition);
-    
-    
-        var _position = position;
-    
-        // Count number of times space character in '_position';
-        var CountCharacter = (_position.split(" ").length - 1);
-    
-        // Remove space character/s from '_position' to be used as part of modal ID ;                
-        for (i = 0; i < CountCharacter; i++) {
-            var _position = _position.replace(" ", "");
-        }
-    
-        // Count number of times '/' charcter in '_position';
-        var CountCharacter = (_position.split("/").length - 1);
-    
-        // Remove '/' character/s from '_position' to be used as part of modal ID ;                
-        for (i = 0; i < CountCharacter; i++) {
-            var _position = _position.replace("/", "");
-        }
-    
-        //console.log("Position AFTER FOR LOOP", position);
-    
-    
-    
-        $.ajax({
-    
-            url: oDataCareerPathPosition,
-            method: "GET",
-            headers: { "Accept": "application/json; odata=verbose" },
-    
-            success: function (data) {
-    
-                var items = data.d.results;
-    
-                items.forEach(function (item, index) {
-    
-    
-                    var _Job_Title = item.Job_Title;
-                    var _Similar_Job_Titles = item.Similar_Job_Titles;
-                    var _Job_Summary = item.Job_Summary;
-                    var _URL_PositionDescription = item.URL_PositionDescription;
-                    var _Position_Div_ID = item.Position_Div_ID;
-    
-                    var _Top_Skill_1 = item.Top_Skill_1.Skill_Name;
-                    var _Top_Skill_1_Rating = item.Top_Skill_1_Rating;
-                    var _Top_Skill_1_Definition = item.Top_Skill_1_Definition;
-    
-                    var _Top_Skill_2 = item.Top_Skill_2.Skill_Name;
-                    var _Top_Skill_2_Rating = item.Top_Skill_2_Rating;
-                    var _Top_Skill_2_Definition = item.Top_Skill_2_Definition;
-    
-                    var _Top_Skill_3 = item.Top_Skill_3.Skill_Name;
-                    var _Top_Skill_3_Rating = item.Top_Skill_3_Rating;
-                    var _Top_Skill_3_Definition = item.Top_Skill_3_Definition;
-    
-                    var _Top_Skill_4 = item.Top_Skill_4.Skill_Name;
-                    var _Top_Skill_4_Rating = item.Top_Skill_4_Rating;
-                    var _Top_Skill_4_Definition = item.Top_Skill_4_Definition;
-    
-                    var _Top_Skill_5 = item.Top_Skill_5.Skill_Name;
-                    var _Top_Skill_5_Rating = item.Top_Skill_5_Rating;
-                    var _Top_Skill_5_Definition = item.Top_Skill_5_Definition;
-                
-    
-    
-                    htmlPositionmodal = `
-                <div class="modal fade" id="staticBackdrop${_position}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                          <div class="modal-content">
-                              <div class="modal-header" style="margin-left: 5%; margin-right: 0%;">
-                                  <h5 class="modal-title" id="staticBackdropLabel" style="margin-left:0px; font-size:1.5rem;">
-                                  ${_Job_Title} </h5>
-                                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-top: .25rem;"></button>
-                              </div>
-                              <div class="modal-body" style="margin-left: 5%; margin-right: 5%;">
-    
-    
-              
-                                  <p style="text-align:left; color:black; font-family:Arial, Helvetica, sans-serif; "><b style="font-weight:bold;">Similar Job Title(s)</b>: ${_Similar_Job_Titles} </p>
-                                  <p style="text-align:justify; color:black; font-family:Arial, Helvetica, sans-serif; font-size:1em; line-height:1.5em; "><b style="font-weight:bold;">Job Summary</b>: ${_Job_Summary} </p>          
-                                  
-                                  <p
-                                      style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; margin-bottom:0px;">
-                                      Featured Skills: </p>
-
-                                    <p style="font-weight: normal; font-size:1rem; color:black;">These are the anticipated featured skills and skill levels for this position.</p>
-    
-    
-              
-                                  <div class="container position-container"> 
-      
-                                  <div class="accordion" id="accordionFeaturedSkills">
-    
-    
-                                  <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="display: block;">
-    
-                                      <div class="row">
-    
-                                      <div class="col" style="font-weight:bold;">
-    
-                                      ${_Top_Skill_1}: 
-                            
-                                      </div>
-    
-                                      <div class="col" style="text-align:right;">`;
-    
-    
-    
-                    for (let i = 0; i < _Top_Skill_1_Rating; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-                    }
-    
-    
-                    var Skill_Rating_Gap = 5 - _Top_Skill_1_Rating;
-    
-    
-                    for (let i = 0; i < Skill_Rating_Gap; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-                    }
-    
-    
-                    htmlPositionmodal = htmlPositionmodal + `                                    
-    
-                                      </div>
-                                  
-                                  </div> 
-    
-                                      </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" >
-                                      <div class="accordion-body">
-    
-                                      ${_Top_Skill_1_Definition} 
-    
-                                      </div>
-                                    </div>
-                                  </div>
-    
-    
-    
-    
-    
-                                  <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="display: block;">
-    
-                                      <div class="row">
-    
-                                      <div class="col" style="font-weight:bold;">
-    
-                                        ${_Top_Skill_2}:
-                            
-                                      </div>
-    
-                                      <div class="col" style="text-align:right;">`;
-    
-    
-    
-                    for (let i = 0; i < _Top_Skill_2_Rating; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-                    }
-    
-    
-                    var Skill_Rating_Gap = 5 - _Top_Skill_2_Rating;
-    
-    
-                    for (let i = 0; i < Skill_Rating_Gap; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-                    }
-    
-    
-                    htmlPositionmodal = htmlPositionmodal + ` 
-    
-                                      </div>
-                                  
-                                  </div> 
-    
-                                      </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
-                                      <div class="accordion-body">
-    
-                                      ${_Top_Skill_2_Definition} 
-    
-                                      </div>
-                                    </div>
-                                  </div>
-    
-    
-    
-    
-                                  <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="display: block;">
-    
-                                      <div class="row">
-    
-                                      <div class="col" style="font-weight:bold;">
-    
-                                      ${_Top_Skill_3}:
-                            
-                                      </div>
-    
-                                      <div class="col" style="text-align:right;">`;
-    
-    
-    
-                    for (let i = 0; i < _Top_Skill_3_Rating; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-                    }
-    
-    
-                    var Skill_Rating_Gap = 5 - _Top_Skill_3_Rating;
-    
-    
-                    for (let i = 0; i < Skill_Rating_Gap; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-                    }
-    
-    
-                    htmlPositionmodal = htmlPositionmodal + ` 
-    
-                                      </div>
-                                  
-                                  </div> 
-    
-                                      </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
-                                      <div class="accordion-body">
-    
-                                      ${_Top_Skill_3_Definition} 
-    
-                                      </div>
-                                    </div>
-                                  </div>
-    
-    
-    
-                                  <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFour">
-                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="display: block;">
-    
-                                      <div class="row">
-    
-                                      <div class="col" style="font-weight:bold;">
-    
-                                            ${_Top_Skill_4}:
-                            
-                                      </div>
-    
-                                      <div class="col" style="text-align:right;">`;
-    
-    
-    
-                    for (let i = 0; i < _Top_Skill_4_Rating; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-                    }
-    
-    
-                    var Skill_Rating_Gap = 5 - _Top_Skill_4_Rating;
-    
-    
-                    for (let i = 0; i < Skill_Rating_Gap; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-                    }
-    
-    
-                    htmlPositionmodal = htmlPositionmodal + ` 
-    
-                                      </div>
-                                  
-                                  </div> 
-                                        
-                                      </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" >
-                                      <div class="accordion-body">
-    
-                                      ${_Top_Skill_4_Definition} 
-    
-                                      </div>
-                                    </div>
-                                  </div>
-    
-    
-                                  <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFive">
-                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="display: block;">
-    
-                                      <div class="row">
-    
-                                      <div class="col" style="font-weight:bold;">
-    
-                                            ${_Top_Skill_5}:
-                            
-                                      </div>
-    
-                                      <div class="col" style="text-align:right;">`;
-    
-    
-                    for (let i = 0; i < _Top_Skill_5_Rating; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-                    }
-    
-    
-                    var Skill_Rating_Gap = 5 - _Top_Skill_5_Rating;
-    
-    
-                    for (let i = 0; i < Skill_Rating_Gap; i++) {
-    
-                        htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
-                                                                src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-                    }
-    
-    
-                    htmlPositionmodal = htmlPositionmodal + ` 
-    
-                                      </div>
-                                  
-                                  </div> 
-                                        
-                                      </button>
-                                    </h2>
-                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" >
-                                      <div class="accordion-body">
-    
-                                      ${_Top_Skill_5_Definition} 
-    
-                                      </div>
-                                    </div>
-                                  </div>
-    
-                                  
-    
-                                </div>
-    
-              
-                                  </div>
-              
-                              </div>
-                              <div class="modal-footer" style="justify-content:center">
-              
-
-                              <a  href="${_URL_PositionDescription}" onclick="downloadResource('${position} - Position Description');"><button type="button" class="btn" style="background-color:brown; color:white; width:100%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
-                              Sample Position Description </button>
-                              </a>
-              
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                `;
-    
-                // insert 'htmlPositionmodal' to respective element id
-                document.getElementById(_Position_Div_ID).innerHTML = htmlPositionmodal;
-    
-                });
-    
-            },
-            error: function (data) {
-                alert("Error: " + data);
-            }
-        });
-
-        // Collapse the accordion.
-        collapse_accordion();    
-    
+    if (path.includes("TestPage_02")|| path.includes("TestPage_07") || path.includes("Administrative")) {
+        oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'Administrative'";
+    } else if (path.includes("TestPage_03")||path.includes("TestPage_08") || path.includes("Communications")) {
+        oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'Communications'";
+    } else if (path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) {
+        oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,Reverse_URL_Featured_Skills,div_Id,URL_Connection_Document,Reverse_URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'District'";
+    } else if (path.includes("TestPage_05") || path.includes("TestPage_10") || path.includes("Legislative")) {
+        oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'Legislative'";
     }
-    
-    
-    
-    //To collapse the accordion
-    function collapse_accordion(){
-    
-        $(".btn-close").on('click', function () {
-            $('.collapse').collapse('hide')
-         });
-    }
-    
-    
-    
-    
-    function career_path_modal(position_1, position_2,Track) {
-    
-        //console.log("Position_1 :", position_1, "Position_2 :", position_2);
-    
-        var siteurl = _spPageContextInfo.webAbsoluteUrl;
-    
-        oDataCareerPath = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + position_1 + "' and Desired_Position/Job_Title eq '" + position_2 + "' and Track eq '" + Track + "'&$top=1";
-    
-    
-        //console.log("oDataCareerPath:", oDataCareerPath);
-    
-    
-        $.ajax({
-    
-            url: oDataCareerPath,
-            method: "GET",
-            headers: { "Accept": "application/json; odata=verbose" },
-    
-            success: function (data) {
-    
-                //console.log("Sucess : Retured results :",results);
-    
-                var items = data.d.results;
-    
-                //console.log("items :",items);
-    
-                items.forEach(function (item, index) {
-    
-                    var _Position_1 = position_1.replace(" ", "");
-                    var _Position_1 = _Position_1.replace(" ", "");
-                    var _Position_1 = _Position_1.replace(" ", "");
-                    var _Position_1 = _Position_1.replace("/", "");
-    
-                    var _Position_2 = position_2.replace(" ", "");
-                    var _Position_2 = _Position_2.replace(" ", "");
-                    var _Position_2 = _Position_2.replace(" ", "");
-                    var _Position_2 = _Position_2.replace("/", "");
-    
-                    var _URL_Featured_Skills = item.URL_Featured_Skills;
+
+
+    $.ajax({
+
+        url: oDataCareerPathConnection,
+        method: "GET",
+        headers: { "Accept": "application/json; odata=verbose" },
+
+        success: function (data) {
+
+            //console.log("Sucess : Retured results :",results);
+
+            var items = data.d.results;
+
+            //console.log("items :",items);
+
+            items.forEach(function (item, index) {
+
+                var _Position_1 = item.Starting_Position.Job_Title.replace(" ", "");
+                var _Position_1 = _Position_1.replace(" ", "");
+                var _Position_1 = _Position_1.replace(" ", "");
+                var _Position_1 = _Position_1.replace("/", "");
+
+                var _Position_2 = item.Desired_Position.Job_Title.replace(" ", "");
+                var _Position_2 = _Position_2.replace(" ", "");
+                var _Position_2 = _Position_2.replace(" ", "");
+                var _Position_2 = _Position_2.replace("/", "");
+
+                var _URL_Featured_Skills = item.URL_Featured_Skills;
+                var _div_Id = item.div_Id;
+                var _URL_Connection_Document = item.URL_Connection_Document;
+
+                var htmlCareerPathConnectionModal = ``;
+
+                if ((item.Starting_Position.Job_Title == "Caseworker") && (item.Desired_Position.Job_Title == "Field Representative")) {
+
+                    var _Reverse_URL_Featured_Skills = item.Reverse_URL_Featured_Skills;
                     var _div_Id = item.div_Id;
-                    var _URL_Connection_Document = item.URL_Connection_Document;
-    
-    
-                    var htmlCareerPathModal = `<div class="modal fade" id="staticBackdrop${_Position_1}-to-${_Position_2}" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content" style="background:rgb(247, 245, 245);">
-                        <div class="modal-header" style="margin-left: 5%; margin-right: 0%;">
-                            <h5 class="modal-title" id="staticBackdropLabel"
-                                style="margin-left:0px; font-size:1.5rem; text-align:left;">${position_1} <img
+                    var _Reverse_URL_Connection_Document = item.Reverse_URL_Connection_Document;
+
+                    htmlCareerPathConnectionModal = `
+                    <div class="modal fade" id="${_Position_1}-to-${_Position_2}ModalNew" tabindex="-1"
+    aria-labelledby="${_Position_1}-to-F${_Position_2}ModalNewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background:rgb(247, 245, 245);">
+            <div class="modal-header" style="padding:16px 16px;">
+                <h5 class="modal-title" id="${_Position_1}-to-${_Position_2}ModalNewLabel"
+                    style="margin-left: 3%; color:black; text-align:left;">Select a path below.</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="padding:16px 0px;">
+                <div class="accordion accordion-flush" id="accordionFlush${_Position_1}${_Position_2}">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading${_Position_1}${_Position_2}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse${_Position_1}${_Position_2}" aria-expanded="false"
+                                aria-controls="flush-collapse${_Position_1}${_Position_2}">
+                                <h4
+                                    style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
+                                    ${item.Starting_Position.Job_Title} <img
                                     src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Arrow-Right.png"
-                                    style="width:6%;height:125%;"> ${position_2}</h5>
-                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-top: .25rem;"></button>
-                        </div>
-                        <div class="modal-body" style="margin-left: 5%; margin-right: 5%;">
-        
-                            <p
-                            style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; margin-bottom:0px;">
-                            Exploring Skill Levels</p>
-    
-    
-                            <p style="text-align:left; color:black; font-size:1em; line-height:1.5em;">The following chart compares the anticipated 
-                            featured skills and skill levels for ${position_1} versus ${position_2}. </p>
-        
-                            <div class="center-item">
-        
+                                    style="width:6%;height:125%;"> ${item.Desired_Position.Job_Title}</h4>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse${_Position_1}${_Position_2}" class="accordion-collapse collapse"
+                            aria-labelledby="flush-heading${_Position_1}${_Position_2}"
+                            data-bs-parent="#accordionFlush${_Position_1}${_Position_2}" style="padding-top:1rem;">
+                            <h5
+                                style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%; font-size:1.25em;">
+                                Exploring Skill Levels</h5>
+                            <p style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">The
+                                following chart compares the anticipated featured skills and skill levels for
+                                ${item.Starting_Position.Job_Title} versus ${item.Desired_Position.Job_Title}.</p>
+                            <div class="center-item" style="padding:1rem 0rem;">
                                 <img src="${_URL_Featured_Skills}"
                                     style="width:60%;" alt="">
-        
                             </div>
-    
-                            <p
-                            style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; padding-top:2rem; margin-bottom:0px;">
-                            Gap Closure Strategies</p>
-    
-                            <p style="text-align:left; color:black; font-size:1em; line-height:1.5em;">The following are recommended strategies to help address potential
-                                gaps between your current position and the next position in the career path.</p>
-        
-                            <ul style="text-align: left;">
-                                <li> Review the ${position_2} Position Description and featured skills. </li>
-                                <li> Discuss options for job shadowing and informational interviews with your supervisor.
-                                </li>
-                                <li> Review available trainings on Congressional Staff Academy. </li>
-                                <li> Work with your supervisor to identify stretch assignments. </li>
+                            <h5
+                                style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%; font-size:1.25em;">
+                                Gap Closure Strategies</h5>
+                            <p style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">The
+                                following are recommended strategies to help address potential gaps between your current
+                                position and the next position in the career path.</p>
+                            <ul style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">
+                                <li style="text-align:left; color:black;"> Review the ${item.Desired_Position.Job_Title}
+                                    Position Description and featured skills. </li>
+                                <li style="text-align:left; color:black;"> Discuss options for job shadowing and
+                                    informational interviews with your supervisor.</li>
+                                <li style="text-align:left; color:black;"> Review available trainings on Congressional
+                                    Staff Academy. </li>
+                                <li style="text-align:left; color:black;"> Work with your supervisor to identify stretch
+                                    assignments. </li>
                             </ul>
-        
-                        </div>
-        
-                        <div class="modal-footer" style="justify-content:center">
-        
-                        <a  href="${_URL_Connection_Document}" onclick="downloadResource('${position_1} TO ${position_2} - Connection Document');"><button type="button" class="btn" style="background-color:brown; color:white; width:125%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
-                        Find Out More </button>
-                        </a>
-        
+                            <div class="modal-footer">
+                                <a href="${_URL_Connection_Document}"
+                                    onclick="downloadResource('${item.Starting_Position.Job_Title} TO ${item.Desired_Position.Job_Title} - Connection Document');"><button
+                                        type="button" class="btn"
+                                        style="background-color:brown; color:white; width:125%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
+                                        Find Out More </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>`;
-    
-    
-                    //console.log("_div_Id : ",_div_Id);
-    
-                    document.getElementById(_div_Id).innerHTML = htmlCareerPathModal;
-                    
-    
-                });
-    
-    
-            },
-            error: function (data) {
-    
-                console.log("Error : Ajax failed ");
-                alert("Error: " + data);
-            }
-        });
-    
-    }
-    
-    
-    
-    
-    function career_path_modal_bidirectional(position_1, position_2,Track) {
-    
-        //console.log("Position_1 :", position_1, "Position_2 :", position_2);
-    
-        var siteurl = _spPageContextInfo.webAbsoluteUrl;
-    
-        oDataCareerPath_bidirectional = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,Reverse_URL_Featured_Skills,div_Id,Track,URL_Connection_Document,Reverse_URL_Connection_Document,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + position_1 + "' and Desired_Position/Job_Title eq '" + position_2 + "' and Track eq '" + Track + "'&$top=1";
-    
-    
-        //console.log("oDataCareerPath:", oDataCareerPath_bidirectional);
-    
-        $.ajax({
-    
-            url: oDataCareerPath_bidirectional,
-            method: "GET",
-            headers: { "Accept": "application/json; odata=verbose" },
-    
-            success: function (data) {
-    
-                //console.log("Sucess : Retured results :",results);
-    
-                var items = data.d.results;
-    
-                //console.log("items :",items);
-    
-                items.forEach(function (item, index) {
-    
-                    var _Position_1 = position_1.replace(" ", "");
-                    var _Position_1 = _Position_1.replace(" ", "");
-                    var _Position_1 = _Position_1.replace(" ", "");
-                    var _Position_1 = _Position_1.replace("/", "");
-    
-                    var _Position_2 = position_2.replace(" ", "");
-                    var _Position_2 = _Position_2.replace(" ", "");
-                    var _Position_2 = _Position_2.replace(" ", "");
-                    var _Position_2 = _Position_2.replace("/", "");
-    
-                    var _URL_Featured_Skills = item.URL_Featured_Skills;
-                    var _Reverse_URL_Featured_Skills = item.Reverse_URL_Featured_Skills;
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-heading${_Position_2}${_Position_1}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse${_Position_2}${_Position_1}" aria-expanded="false"
+                                aria-controls="flush-collapse${_Position_2}${_Position_1}">
+                                <h4
+                                    style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
+                                    ${item.Desired_Position.Job_Title} <img
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Arrow-Right.png"
+                                    style="width:6%;height:125%;"> ${item.Starting_Position.Job_Title}</h4>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse${_Position_2}${_Position_1}" class="accordion-collapse collapse"
+                            aria-labelledby="flush-heading${_Position_2}${_Position_1}"
+                            data-bs-parent="#accordionFlush${_Position_1}${_Position_2}" style="padding-top:1rem;">
 
-                    var _URL_Connection_Document = item.URL_Connection_Document;
-                    var _Reverse_URL_Connection_Document = item.Reverse_URL_Connection_Document
-    
-                    var _div_Id = item.div_Id;
-    
-                    // console.log("position_1 :",position_1);
-                    // console.log("position_2 :",position_2);
-                    // console.log("_URL_Featured_Skills :",_URL_Featured_Skills);
-                    // console.log("Reverse_URL_Featured_Skills :",Reverse_URL_Featured_Skills);
-    
-                    var htmlCareerPathModal = `
-                    <div class="modal fade" id="staticBackdrop${_Position_1}-to-${_Position_2}" tabindex="-1" role="dialog"
-                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel"
-                                    style="margin-left:.2rem;">Select a path below.</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
-                                    style="margin-top: .25rem; min-width:4rem;"></button>
+                            <h5
+                                style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%; font-size:1.25em;">
+                                Exploring Skill Levels</h5>
+                            <p style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">The
+                                following chart compares the anticipated featured skills and skill levels for ${item.Desired_Position.Job_Title} versus ${item.Starting_Position.Job_Title}.</p>
+                            <div class="center-item" style="padding:1rem 0rem;">
+                                <img src="${_Reverse_URL_Featured_Skills}"
+                                    style="width:60%;" alt="">
                             </div>
-                            <div class="modal-body" style="padding-left:0px; padding-right:0px;">
-                
-                                <div class="accordion accordion-flush" id="accordionFlush">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="flush-headingOne">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                                aria-controls="flush-collapseOne"
-                                                style="margin-left: 0px; font-size: 1.5rem; text-align: left; padding-bottom:1.25rem;">
-                                                ${position_1} <img
-                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Arrow-Right.png"
-                                                    style="width:5.5%; height:125%; margin-left:.4rem;margin-right:.4rem;" data-themekey="#"> ${position_2}
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush">
-                
-                                            <div style="background: rgb(247, 245, 245);">
-                
-                                                <!-- Modal body - START -->
-                
-                                                <div class="modal-body" style="margin-left: 5%; margin-right: 5%;">
-                
-                                                    <p
-                                                        style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; margin-bottom:0px;">
-                                                        Exploring Skill Levels</p>
-                
-                                                        <p style="text-align:left; color:black; font-size:1em; line-height:1.5em; margin-bottom:16px;">
-
-                                                        The following chart compares the anticipated featured skills and skill levels for ${position_1} versus ${position_2}.
-                                                      
-                                                        
-                                                        </p>
-                
-                                                    <div class="center-item">
-                
-                                                        <img src="${_URL_Featured_Skills}"
-                                                            style="width:60%;" alt="">
-                
-                                                    </div>
-                
-                                                    <p
-                                                        style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; padding-top:2rem; margin-bottom:0rem;">
-                                                        Gap Closure Strategies</p>
-                
-                                                    <p
-                                                        style="text-align:left; margin-top:1rem; color:black; font-size:1em; line-height:1.5em; margin-top:0px; margin-top:0rem;">
-                                                        The following are recommended strategies to help address potential
-                                                        gaps between your current position and the next position in the career path.</p>
-                
-                                                    <ul style="text-align: left;">
-                                                        <li> Review the ${position_2} Position Description and featured skills. </li>
-                                                        <li> Discuss options for job shadowing and informational interviews with your
-                                                            supervisor.
-                                                        </li>
-                                                        <li> Review available trainings on Congressional Staff Academy. </li>
-                                                        <li> Work with your supervisor to identify stretch assignments. </li>
-                                                    </ul>
-                
-                                                </div>
-                
-                                                <div class="modal-footer" style="justify-content:center">
-                
-                                                <a  href="${_URL_Connection_Document}" onclick="downloadResource('${position_1} TO ${position_2} - Connection Document');"><button type="button" class="btn" style="background-color:brown; color:white; width:125%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
-                                                Find Out More </button>
-                                                </a>
-                
-                                                </div>
-                
-                                                <!-- Modal body - END -->
-                
-                                            </div>            
-                
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="flush-headingTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                                aria-controls="flush-collapseTwo"
-                                                style="margin-left: 0px; font-size: 1.5rem; text-align: left; padding-top:1.25rem;">
-                                                ${position_2} <img
-                                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Arrow-Right.png"
-                                                    style="width:5.5%;height:125%; margin-left:.4rem;margin-right:.4rem;" data-themekey="#"> ${position_1}
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlush">
-                
-                                            <div style="background: rgb(247, 245, 245);">
-                
-                                                <!-- Modal body - START -->
-                
-                                                <div class="modal-body" style="margin-left: 5%; margin-right: 5%;">
-                                                
-                                                <p
-                                                style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; margin-bottom:0px;">
-                                                Exploring Skill Levels</p>
-
-                
-                                                <p style="text-align:left; color:black; font-size:1em; line-height:1.5em;">
-
-                                                The following chart compares the anticipated featured skills and skill levels for ${position_2} versus ${position_1}.                                            
-                                                
-                                                </p>
-                   
-                                                    <div class="center-item">
-                
-                                                        <img src="${_Reverse_URL_Featured_Skills}"
-                                                            style="width:60%;" alt="">
-                
-                                                    </div>
-                
-                                                    <p
-                                                        style="color:black; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:1.25rem; text-align:left; padding-top:2rem; margin-bottom:0rem;">
-                                                        Gap Closure Strategies</p>
-                
-                                                    <p
-                                                        style="text-align:left; margin-top:1rem; color:black; font-size:1em; line-height:1.5em; margin-top:0rem;">
-                                                        The following are recommended strategies to help address potential
-                                                        gaps between your current position and the next position in the career path.</p>
-                
-                                                    <ul style="text-align: left;">
-                                                        <li> Review the ${position_1} Position Description and featured skills. </li>
-                                                        <li> Discuss options for job shadowing and informational interviews with your
-                                                            supervisor.
-                                                        </li>
-                                                        <li> Review available trainings on Congressional Staff Academy. </li>
-                                                        <li> Work with your supervisor to identify stretch assignments. </li>
-                                                    </ul>
-                
-                                                </div>
-                
-                                                <div class="modal-footer" style="justify-content:center">
-                
-                                                <a  href="${_Reverse_URL_Connection_Document}" onclick="downloadResource('${position_2} TO ${position_1} - Connection Document');"><button type="button" class="btn" style="background-color:brown; color:white; width:125%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
-                                                Find Out More </button>
-                                                </a>
-                
-                                                </div>
-                
-                                                <!-- Modal body - END -->
-                
-                                            </div>
-                
-                                        </div>
-                                    </div>
-                                </div>
+                            <h5
+                                style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%; font-size:1.25em;">
+                                Gap Closure Strategies</h5>
+                            <p style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">The
+                                following are recommended strategies to help address potential gaps between your current
+                                position and the next position in the career path.</p>
+                            <ul style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">
+                                <li style="text-align:left; color:black;"> Review the ${item.Starting_Position.Job_Title} Position
+                                    Description and featured skills. </li>
+                                <li style="text-align:left; color:black;"> Discuss options for job shadowing and
+                                    informational interviews with your supervisor.</li>
+                                <li style="text-align:left; color:black;"> Review available trainings on Congressional
+                                    Staff Academy. </li>
+                                <li style="text-align:left; color:black;"> Work with your supervisor to identify stretch
+                                    assignments. </li>
+                            </ul>
+                            <div class="modal-footer">
+                                <a href="${_Reverse_URL_Connection_Document}"
+                                    onclick="downloadResource('${item.Desired_Position.Job_Title} TO ${item.Starting_Position.Job_Title} - Connection Document');"><button
+                                        type="button" class="btn"
+                                        style="background-color:brown; color:white; width:125%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
+                                        Find Out More </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                    
-                    `;
-    
-                    //console.log("htmlCareerPathModal : ", htmlCareerPathModal);
-                    // console.log("URL_Featured_Skills : ", _URL_Featured_Skills);
-                    // console.log("Reverse_URL_Featured_Skills : ", _Reverse_URL_Featured_Skills);
-                    // console.log("_div_Id : ", _div_Id);
-    
-                    document.getElementById(_div_Id).innerHTML = htmlCareerPathModal;
-    
-    
-    
-                });
-    
-    
-            },
-            error: function (data) {
-    
-                console.log("Error : Ajax failed ");
-                alert("Error: " + data);
-            }
-        });
-    
-    
-    
-    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+            </div>
+        </div>
+    </div>
+</div>`;
+
+                } else {
+
+                    htmlCareerPathConnectionModal = `
+                <div class="modal fade" id="${_Position_1}-to-${_Position_2}ModalNew" tabindex="-1" aria-labelledby="${_Position_1}-to-${_Position_2}ModalNewLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background:rgb(247, 245, 245);">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="${_Position_1}-to-${_Position_2}ModalNewLabel" style="margin-left: 5%; color:black; text-align:left;">${item.Starting_Position.Job_Title} <img
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Arrow-Right.png"
+                        style="width:6%;height:125%;"> ${item.Desired_Position.Job_Title}</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">Exploring Skill Levels</h4>
+                    <p style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">The following chart compares the anticipated featured skills and skill levels for ${item.Starting_Position.Job_Title} versus ${item.Desired_Position.Job_Title}.</p>
+                    <div class="center-item" style="padding:1rem 0rem;">        
+                            <img src="${_URL_Featured_Skills}"
+                                style="width:60%;" alt="">
+                    </div>
+                    <h4 style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">Gap Closure Strategies</h4>
+                    <p style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">The following are recommended strategies to help address potential gaps between your current position and the next position in the career path.</p>
+                    <ul style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:90%;">
+                        <li style="text-align:left; color:black;"> Review the ${item.Desired_Position.Job_Title} Position Description and featured skills. </li>
+                        <li style="text-align:left; color:black;"> Discuss options for job shadowing and informational interviews with your supervisor.</li>
+                        <li style="text-align:left; color:black;"> Review available trainings on Congressional Staff Academy. </li>
+                        <li style="text-align:left; color:black;"> Work with your supervisor to identify stretch assignments. </li>
+                    </ul>
+                    <div class="modal-footer">
+                        <a  href="${_URL_Connection_Document}" onclick="downloadResource('${item.Starting_Position.Job_Title} TO ${item.Desired_Position.Job_Title} - Connection Document');"><button type="button" class="btn" style="background-color:brown; color:white; width:125%;color:white; text-decoration:none; font-size:1.2rem; font-weight:bold;">
+                            Find Out More </button>
+                            </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>`;
+
+                };
+
+                //console.log("htmlCareerPathConnectionModal: ",htmlCareerPathConnectionModal);
+
+                document.getElementById(_div_Id).innerHTML = htmlCareerPathConnectionModal;
+
+            });
+
+
+        },
+        error: function (data) {
+
+            console.log("Error : Ajax failed ");
+            alert("Error: " + data);
+        }
+    });
+
+
+
+}); // jquery end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

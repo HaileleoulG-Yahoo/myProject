@@ -137,7 +137,7 @@ $(document).ready(function () {
             NEW MEMBER RESOURCES </a>
             <ul id="new-member-resources-dropdown" class="dropdown-menu fade-up">
               <li><a class="dropdown-item" 
-              href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/NewMemberResources.aspx#"> New Member Resources  
+              href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/NewMemberResources.aspx#" onclick="downloadResource('New Member Resources - Top Nav Bar')"> New Member Resources  
               </a></li>
             </ul>
           </li>            

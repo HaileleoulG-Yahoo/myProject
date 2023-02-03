@@ -308,21 +308,6 @@
                 font-size: 22px;
             }
 
-            /* hovering effect on New Member Resources dropdown - START */
-            ul#new-member-resources-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
-                background: #A89968;
-                color: white;
-                text-decoration: none;
-                font-style: italic;
-            }
-
-            /* Font size for New Member Resources dropdown */
-            ul#new-member-resources-dropdown.dropdown-menu.fade-up {
-                font-size: 22px;
-            }
-
-            /* hovering effect on New Member Resources dropdown - END */
-
             .navbar-dark .navbar-nav .nav-link {
                 color: white;
                 font-weight: bold;
@@ -548,8 +533,7 @@
         #developing,
         #retaining,
         #AdditionalServices,
-        li#ResumeBank_link>a#ResumeBank,
-        li#NewMemberResources_link>a#NewMemberResources {
+        li#ResumeBank_link>a#ResumeBank {
             font-weight: bold;
         }
 
@@ -620,8 +604,7 @@
 
         #home,
         #AdditionalServices,
-        #ResumeBank,
-        #NewMemberResources {
+        #ResumeBank {
             color: white;
         }
 
@@ -642,67 +625,6 @@
 
 
 
-
-        /* Style with accordion - START */
-        button.accordion-button.collapsed:hover {
-            background: #005B8F;
-            color: white;
-        }
-
-        button.accordion-button {
-            font-size: 20px;
-        }
-
-        button.accordion-button.collapsed {
-            font-size: 20px;
-        }
-
-        .accordion-collapse {
-            font-size: 18px;
-        }
-
-        button:active {
-            background: #005B8F;
-            color: white;
-            font-size: 20px;
-        }
-
-        div.accordion-body {
-            background: #a0cfeb63;
-        }
-
-        .accordion-button:not(.collapsed) {
-            background: #005B8F;
-            color: white;
-        }
-
-        div.accordion-body {
-            text-align: left;
-        }
-
-        .coming {
-            font-style: italic;
-            font-weight: bold;
-        }
-
-
-        /*** To adjust the size of the icons on accordion heading */
-        img {
-            width: 4%;
-        }
-
-
-        #CareerPlanning-white,
-        #MemberOfficeCareerPaths-white,
-        #CareerConversations-white,
-        #AdditionalProfessionalGrowthServices-white {
-            display: none;
-        }
-
-        /* Style with accordion - END */
-
-
-
         /* Search box custom - START */
         .btn-outline-primary {
             color: white;
@@ -713,50 +635,105 @@
 
 
 
-        /* Style for document links */
-        a.document {
-            color: blue;
+        /* center an element in div */
+        .center-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        a.document:hover {
-            color: red;
-        }
 
-        .coming>span {
-            white-space: nowrap;
-            color: black;
-        }
 
-        /* Style for document links */
 
-        /* Style for adjusting font size for Top-Nav links- START */
+        /* Style for top nav text font  */
 
         a.nav-link {
             font-size: 15px;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Style for adjusting font size for Top-Nav links- END */
+
+
+        /* Style for size of icons */
+        .zoom-icon {
+            width: 35%;
+        }
+
+        /* Style for hovering effect on icons */
+        .zoom-icon:hover {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Safari 3-8 */
+            transform: scale(0.75);
+        }
+
+
+
+        div.center-item>img {
+            width: 68%;
+        }
+
+
+        @media all and (max-width: 1500px) {
+
+            div.center-item>img {
+                width: 85%;
+            }
+
+        }
+
+        #alertMessage,
+        #spinner {
+            display: none;
+        }
+
+        /* Style for Compare button */
+
+        #compare,
+        #reset {
+            width: 12rem;
+        }
+
+        #compare:hover,
+        #reset:hover {
+            background-color: #62B5E5;
+            font-weight: bold;
+
+        }
+
+        #Plus{
+            display:none;
+        }
+
+
+
+        /* END */
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        #career_map_overview_title:hover{
+            cursor:hand;
+        }
     </style>
 
 </head>
 
 <body>
 
-    <!-- To insert background image -->
 
 
-    <!-- Top navbar  - START -->
 
+    <!-- Top navigation bar -->
     <div id="topNavigationBar">
 
     </div>
 
-    <!-- Top navbar - END  -->
 
 
-    <!-- Page content - START -->
-
+    <!-- Breadcrumb -->
     <div class="container-fluid" style="background-color:#f7f3f3;">
 
         <div class="row" style="padding:0% 8%;">
@@ -768,362 +745,525 @@
                                 href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Home.aspx">House
                                 HR Hub</a>
                         </li>
-                        <li class="breadcrumb-item " aria-current="page"><a style="text-decoration:underline;"
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
                                 href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Developing.aspx">Developing</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Professional Growth</li>
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ProfessionalGrowth.aspx">Professional
+                                Growth</a></li>
+                        <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx">House
+                                Career
+                                Paths</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Compare Positions</li>
                     </ol>
                 </nav>
             </div>
 
-            <div class="row">
-                <h1
-                    style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
-                    Professional Growth
-                </h1>
-                <p id="page-description" style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The
-                    resources
-                    in this section provide tools available to staff to encourage skill and career development.</p>
-            </div>
         </div>
 
     </div>
 
 
-    <div class="container-fluid" style="padding: 3rem 0rem; min-height:450px;">
 
-        <div class="row" style="padding:0% 8%;">
+    <!-- Page header -->
+    <div class="container-fluid" style="background-color:#f7f3f3;">
+
+        <div class="row" style="padding:0% 6%;">
 
             <div class="row">
 
+                <div class="container-fluid" style="padding-bottom:2rem;">
 
-                <div id="leftNavColumn" class="col-md-3 col-lg-3 col-xl-3 mx-auto">
-
-
-                    <!-- Left NavBar -->
-                    <div id="leftNavigation" style="width:250px; text-align:left;">
+                    <div class="row">
 
 
-                    </div>
+                        <div class="col-9" style="padding-left:3rem;">
 
-                </div>
+                            <h1
+                                style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
+                                House Career Paths - Compare Positions
+                            </h1>
 
+                            <div class="row" id="header">
 
-                <div class="col-md-9 col-lg-9 col-xl-9 mx-auto">
-                    <!-- Accordion -->
+                                <p id="page-description"
+                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The House
+                                    Human
+                                    Resources Hub's career paths are designed as a developmental resource specifically
+                                    for
+                                    staff within the U.S. House of Representatives. The pathing tools outline the unique
+                                    roles, responsibilities, skills, sample career options, and associated training
+                                    opportunities for 16 positions within the Member office community. Each of the 16
+                                    positions align within one of four main career paths (Administrative,
+                                    Communications,
+                                    District, and Legislative). </p>
 
-                    <div class="row" style="max-width:1200px; text-align:center;">
+                                <p id="page-description"
+                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> All House
+                                    staff
+                                    are invited to use these resources to explore career possibilities and to develop
+                                    short-and-longer-range individual developmental training plan. To get started, view
+                                    the
+                                    overall mapping, explore specific career paths, or compare different positions via
+                                    the
+                                    buttons on the right.
 
-                        <div class="accordion accordion-flush" id="accordionFlushRecruitingAndSelecting">
+                                </p>
 
+                                <p
+                                    style="text-align:left; font-style:italic; padding-bottom:2rem; font-size:18px; margin:0; color:black;">
+                                    Note: The content presented is intended for developmental purposes only. Position
+                                    titles, paths, and opportunities in individual Member offices may differ.
+                                </p>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingMemberOfficeCareerPaths">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseMemberOfficeCareerPaths" aria-expanded="false"
-                                        aria-controls="flush-collapseMemberOfficeCareerPaths"
-                                        style="font-weight: bold; font-family: Arial;"
-                                        onclick="iconToggleFunction('MemberOfficeCareerPaths')">
-                                        <img class="icon" id="MemberOfficeCareerPaths-black"
-                                            src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_member-office-career-paths.png"
-                                            alt="">
-                                        <img class="icon" id="MemberOfficeCareerPaths-white"
-                                            src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_white-member-office-career-paths.png"
-                                            alt="">
-                                        &nbsp Member Office Career Paths
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseMemberOfficeCareerPaths" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingMemberOfficeCareerPaths"
-                                    data-bs-parent="#accordionFlushRecruitingAndSelecting">
-                                    <div class="accordion-body">
-
-                                        <div style="margin-left:1rem;">
-
-                                            <a class="document" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx"
-                                                style="text-decoration:none;" target="_blank" onclick="downloadResource('House Interactive Career Paths')"> House
-                                                Interactive Career Paths </a><br>
-                                            
-                                            <a class="document" href="#" style="text-decoration:none;" target="_blank"
-                                                onclick="downloadResource('Administrative Career Path Overview')"> Administrative Career Path Overview </a><br>
-                                            
-                                            
-                                            <a class="document" href="#" style="text-decoration:none;" target="_blank" onclick="downloadResource('Communications Career Path Overview')"> Communications Career Path Overview
-                                            </a><br>
-                                            
-                                            
-                                            <a class="document" href="#" style="text-decoration:none;" target="_blank" onclick="downloadResource('District Career Path Overview')"> District Career Path Overview
-                                            </a><br>
-                                            
-                                            
-                                            <a class="document" href="#" style="text-decoration:none;" target="_blank" onclick="downloadResource('Legislative Career Path Overview')"> Legislative Career Path Overview
-                                            </a><br>
-                                            
-                                            
-                                            <a class="document" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/House-Skills-Definitions-and-Behaviors.docx" style="text-decoration:none;" target="_blank" onclick="downloadResource('House Skills Definitions and Behaviors')"> House Skills Definitions and Behaviors
-                                            </a><br>
-                                            
-
-                                            <!-- <a class="document" href="#" style="text-decoration:none;" target="_blank" onclick="downloadResource('####')"> ####
-                                            </a><br> -->
-
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
-
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingCareerPlanning">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseCareerPlanning" aria-expanded="false"
-                                    aria-controls="flush-collapseCareerPlanning" style="font-weight: bold; font-family: Arial;"
-                                    onclick="iconToggleFunction('CareerPlanning')">
-                
-                                    <img class="icon" id="CareerPlanning-black"
-                                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon-black-career-planning.svg"
-                                      alt="">
-                
-                                    <img class="icon" id="CareerPlanning-white"
-                                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon-white-career-planning.svg"
-                                      alt="">
-                
-                                    &nbsp Career Conversations 
-                                    
-                                    &nbsp <a title="Popular resource"><img class="icon"
-                                      id="Fire-CareerPlanning"
-                                      src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/Fire.png"
-                                      style="width:15%;" alt="" title="Popular Resources"></a>
-                
-                
-                                  </button>
-                                </h2>
-                                <div id="flush-collapseCareerPlanning" class="accordion-collapse collapse"
-                                  aria-labelledby="flush-headingCareerPlanning" data-bs-parent="#accordionFlushRecruitingAndSelecting">
-                                  <div class="accordion-body">
-                
-                                    <div style="margin-left:1rem;">
-                
-                                      <a class="document" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Quick-Tips-for-Conducting-Career-Conversations.pdf?web=1" style="text-decoration:none;" target="_blank" onclick="downloadResource('Quick Tips for Conducting Career Conversations')"> Quick Tips for Conducting Career Conversations </a> <br>
-                                      <a class="document" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Establishing-Realistic-Career Plans-for Staff-FAQ.pdf?web=1" style="text-decoration:none;" target="_blank" onclick="downloadResource('Establishing Realistic Career Plans for Staff: FAQ')"> Establishing Realistic Career Plans for Staff: FAQ </a>  <br>
-                                      <a class="document" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Individual-Development-Roadmap-Template.docx?web=1" style="text-decoration:none;" target="_blank" onclick="downloadResource('Individual Development Roadmap Template')"> Individual Development Roadmap Template </a> 
-                                      
-                                      &nbsp<img class="icon" id="NewResourceIcon" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/Fire.png"
-                                      style="width:2%;" alt="" title="Popular Resources"> 
-                                      
-                                      <br>
-                                      <a class="document" href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Individual-Development-Roadmap-Example.pdf?web=1" style="text-decoration:none;" target="_blank" onclick="downloadResource('Individual Development Roadmap Example')"> Individual Development Roadmap Example </a>  <br>
-                
-                                     </div>
-                
-                                  </div>
-                                </div>
-                              </div>
-
-
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-AdditionalProfessionalGrowthServices">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseAdditionalProfessionalGrowthServices"
-                                        aria-expanded="false"
-                                        aria-controls="flush-collapseAdditionalProfessionalGrowthServices"
-                                        style="font-weight: bold; font-family: Arial; font-weight: 20px;"
-                                        onclick="iconToggleFunction('AdditionalProfessionalGrowthServices')">
-                                        <img class="icon" id="AdditionalProfessionalGrowthServices-black"
-                                            src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon_profiessional-growth.svg"
-                                            alt="">
-                                        <img class="icon" id="AdditionalProfessionalGrowthServices-white"
-                                            src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HR-Hub/HRHub-Icon-white_profiessional-growth.svg"
-                                            alt="">
-                                        &nbsp Additional Professional Growth Services
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseAdditionalProfessionalGrowthServices"
-                                    class="accordion-collapse collapse"
-                                    aria-labelledby="flush-AdditionalProfessionalGrowthServices"
-                                    data-bs-parent="#accordionFlushRecruitingAndSelecting">
-                                    <div class="accordion-body">
-
-                                        <div style="margin-left:1rem;">
-
-                                            <a class="document" href="https://house.csod.com/samldefault.aspx"
-                                                style="text-decoration:none;" target="_blank"
-                                                onclick="downloadResource('Congressional Staff Academy')"> Congressional
-                                                Staff
-                                                Academy </a><br>
-                                            <a class="document" href="https://caocoach.house.gov/"
-                                                style="text-decoration:none;" target="_blank"
-                                                onclick="downloadResource('CAO Coach Program')"> CAO Coach Program
-                                            </a><br>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingCareerConversations">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseCareerConversations" aria-expanded="false"
-                                        aria-controls="flush-collapseCareerConversations"
-                                        style="font-weight: bold; font-family: Arial;"
-                                        onclick="iconToggleFunction('CareerConversations')">
-                                        <img class="icon" id="CareerConversations-black"
-                                            src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_career-conversations.png"
-                                            alt="">
-                                        <img class="icon" id="CareerConversations-white"
-                                            src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/HRHub-Icon_white-career-conversations.png"
-                                            alt="">
-                                        &nbsp Career Conversations
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseCareerConversations" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingCareerConversations"
-                                    data-bs-parent="#accordionFlushRecruitingAndSelecting">
-                                    <div class="accordion-body">
-
-                                        <div style="margin-left:1rem;">
-
-                                            <a class="document"
-                                                href="https://housenet.house.gov/campus/service-providers/payroll-and-benefits"
-                                                style="text-decoration:none;" target="_blank"> Office of Payroll &
-                                                Benefits </a><br>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div> -->
-
 
                         </div>
 
+                        <div class="col-3"
+                            style="display: flex; align-items: center; flex-wrap: wrap; height: 20rem; padding-top:5rem; padding-left:2rem;">
+
+
+                            <div class="row row-flex">
+
+                                <button type="button" class="btn"
+                                    onclick="location.href='https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#OverallCareerMap';"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;">Career Path Home
+                                    </a></button>
+
+                            </div>
+
+
+                            <div class="row row-flex">
+
+                                <button type="button" class="btn" onclick="location.href='#CareerPathTracks';"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;">Explore Career Paths
+                                    </a></button>
+
+                            </div>
+
+                            <div class="row row-flex">
+
+                                <button type="button" class="btn" onclick="location.href='#CompareTwoPositions';"
+                                    style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
+                                        style="color:white; text-decoration:none;">Compare Positions
+                                    </a></button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Disable left navigation -->
+    <div id="leftNavigation" Style="display:none;">
+
+    </div>
+
+
+
+    <!-- Compare two positions -->
+    <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0;" id="CompareTwoPositions">
+
+        <p
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
+            Compare Positions</p>
+        <p
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left; margin-bottom:2rem;">
+            Select two
+            different positions in the following drop-down menus to see a skill comparison, and click on the <em>Compare</em> button.
+        </p>
+
+        <div class="container" style="padding-bottom:1rem;">
+            <div class="row">
+                <div class="container">
+                    <div class="row" style="float:none;margin:auto;">
+                        <div class="col-sm">
+
+                            <select id="Starting_Position" name="Starting_Position" class="form-control form-select"
+                                style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;"
+                                onchange="change_Starting_Position()">
+                                <option value="0">
+                                    Select starting position</option>
+                            </select>
+
+                        </div>
+                        <div class="col-sm">
+
+                            <select id="Desired_Position" name="Desired_Position" class="form-control form-select"
+                                style="max-width:18rem; margin:auto auto; border-width:2px; border-color:black;">
+                                <option value="0">Select desired position</option>
+                            </select>
+                            <div id="alertMessage" style="text-align:left; color:red;font-size:1rem;">
+                                Select desired position
+                            </div>
+
+                        </div>
+                        <div class="col-sm">
+                            <button id="compare" type="button" class="btn" onclick="ComparePositions()"
+                                style="background-color:brown; color:white;">
+                                Compare</button>
+                        </div>
+
+                        <div class="col-sm">
+                            <button id="reset" type="button" class="btn" onclick="Reset()"
+                                style="background-color:black; color:white;">
+                                Reset</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Spinner -->
+        <div id="spinner" class="row" style="min-height:15rem; padding-top:2rem;">
+
+            <div class="text-center" style="padding-top:5rem;">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- div to display the image -->
+        <div id="FullComparingPositions" class="row" style="min-height:3rem; padding-top:2rem;">
+
+            <!-- <div id="InProgress">
+            </div> -->
+
+            <!-- <div class="alert alert-info" id="alertMessage">
+                You must select desired position
+            </div> -->
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container-fluid" style="padding: 3rem 8rem; background-color:#E0E0E0; display: inline-block">
+
+        <div style="text-align:left; padding-top:2rem; padding-bottom:0rem;">
+            <p id="Plus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Plus_Transparent.png" width="3%;" alt="Minus"></p>
+            <p id="Minus" style="font-size:1.5rem; font-weight:bold; color:black;" onclick="Toggle_Career_Path_Map()"> Career Map Overview <img style="background-color:#E0E0E0;position: relative;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Testing-Images/Minus_Transparent.png" width="3%;" alt="Minus"></p>             
+        </div>
+        <div style="padding-bottom:1rem; ">
+            <p style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left;">Refer to the career map overview below to see the typical Member office career paths. You can click on the image to view, save, or print. Use the fields in the drop downs above to compare positions. </p>
+        </div>
+
+        <div id="career_path_map" class="row">
+
+            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Career%20Paths/House%20HR%20Hub%20Career%20Paths.pdf" target="blank">
+
+            <div class="center-item">
+
+                <img class="zoom-career-map" style="background-color:white;" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Career-Paths-Map.png"
+                    alt="">                
+
+            </div>
+
+        </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Links to other paths -->
+    <div class="container-fluid" style="padding: 1rem 8%; background-color: #f7f3f3;" id="CareerPathTracks">
+
+        <p
+            style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
+            Explore the various Career Paths at the U.S. House of Representatives</p>
+        <p style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black; text-align:left;">
+            Click on one of the four paths below to get started.</p>
+
+        <div class="row">
+
+            <div class="container" style="width:70%;">
+                <div class="row" style="margin-bottom:2rem;">
+                    <div class="col-md-3">
+
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Administrative.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Administrative.png"
+                                    alt="">
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
+                            Administrative</P>
                     </div>
 
-                </div>
+                    <div class="col-md-3">
 
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Communications.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Communications.png"
+                                    alt="">
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
+                            Communications</P>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/District.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-District.png"
+                                    alt="">
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">District
+                        </P>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="center-item">
+
+                            <a
+                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Legislative.aspx">
+
+                                <img class="zoom-icon"
+                                    src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Legislative.png"
+                                    alt="">
+
+                            </a>
+
+                        </div>
+                        <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">Legislative
+                        </P>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 
 
-    <!-- Page content - END -->
 
-
-    <!-- footer - START -->
-
+    <!-- Page footer -->
     <div id="Footer">
 
     </div>
 
-    <!-- footer - END  -->
 
 
     <script>
 
-        function iconToggleFunction(param) {
 
-            console.log("Parameter : ", param);
-
-            if (param == "AdditionalProfessionalGrowthServices") {
-
-                //console.log("Inside if statement");
-
-                var x = document.getElementById("AdditionalProfessionalGrowthServices-black");
-                var y = document.getElementById("AdditionalProfessionalGrowthServices-white");
-
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                    y.style.display = "none";
-                } else {
-                    x.style.display = "none";
-                    y.style.display = "block";
-                }
-
-                document.getElementById("CareerPlanning-black").style.display = "block";
-                document.getElementById("CareerPlanning-white").style.display = "none";
-
-                document.getElementById("Fire-CareerPlanning").style.display = "block";
-
-                document.getElementById("MemberOfficeCareerPaths-black").style.display = "block";
-                document.getElementById("MemberOfficeCareerPaths-white").style.display = "none";
-
-                // document.getElementById("CareerConversations-black").style.display = "block";
-                // document.getElementById("CareerConversations-white").style.display = "none";
-
-                // document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-                // document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+        var Compare_Two_Positions = "";
 
 
-            } else if (param == "CareerPlanning") {
+        $(document).ready(function () {
 
-                var x = document.getElementById("CareerPlanning-black");
-                var y = document.getElementById("CareerPlanning-white");
+            retrive_Starting_Positions();
 
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                    y.style.display = "none";
+        });
 
-                    document.getElementById("Fire-CareerPlanning").style.display = "block";
+
+
+        function ComparePositions() {
+
+
+            //document.getElementById("spinner").style.display = "block";
+
+            setTimeout(() => {
+
+                document.getElementById("alertMessage").style.display = "none";
+
+                var StartingPositionValue = $("#Starting_Position option:selected").text();
+                var DesiredPositionValue = $("#Desired_Position option:selected").text();
+
+                if (DesiredPositionValue == "Select desired position") {
+
+                    document.getElementById("alertMessage").style.display = "block";
 
                 } else {
-                    x.style.display = "none";
-                    y.style.display = "block";
 
-                    document.getElementById("Fire-CareerPlanning").style.display = "none";
+                    oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
+
+                    $.ajax({
+
+                        url: oDataCompareTwoPositions,
+                        method: "GET",
+                        headers: { "Accept": "application/json; odata=verbose" },
+                        success: function (data) {
+                            //console.log("Sucess : Retured results :",results);
+                            var items = data.d.results;
+                            var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
+                            var htmlFullComparingPositions = `  <div class="center-item">    
+                                                                    <img src="${URL_Full_Comparing_Positions_Value}" alt="">                                                                
+                                                                </div>
+                                                                <div style = "margin-top: 3rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;">
+                                                                    <p style="color:black; font-style:italic; font-size:1.25rem;">Note: Specialized Skills are focused on the unique job-specific skills that are most important for the respective positions.</p>
+                                                                </div>
+
+                                                            `;
+                            //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
+                            document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
+
+                        },
+                        error: function (data) {
+                            console.log("Error : Ajax failed ");
+                            alert("Error: " + data);
+                        }
+                    });
                 }
+            }, 1500); //set the delay to 3000 miliseconds
 
-                // document.getElementById("CareerPlanning-black").style.display = "block";
-                // document.getElementById("CareerPlanning-white").style.display = "none";
+        }
 
-                // document.getElementById("Fire-CareerPlanning").style.display = "block";
 
-                document.getElementById("MemberOfficeCareerPaths-black").style.display = "block";
-                document.getElementById("MemberOfficeCareerPaths-white").style.display = "none";
 
-                // document.getElementById("CareerConversations-black").style.display = "block";
-                // document.getElementById("CareerConversations-white").style.display = "none";
+        function change_Starting_Position() {
+            var Starting_Position_Text = $("#Starting_Position option:selected").text();
+            var CompareTwoPositions = $.grep(Compare_Two_Positions, function (element) {
+                return element.Starting_Position.Job_Title == Starting_Position_Text;
+            })
 
-                document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-                document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+            $('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
 
-            } else if (param == "MemberOfficeCareerPaths") {
 
-                var x = document.getElementById("MemberOfficeCareerPaths-black");
-                var y = document.getElementById("MemberOfficeCareerPaths-white");
+            //Initialize array to capture and sort desired position on dropdown
+            let _Job_Title_Array = [];
 
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                    y.style.display = "none";
-                } else {
-                    x.style.display = "none";
-                    y.style.display = "block";
-                }
+            for (var i = 0; i < CompareTwoPositions.length; i++) {
+                var item = CompareTwoPositions[i];
+                _Job_Title_Array[i] = item.Desired_Position.Job_Title;
 
-                document.getElementById("CareerPlanning-black").style.display = "block";
-                document.getElementById("CareerPlanning-white").style.display = "none";
+            }
 
-                // document.getElementById("MemberOfficeCareerPaths-black").style.display = "block";
-                // document.getElementById("MemberOfficeCareerPaths-white").style.display = "none";
+            //Sort desired position on dropdown
+            _Job_Title_Array = _Job_Title_Array.sort(); 
+            
+            //Remove duplicate element/s from array
+            var _unique_Job_Title_Array = _Job_Title_Array.filter(function(element, index) {
+                    return _Job_Title_Array.indexOf(element) === index;
+                });  
 
-                // document.getElementById("CareerConversations-black").style.display = "block";
-                // document.getElementById("CareerConversations-white").style.display = "none";
+            //console.log(_unique_Job_Title_Array);
 
-                document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-                document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+            //Populate desired position dropdown
+            for (var i = 0; i < _unique_Job_Title_Array.length; i++) {
+                $("#Desired_Position").append("<option value='" + item.ID + "'>" + _unique_Job_Title_Array[i] + "</option>");
+            }
 
-                document.getElementById("Fire-CareerPlanning").style.display = "block";
 
+        }
+
+
+
+        function retrive_Starting_Positions() {
+            // use internal name of each column as required
+            $.ajax
+                ({
+                    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc&$top=500",
+                    type: "GET",
+                    async: false,
+                    headers:
+                    {
+                        "Accept": "application/json;odata=verbose",
+                        "Content-Type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "IF-MATCH": "*",
+                        "X-HTTP-Method": null
+                    },
+                    cache: false,
+                    success: function (data) {
+                        Compare_Two_Positions = data.d.results;                        
+                        for (var i = 0; i < data.d.results.length; i++) {
+                            var item = data.d.results[i];
+                            //  $("#Desired_Position").append("<option value='"+item.ID+"' health-monitor='"+item.HealthMonitorId+"'>"+item.Title+"</option>");  
+                        }
+
+                        var lookup = {};
+                        var items = data.d.results;
+                        var result = [];
+
+                        for (var item, i = 0; item = items[i++];) {
+                            var name = item.Starting_Position.Job_Title;
+
+                            if (!(name in lookup)) {
+                                lookup[name] = 1;
+                                result.push(name);
+                                $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");                                
+                            }
+                        }
+                    },
+                    error: function (data) {
+                        alert(data.responseJSON.error);
+                    }
+
+
+                });
+
+        }
+
+
+        function Reset() {
+
+            window.location.reload();
+
+            setTimeout(function () {
+
+                document.getElementById("CompareTwoPositions").scrollIntoView({ behavior: 'smooth' });
+                console.log("After 3 seconds... ");
+
+            }, 3000);
+
+        }
+
+        function Toggle_Career_Path_Map(){
+
+            if(document.getElementById('career_path_map').style.display==="none"){
+
+                document.getElementById('career_path_map').style.display = "block";
+                document.getElementById('Minus').style.display = "block";
+                document.getElementById('Plus').style.display = "none";
+
+            }else{
+                document.getElementById('career_path_map').style.display = "none";
+                document.getElementById('Minus').style.display = "none";
+                document.getElementById('Plus').style.display = "block";
             }
 
         }
     </script>
+
+
+
+
 
 
 
@@ -1143,16 +1283,20 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 
+
     <!-- HouseHrHub JS    -->
     <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
+
 
     <!-- HouseHrHubVisitors JS    -->
     <script
         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
 
+
     <!-- DownloadResource JS    -->
     <script
         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script>
+
 
 
 </body>

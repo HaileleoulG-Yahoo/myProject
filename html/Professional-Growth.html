@@ -961,11 +961,11 @@
 
     function iconToggleFunction(param) {
 
-      console.log("Parameter : ", param);
+      //console.log("Parameter : ", param);
 
       if (param == "AdditionalProfessionalGrowthServices") {
 
-        console.log("Inside if statement");
+        //console.log("Inside if statement");
 
         var x = document.getElementById("AdditionalProfessionalGrowthServices-black");
         var y = document.getElementById("AdditionalProfessionalGrowthServices-white");
@@ -983,17 +983,17 @@
 
         document.getElementById("Fire-CareerPlanning").style.display = "block";
 
-        document.getElementById("jobProfiles-black").style.display = "block";
-        document.getElementById("jobProfiles-white").style.display = "none";
+        // document.getElementById("jobProfiles-black").style.display = "block";
+        // document.getElementById("jobProfiles-white").style.display = "none";
 
-        document.getElementById("jobPosting-black").style.display = "block";
-        document.getElementById("jobPosting-white").style.display = "none";
+        // document.getElementById("jobPosting-black").style.display = "block";
+        // document.getElementById("jobPosting-white").style.display = "none";
 
-        document.getElementById("applicantTesting-black").style.display = "block";
-        document.getElementById("applicantTesting-white").style.display = "none";
+        // document.getElementById("applicantTesting-black").style.display = "block";
+        // document.getElementById("applicantTesting-white").style.display = "none";
 
-        document.getElementById("interviewReferenceChecks-black").style.display = "block";
-        document.getElementById("interviewReferenceChecks-white").style.display = "none";
+        // document.getElementById("interviewReferenceChecks-black").style.display = "block";
+        // document.getElementById("interviewReferenceChecks-white").style.display = "none";
 
       } else if (param == "CareerPlanning") {
 
@@ -1016,38 +1016,8 @@
         document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
         document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
 
-        document.getElementById("jobProfiles-black").style.display = "block";
-        document.getElementById("jobProfiles-white").style.display = "none";
-
-        document.getElementById("jobPosting-black").style.display = "block";
-        document.getElementById("jobPosting-white").style.display = "none";
-
-        document.getElementById("applicantTesting-black").style.display = "block";
-        document.getElementById("applicantTesting-white").style.display = "none";
-
-        document.getElementById("interviewReferenceChecks-black").style.display = "block";
-        document.getElementById("interviewReferenceChecks-white").style.display = "none";
-
-      } else if (param == "JobProfiles") {
-
-        var x = document.getElementById("jobProfiles-black");
-        var y = document.getElementById("jobProfiles-white");
-
-        if (x.style.display === "none") {
-          x.style.display = "block";
-          y.style.display = "none";
-        } else {
-          x.style.display = "none";
-          y.style.display = "block";
-        }
-
-        // document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-        // document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
-
-        // document.getElementById("Fire-CareerPlanning").style.display = "block";
-
-        // document.getElementById("CareerPlanning-black").style.display = "block";
-        // document.getElementById("CareerPlanning-white").style.display = "none";
+        // document.getElementById("jobProfiles-black").style.display = "block";
+        // document.getElementById("jobProfiles-white").style.display = "none";
 
         // document.getElementById("jobPosting-black").style.display = "block";
         // document.getElementById("jobPosting-white").style.display = "none";
@@ -1058,97 +1028,135 @@
         // document.getElementById("interviewReferenceChecks-black").style.display = "block";
         // document.getElementById("interviewReferenceChecks-white").style.display = "none";
 
-      } else if (param == "JobPostings") {
+      } 
+      
+      // else if (param == "JobProfiles") {
 
-        var x = document.getElementById("jobPosting-black");
-        var y = document.getElementById("jobPosting-white");
+      //   var x = document.getElementById("jobProfiles-black");
+      //   var y = document.getElementById("jobProfiles-white");
 
-        if (x.style.display === "none") {
-          x.style.display = "block";
-          y.style.display = "none";
-        } else {
-          x.style.display = "none";
-          y.style.display = "block";
-        }
+      //   if (x.style.display === "none") {
+      //     x.style.display = "block";
+      //     y.style.display = "none";
+      //   } else {
+      //     x.style.display = "none";
+      //     y.style.display = "block";
+      //   }
 
-        // document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-        // document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
 
-        // document.getElementById("Fire-CareerPlanning").style.display = "block";
+      //   document.getElementById("Fire-CareerPlanning").style.display = "block";
 
-        // document.getElementById("CareerPlanning-black").style.display = "block";
-        // document.getElementById("CareerPlanning-white").style.display = "none";
+      //   document.getElementById("CareerPlanning-black").style.display = "block";
+      //   document.getElementById("CareerPlanning-white").style.display = "none";
 
-        // document.getElementById("jobProfiles-black").style.display = "block";
-        // document.getElementById("jobProfiles-white").style.display = "none";
+      //   document.getElementById("jobPosting-black").style.display = "block";
+      //   document.getElementById("jobPosting-white").style.display = "none";
 
-        // document.getElementById("applicantTesting-black").style.display = "block";
-        // document.getElementById("applicantTesting-white").style.display = "none";
+      //   document.getElementById("applicantTesting-black").style.display = "block";
+      //   document.getElementById("applicantTesting-white").style.display = "none";
 
-        // document.getElementById("interviewReferenceChecks-black").style.display = "block";
-        // document.getElementById("interviewReferenceChecks-white").style.display = "none";
+      //   document.getElementById("interviewReferenceChecks-black").style.display = "block";
+      //   document.getElementById("interviewReferenceChecks-white").style.display = "none";
 
-      } else if (param == "ApplicantTesting") {
+      // } 
+      
+      // else if (param == "JobPostings") {
 
-        var x = document.getElementById("applicantTesting-black");
-        var y = document.getElementById("applicantTesting-white");
+      //   var x = document.getElementById("jobPosting-black");
+      //   var y = document.getElementById("jobPosting-white");
 
-        if (x.style.display === "none") {
-          x.style.display = "block";
-          y.style.display = "none";
-        } else {
-          x.style.display = "none";
-          y.style.display = "block";
-        }
+      //   if (x.style.display === "none") {
+      //     x.style.display = "block";
+      //     y.style.display = "none";
+      //   } else {
+      //     x.style.display = "none";
+      //     y.style.display = "block";
+      //   }
 
-        // document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-        // document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
 
-        // document.getElementById("Fire-CareerPlanning").style.display = "block";
+      //   document.getElementById("Fire-CareerPlanning").style.display = "block";
 
-        // document.getElementById("CareerPlanning-black").style.display = "block";
-        // document.getElementById("CareerPlanning-white").style.display = "none";
+      //   document.getElementById("CareerPlanning-black").style.display = "block";
+      //   document.getElementById("CareerPlanning-white").style.display = "none";
 
-        // document.getElementById("jobProfiles-black").style.display = "block";
-        // document.getElementById("jobProfiles-white").style.display = "none";
+      //   document.getElementById("jobProfiles-black").style.display = "block";
+      //   document.getElementById("jobProfiles-white").style.display = "none";
 
-        // document.getElementById("jobPosting-black").style.display = "block";
-        // document.getElementById("jobPosting-white").style.display = "none";
+      //   document.getElementById("applicantTesting-black").style.display = "block";
+      //   document.getElementById("applicantTesting-white").style.display = "none";
 
-        // document.getElementById("interviewReferenceChecks-black").style.display = "block";
-        // document.getElementById("interviewReferenceChecks-white").style.display = "none";
+      //   document.getElementById("interviewReferenceChecks-black").style.display = "block";
+      //   document.getElementById("interviewReferenceChecks-white").style.display = "none";
 
-      } else if (param == "InterviewAndReferenceChecks") {
+      // } 
+      
+      // else if (param == "ApplicantTesting") {
 
-        var x = document.getElementById("interviewReferenceChecks-black");
-        var y = document.getElementById("interviewReferenceChecks-white");
+      //   var x = document.getElementById("applicantTesting-black");
+      //   var y = document.getElementById("applicantTesting-white");
 
-        if (x.style.display === "none") {
-          x.style.display = "block";
-          y.style.display = "none";
-        } else {
-          x.style.display = "none";
-          y.style.display = "block";
-        }
+      //   if (x.style.display === "none") {
+      //     x.style.display = "block";
+      //     y.style.display = "none";
+      //   } else {
+      //     x.style.display = "none";
+      //     y.style.display = "block";
+      //   }
 
-        // document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
-        // document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
 
-        // document.getElementById("Fire-CareerPlanning").style.display = "block";
+      //   document.getElementById("Fire-CareerPlanning").style.display = "block";
 
-        // document.getElementById("CareerPlanning-black").style.display = "block";
-        // document.getElementById("CareerPlanning-white").style.display = "none";
+      //   document.getElementById("CareerPlanning-black").style.display = "block";
+      //   document.getElementById("CareerPlanning-white").style.display = "none";
 
-        // document.getElementById("jobProfiles-black").style.display = "block";
-        // document.getElementById("jobProfiles-white").style.display = "none";
+      //   document.getElementById("jobProfiles-black").style.display = "block";
+      //   document.getElementById("jobProfiles-white").style.display = "none";
 
-        // document.getElementById("jobPosting-black").style.display = "block";
-        // document.getElementById("jobPosting-white").style.display = "none";
+      //   document.getElementById("jobPosting-black").style.display = "block";
+      //   document.getElementById("jobPosting-white").style.display = "none";
 
-        // document.getElementById("applicantTesting-black").style.display = "block";
-        // document.getElementById("applicantTesting-white").style.display = "none";
+      //   document.getElementById("interviewReferenceChecks-black").style.display = "block";
+      //   document.getElementById("interviewReferenceChecks-white").style.display = "none";
 
-      }
+      // } 
+      
+      // else if (param == "InterviewAndReferenceChecks") {
+
+      //   var x = document.getElementById("interviewReferenceChecks-black");
+      //   var y = document.getElementById("interviewReferenceChecks-white");
+
+      //   if (x.style.display === "none") {
+      //     x.style.display = "block";
+      //     y.style.display = "none";
+      //   } else {
+      //     x.style.display = "none";
+      //     y.style.display = "block";
+      //   }
+
+      //   document.getElementById("AdditionalProfessionalGrowthServices-black").style.display = "block";
+      //   document.getElementById("AdditionalProfessionalGrowthServices-white").style.display = "none";
+
+      //   document.getElementById("Fire-CareerPlanning").style.display = "block";
+
+      //   document.getElementById("CareerPlanning-black").style.display = "block";
+      //   document.getElementById("CareerPlanning-white").style.display = "none";
+
+      //   document.getElementById("jobProfiles-black").style.display = "block";
+      //   document.getElementById("jobProfiles-white").style.display = "none";
+
+      //   document.getElementById("jobPosting-black").style.display = "block";
+      //   document.getElementById("jobPosting-white").style.display = "none";
+
+      //   document.getElementById("applicantTesting-black").style.display = "block";
+      //   document.getElementById("applicantTesting-white").style.display = "none";
+
+      // }
 
     }
   </script>
