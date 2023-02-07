@@ -9,6 +9,7 @@ $(document).ready(function () {
 
 
 
+
   function HrHubVisitors(PageTitle){
 
     //console.log("PageTitle: ",PageTitle);
@@ -32,18 +33,22 @@ $(document).ready(function () {
       var hrTeamLength = items.length;
 
       //console.log("hrTeamLength: ",hrTeamLength);
-      //_HRHubVisitorNewItemCreate(PageTitle,DisplayName);
+      _HRHubVisitorNewItemCreate(PageTitle,DisplayName);
 
-      if(hrTeamLength == 0){  
 
-        //console.log(DisplayName, " is not member of hr team");
-        _HRHubVisitorNewItemCreate(PageTitle,DisplayName);
 
-     }else {
+    //   if(hrTeamLength == 0){  
 
-        //console.log(DisplayName, " is member of hr team");
+    //     console.log(DisplayName, " is not member of hr team");
+    //     _HRHubVisitorNewItemCreate(PageTitle,DisplayName);
 
-      }   
+    //  }else {
+
+    //     console.log(DisplayName, " is member of hr team");
+
+    //   }  
+      
+      
     },
       function (error) {
 
@@ -52,6 +57,8 @@ $(document).ready(function () {
       }
     );
   }
+
+
 
 
   function _HRHubVisitorNewItemCreate(PageTitle,DisplayName){
@@ -113,7 +120,11 @@ $(document).ready(function () {
   }
 
 
+
+
   function _createListItemPageVisitor(_PageTitle, _DispalyName,screenWidth) {
+
+    console.log("_PageTitle: ", _PageTitle, "_DispalyName: ", _DispalyName," screenWidth: ", screenWidth);
 
     $.ajax({
         async: true, // Async by default is set to “true” load the script asynchronously  

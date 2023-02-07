@@ -84,6 +84,8 @@ $(document).ready(function () {
 
   function _createListItemPageVisitor(_PageTitle, _FullName,screenWidth) {
 
+    //console.log("Inside _createListItemPageVisitor function. ","_PageTitle: ",_PageTitle);
+
     $.ajax({
         async: true, // Async by default is set to “true” load the script asynchronously  
         // URL to post data into sharepoint list  

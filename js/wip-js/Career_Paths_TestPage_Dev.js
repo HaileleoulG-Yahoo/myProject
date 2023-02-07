@@ -2,12 +2,29 @@
 
 $(document).ready(function () {
 
+    var path = window.location.pathname;
 
-loadPositionModals();
-loadConnectionModals();
+    if((path.includes("TestPage_02") || path.includes("TestPage_03") || path.includes("TestPage_04") || path.includes("TestPage_05")  || path.includes("TestPage_07") || path.includes("TestPage_08") || path.includes("TestPage_09") || path.includes("TestPage_10") || path.includes("Administrative") || path.includes("Communications") ||  path.includes("District") || path.includes("Legislative"))){
+
+        loadPositionModals();
+        loadConnectionModals();
+
+    } else if(path.includes("TestPage_06") || path.includes("TestPage_11") || path.includes("ComparePositions")) {
+
+        retrive_Starting_Positions();
+
+    }else if(path.includes("TestPage_13") || path.includes("Analytics")){
+
+        //Note : TestPage_13 is included only to test Analytics page on
+        hrHubAnalyticsArchive();
+        hrHubAnalyticsImages();
+
+    }
+
 
 
 }); // jquery end
+
 
 
 function loadPositionModals(){
@@ -29,7 +46,7 @@ function loadPositionModals(){
             items.forEach(function (item, index) {
 
                 //Cleaning Position Name - START
-                var _position = item.Job_Title;;
+                var _position = item.Job_Title;
 
                 // Count number of times space character in '_position';
                 var CountCharacter = (_position.split(" ").length - 1);
@@ -87,7 +104,7 @@ function loadPositionModals(){
                     Init = "";
                 }
 
-                if(_Job_Title == "Staff Assistant"){
+                if((path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) && (_Job_Title == "Staff Assistant")){
                     _Similar_Job_Titles = "N/A";
                 }
 
@@ -329,6 +346,8 @@ function loadPositionModals(){
     });
 }
 
+
+
 function loadConnectionModals(){
     var path = window.location.pathname;
     var siteurl = _spPageContextInfo.webAbsoluteUrl;
@@ -559,21 +578,255 @@ function loadConnectionModals(){
 
 
 
+function ComparePositions() {
+
+
+    document.getElementById("spinner").style.display = "block";
+    document.getElementById("FullComparingPositions").style.display = "none";
+
+    setTimeout(() => {
+
+        document.getElementById("alertMessage").style.display = "none";
+
+        var StartingPositionValue = $("#Starting_Position option:selected").text();
+        var DesiredPositionValue = $("#Desired_Position option:selected").text();
+
+        if (DesiredPositionValue == "Select desired position") {
+
+            document.getElementById("alertMessage").style.display = "block";
+            document.getElementById("spinner").style.display = "none";
+
+        } else {
+
+            var oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
+
+            $.ajax({
+
+                url: oDataCompareTwoPositions,
+                method: "GET",
+                headers: { "Accept": "application/json; odata=verbose" },
+                success: function (data) {
+                    //console.log("Sucess : Retured results :",results);
+                    var items = data.d.results;
+                    var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
+                    var htmlFullComparingPositions = `
+                                                       <div class="center-item">    
+                                                            <img src="${URL_Full_Comparing_Positions_Value}" alt="">                                                                
+                                                        </div>
+
+                                                        <div style = "margin-top: 3rem; margin-bottom: 0rem; margin-left: 0rem; margin-right: 0rem;">
+                                                            <p style="color:black; font-style:italic; font-size:1.25rem;">Note: Specialized Skills are focused on the unique job-specific skills that are most important for the respective positions.</p>
+                                                        </div>
+                                                    `;
+                    //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
+                    document.getElementById("spinner").style.display = "none";
+                    document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
+                    document.getElementById("FullComparingPositions").style.display = "block";
+
+                },
+                error: function (data) {
+                    console.log("Error : Ajax failed ");
+                    alert("Error: " + data);
+                }
+            });
+        }
+    }, 2000); //set the delay to 3000 miliseconds
+
+}
+
+
+function change_Starting_Position() {
+
+    var Starting_Position_Text = $("#Starting_Position option:selected").text();
+    var CompareTwoPositions = $.grep(Compare_Two_Positions, function (element) {
+        return element.Starting_Position.Job_Title == Starting_Position_Text;
+    })
+
+    console.log("CompareTwoPositions: ",CompareTwoPositions);
+
+    $('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
+
+    //Initialize array to capture and sort desired position on dropdown
+    let _Job_Title_Array = [];
+
+    for (var i = 0; i < CompareTwoPositions.length; i++) {
+        var item = CompareTwoPositions[i];
+
+        //console.log("item @ index: ", i, item.Desired_Position.Job_Title);
+
+        _Job_Title_Array[i] = item.Desired_Position.Job_Title;
+
+    }
+
+    //Sort desired position on dropdown
+    _Job_Title_Array = _Job_Title_Array.sort(); 
+    
+    //Remove duplicate element/s from array
+    var _unique_Job_Title_Array = _Job_Title_Array.filter(function(element, index) {
+            return _Job_Title_Array.indexOf(element) === index;
+        });  
+
+    //console.log(_unique_Job_Title_Array);
+
+    //Populate desired position dropdown
+    for (var i = 0; i < _unique_Job_Title_Array.length; i++) {
+        $("#Desired_Position").append("<option value='" + item.ID + "'>" + _unique_Job_Title_Array[i] + "</option>");
+    }
+
+}
 
 
 
+function retrive_Starting_Positions() {
+    // use internal name of each column as required
+    $.ajax
+        ({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc&$top=500",
+            type: "GET",
+            async: false,
+            headers:
+            {
+                "Accept": "application/json;odata=verbose",
+                "Content-Type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "IF-MATCH": "*",
+                "X-HTTP-Method": null
+            },
+            cache: false,
+            success: function (data) {
+                Compare_Two_Positions = data.d.results;                        
+                for (var i = 0; i < data.d.results.length; i++) {
+                    var item = data.d.results[i];
+                    //  $("#Desired_Position").append("<option value='"+item.ID+"' health-monitor='"+item.HealthMonitorId+"'>"+item.Title+"</option>");  
+                }
+
+                var lookup = {};
+                var items = data.d.results;
+                var result = [];
+
+                for (var item, i = 0; item = items[i++];) {
+                    var name = item.Starting_Position.Job_Title;
+
+                    if (!(name in lookup)) {
+                        lookup[name] = 1;
+                        result.push(name);
+                        $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");                                
+                    }
+                }
+            },
+            error: function (data) {
+                alert(data.responseJSON.error);
+            }
+
+        });
+
+}
 
 
 
+function Reset() {
+
+    window.location.reload();
+
+    setTimeout(function () {
+
+        document.getElementById("CompareTwoPositions").scrollIntoView({ behavior: 'smooth' });
+        console.log("After 3 seconds... ");
+
+    }, 3000);
+
+}
 
 
 
+function Toggle_Career_Path_Map(){
+
+    if(document.getElementById('career_path_map').style.display==="none"){
+
+        document.getElementById('career_path_map').style.display = "block";
+        document.getElementById('Minus').style.display = "block";
+        document.getElementById('Plus').style.display = "none";
+
+    }else{
+        document.getElementById('career_path_map').style.display = "none";
+        document.getElementById('Minus').style.display = "none";
+        document.getElementById('Plus').style.display = "block";
+    }
+
+}
 
 
 
+function hrHubAnalyticsArchive() {
+    var oDataHRHubAnalticsArchive = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Analytics-Reports')/items?$select=MM_DD_YYYY,YYYY_MM_DD,URL&$top=500&$orderby=YYYY_MM_DD desc";
+    console.log("oDataHRHubAnalticsArchive: ", oDataHRHubAnalticsArchive);
+
+    $.ajax({
+
+        url: oDataHRHubAnalticsArchive,
+        method: "GET",
+        headers: { "Accept": "application/json; odata=verbose" },
+
+        success: function (data) {
+
+            var items = data.d.results;
+
+            var htmlAnalytics = ``;
+
+            items.forEach(function (item, index) {
+
+                //console.log(items.length);         
+                htmlAnalytics = htmlAnalytics + `<p><a id="pptLink" href="` + item.URL + `?web=1" target="_blank">CAO HR Analytics : ` + item.MM_DD_YYYY + `</a></p>`;
+            });
+
+            //console.log("htmlAnalytics: ",htmlAnalytics);
+            document.getElementById("_div_Analytics").innerHTML = htmlAnalytics;
+
+        },
+        error: function (data) {
+            alert("Error: " + data);
+        }
+    });
+}
 
 
 
+function hrHubAnalyticsImages() {
+    var oDataHRHubAnalticsImages = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('HR-HUB-Analytics')/items?$select=Image_Title,Image_URL,Image_Order_Number,Width&$top=500&$orderby=Image_Order_Number asc";
+    console.log("oDataHRHubAnalticsImages: ", oDataHRHubAnalticsImages);
+
+    $.ajax({
+
+        url: oDataHRHubAnalticsImages,
+        method: "GET",
+        headers: { "Accept": "application/json; odata=verbose" },
+
+        success: function (data) {
+
+            var items = data.d.results;
+
+            var htmlAnalyticsImages = `<div class="container-fluid" style="padding: 3rem 0rem; min-height:500px; text-align:center;">`;
+
+            items.forEach(function (item, index) {
+
+                console.log(items.length);
+
+                htmlAnalyticsImages = htmlAnalyticsImages + `<h1 style="color: #003349;">` + item.Image_Title + `</h1>
+                                                            <img class="analyticImage" src="` + item.Image_URL + `"width="` + item.Width + `">
+                                                            <div style="height:5rem;"></div>`;
+            });
+
+            htmlAnalyticsImages = htmlAnalyticsImages + `</div>`;
+
+            //console.log("htmlAnalytics: ",htmlAnalytics);
+            document.getElementById("_div_Analytics_Images").innerHTML = htmlAnalyticsImages;
+
+        },
+        error: function (data) {
+            alert("Error: " + data);
+        }
+    });
+}
 
 
 
