@@ -678,42 +678,44 @@
 
 
 
-        div.center-item>img{
-	        width:68%;
+        div.center-item>img {
+            width: 68%;
         }
 
 
         @media all and (max-width: 1500px) {
 
-            div.center-item>img{
-	        width:85%;
+            div.center-item>img {
+                width: 85%;
+            }
+
         }
 
-        }  
-        
-        #alertMessage{
-            display:none;
+        #alertMessage {
+            display: none;
         }
 
         /* Style for Compare button */
 
-        #compare, #reset{
-            width:12rem;
+        #compare,
+        #reset {
+            width: 12rem;
         }
 
-        #compare:hover, #reset:hover{
+        #compare:hover,
+        #reset:hover {
             background-color: #62B5E5;
-            font-weight:bold;
-          
+            font-weight: bold;
+
         }
 
 
 
         /* END */
 
-        *{
-  scroll-behavior: smooth;
-}
+        * {
+            scroll-behavior: smooth;
+        }
     </style>
 
 </head>
@@ -725,16 +727,13 @@
 
     <!-- Top navigation bar -->
     <div id="topNavigationBar">
-
     </div>
 
 
 
     <!-- Breadcrumb -->
     <div class="container-fluid" style="background-color:#f7f3f3;">
-
         <div class="row" style="padding:0% 8%;">
-
             <div class="row">
                 <nav aria-label="breadcrumb" style="font-size:18px;">
                     <ol class="breadcrumb" style="padding:1% 0%; margin:0;">
@@ -748,13 +747,12 @@
                         <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:underline;"
                                 href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ProfessionalGrowth.aspx">Professional
                                 Growth</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">House
-                                Career
-                                Paths</li>
+                        <li class="breadcrumb-item active" aria-current="page">House
+                            Career
+                            Paths</li>
                     </ol>
                 </nav>
             </div>
-
         </div>
 
     </div>
@@ -763,74 +761,62 @@
 
     <!-- Page header -->
     <div class="container-fluid" style="background-color:#f7f3f3;">
-
         <div class="row" style="padding:0% 6%;">
-
             <div class="row">
-
                 <div class="container-fluid" style="padding-bottom:2rem;">
-
                     <div class="row">
-
-
                         <div class="col-9" style="padding-left:3rem;">
-
                             <h1
                                 style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
                                 House Career Paths
                             </h1>
-
                             <div class="row" id="header">
+                                <p id="page-description"
+                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The House
+                                    Human Resources Hub's career paths are designed as a developmental resource
+                                    specifically for staff within the U.S. House of Representatives. The pathing tools
+                                    outline the unique roles, responsibilities, skills, sample career options, and
+                                    associated training opportunities for 16 positions within the Member office
+                                    community. Each of the 16 positions align within one of four main career paths
+                                    (Administrative, Communications, District, and Legislative). </p>
 
                                 <p id="page-description"
-                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> The House Human Resources Hub's career paths are designed as a developmental resource specifically for staff within the U.S. House of Representatives. The pathing tools outline the unique roles, responsibilities, skills, sample career options, and associated training opportunities for 16 positions within the Member office community.  Each of the 16 positions align within one of four main career paths (Administrative, Communications, District, and Legislative). </p>
-
-                                <p id="page-description"
-                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> All House staff are invited to use these resources to explore career possibilities and to develop short-and-longer-range individual developmental training plan. To get started, scroll down or use the buttons on the right, to explore specific career paths, view the overall career map, or compare different positions.
+                                    style="text-align:left; padding-bottom:2rem; font-size:18px; margin:0;"> All House
+                                    staff are invited to use these resources to explore career possibilities and to
+                                    develop short-and-longer-range individual developmental training plan. To get
+                                    started, scroll down or use the buttons on the right, to explore specific career
+                                    paths, view the overall career map, or compare different positions.
 
                                 </p>
-
                                 <p
                                     style="text-align:left; font-style:italic; padding-bottom:2rem; font-size:18px; margin:0; color:black;">
-                                    Note: The content presented is intended for developmental purposes only. Position titles, paths, and opportunities in individual Member offices may differ. 
+                                    Note: The content presented is intended for developmental purposes only. Position
+                                    titles, paths, and opportunities in individual Member offices may differ.
                                 </p>
-
                             </div>
-
                         </div>
 
                         <div class="col-3"
                             style="display: flex; align-items: center; flex-wrap: wrap; height: 20rem; padding-top:5rem; padding-left:2rem;">
-
-
                             <!-- <div class="row row-flex">
-
                                 <button type="button" class="btn" onclick="location.href='#CareerPathMap';"
                                 style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
                                     style="color:white; text-decoration:none;">View Overall Career Map
-                                </a></button>
-                                
+                                </a></button>                                
                             </div> -->
-                            
-
-                            <div class="row row-flex">                                
-
+                            <div class="row row-flex">
                                 <button type="button" class="btn" onclick="location.href='#CareerPathTracks';"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
                                         style="color:white; text-decoration:none;">Explore Career Paths
                                     </a></button>
-
                             </div>
-
                             <div class="row row-flex">
-
-                                <button type="button" class="btn" onclick="location.href='https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ComparePositions.aspx#CompareTwoPositions';"
+                                <button type="button" class="btn"
+                                    onclick="location.href='https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/ComparePositions.aspx#CompareTwoPositions';"
                                     style="background-color:brown; color:white; height:3.5rem; min-width:18rem;"><a
                                         style="color:white; text-decoration:none;">Compare Positions
                                     </a></button>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -842,94 +828,73 @@
 
     <!-- Disable left navigation -->
     <div id="leftNavigation" Style="display:none;">
-
     </div>
 
 
     <!-- Links to other paths -->
     <div class="container-fluid" style="padding: 1rem 8%;" id="CareerPathTracks">
-
-        <h1 style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: black; margin:0;">
+        <h1
+            style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: black; margin:0;">
             Dive into Career Paths and explore the Career Map!</h1>
-
         <p style="font-family:Arial, Helvetica, sans-serif; color:black; text-align:left;">
-
-            Click on the icons below to explore the specific career path of your choice! Scroll below the icons to view, save, or print the overall career path quick reference map.</p>
-
+            Click on the icons below to explore the specific career path of your choice! Scroll below the icons to view,
+            save, or print the overall career path quick reference map.</p>
         <div class="row">
 
             <div class="container" style="width:70%;">
                 <div class="row" style="margin-bottom:2rem;">
                     <div class="col-md-3">
-
                         <div class="center-item">
-
-                            <a
-                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Administrative.aspx" target="_blank">
-
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Administrative.aspx"
+                                target="_blank">
                                 <img class="zoom-icon"
                                     src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Administrative.png"
                                     alt="">
-
                             </a>
-
                         </div>
                         <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
                             Administrative</P>
                     </div>
 
                     <div class="col-md-3">
-
                         <div class="center-item">
-
-                            <a
-                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Communications.aspx" target="_blank">
-
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Communications.aspx"
+                                target="_blank">
                                 <img class="zoom-icon"
                                     src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Communications.png"
                                     alt="">
                             </a>
-
                         </div>
                         <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
                             Communications</P>
                     </div>
                     <div class="col-md-3">
                         <div class="center-item">
-
-                            <a
-                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/District.aspx" target="_blank">
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/District.aspx"
+                                target="_blank">
 
                                 <img class="zoom-icon"
                                     src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-District.png"
                                     alt="">
-
                             </a>
-
                         </div>
                         <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">District
                         </P>
-
                     </div>
                     <div class="col-md-3">
                         <div class="center-item">
-
-                            <a
-                                href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Legislative.aspx" target="_blank">
-
+                            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Legislative.aspx"
+                                target="_blank">
                                 <img class="zoom-icon"
                                     src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Legislative.png"
                                     alt="">
-
                             </a>
-
                         </div>
                         <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">Legislative
                         </P>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -937,46 +902,35 @@
 
     <!-- Overall U.S. House of Rep. Career Map -->
     <div class="container-fluid" style="padding-left:8%; padding-right:8%; padding-bottom:5rem;" id="CareerPathMap">
-
         <!-- <div style="padding-bottom: 3rem;">
-
             <p
                 style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
                 Overall U.S. House of Representatives Career Map</p>
-
         </div> -->
-
         <div class="row">
-
-            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Career%20Paths/House%20HR%20Hub%20Career%20Paths.pdf" target="blank">
-
-            <div class="center-item">
-
-                <img class="zoom-career-map" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Career-Paths-Map.png"
-                    alt="">                
-
-            </div>
-
-        </a>
-
+            <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Career%20Paths/House%20HR%20Hub%20Career%20Paths.pdf"
+                target="blank">
+                <div class="center-item">
+                    <img class="zoom-career-map"
+                        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Career-Paths-Map.png"
+                        alt="">
+                </div>
+            </a>
         </div>
-
-
     </div>
 
 
 
     <!-- Page footer -->
     <div id="Footer">
-
     </div>
 
 
 
-    <script>   
+    <script>
 
 
-        $(document).ready(function () {          
+        $(document).ready(function () {
 
         });
 
@@ -989,11 +943,6 @@
 
 
     </script>
-
-
-
-
-
 
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -1014,18 +963,23 @@
 
 
     <!-- HouseHrHub - WIP - JS    -->
-    <script
-        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
+    <!-- <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script> -->
 
 
     <!-- HouseHrHubVisitors JS    -->
-    <script
-        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
+    <!-- <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script> -->
 
 
     <!-- DownloadResource JS    -->
+    <!-- <script
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script> -->
+
+
+    <!-- House HrHub Merged JS    -->
     <script
-        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script>
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/wip-js/HouseHrHubMerged_Test.js"></script>
 
 
 </body>

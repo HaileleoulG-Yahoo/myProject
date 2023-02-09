@@ -1076,7 +1076,7 @@ function loadConnectionModals(){
                                                           <h2 class="accordion-header" id="flush-heading${_Position_1}${_Position_2}">
                                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                   data-bs-target="#flush-collapse${_Position_1}${_Position_2}" aria-expanded="false"
-                                                                  aria-controls="flush-collapse${_Position_1}${_Position_2}" onclick="careerPathUsageTracking('Caseworker to Field Representative')">
+                                                                  aria-controls="flush-collapse${_Position_1}${_Position_2}">
                                                                   <h4
                                                                       style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
                                                                       ${item.Starting_Position.Job_Title} <img
@@ -1127,7 +1127,7 @@ function loadConnectionModals(){
                                                           <h2 class="accordion-header" id="flush-heading${_Position_2}${_Position_1}">
                                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                   data-bs-target="#flush-collapse${_Position_2}${_Position_1}" aria-expanded="false"
-                                                                  aria-controls="flush-collapse${_Position_2}${_Position_1}" onclick="careerPathUsageTracking('Field Representative to Caseworker')">
+                                                                  aria-controls="flush-collapse${_Position_2}${_Position_1}">
                                                                   <h4
                                                                       style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
                                                                       ${item.Desired_Position.Job_Title} <img
@@ -1601,7 +1601,7 @@ function _HRHubVisitorNewItemCreate(PageTitle,DisplayName){
 
 function _createListItemPageVisitor(_PageTitle, _DispalyName,screenWidth) {
 
-  //console.log("_PageTitle: ", _PageTitle, "_DispalyName: ", _DispalyName," screenWidth: ", screenWidth);
+  console.log("_PageTitle: ", _PageTitle, "_DispalyName: ", _DispalyName," screenWidth: ", screenWidth);
 
   $.ajax({
       async: true, // Async by default is set to “true” load the script asynchronously  
@@ -1901,159 +1901,6 @@ function createItemSearchTags(_SearchKeyParam, _FullNameParam, _NumberOfResults)
       }
   })
 
-}
-
-
-// function - Career Path Usage Tracking - Check the user is not hr team member
-function careerPathUsageTracking(Title) {
-
-  var DisplayName = _spPageContextInfo.userDisplayName;
-
-  // Check/Confirm the user is not member of hr team
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-  var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
-
-  $.ajax({
-    url: oDataUrlHRTeam,
-    type: "GET",
-    dataType: "json",
-    headers: {
-      "accept": "application/json;odata=verbose"
-    }
-  }).done(function (data) {   
-      
-    var items = data.d.results;
-    var hrTeamLength = items.length;
-
-  //   console.log("hrTeamLength: ",hrTeamLength);
-      checkDuplicateInCareerPathUsageTracking(Title);
-
-
-  //  if(hrTeamLength == 0){  
-
-  //    console.log(DisplayName, " is not member of hr team");
-  //    checkDuplicateInCareerPathUsageTracking(Title);
-
-  // }else {
-
-  //    console.log(DisplayName, " is member of hr team");
-
-   // }
-
-  },
-    function (error) {
-      //console.error('Ooops error occured during ajax call - Outer', error);
-    }
-  );
-
-}
-
-
-// function - To check for duplicate item in 'Career Path Usage Tracking' list
-function checkDuplicateInCareerPathUsageTracking(Title) {
-
-  var DisplayName = _spPageContextInfo.userDisplayName;
-  var _DispalyName = DisplayName.replace(",", "");
-
-  _splitDispalyName = _DispalyName.split(" ");
-  _FullName = _splitDispalyName[1] + " " + _splitDispalyName[0];
-  //console.log("_FullName: ", _FullName);
-
-  var _pageTitle = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
-  //console.log("PageTitle : Before : ", _pageTitle);
-
-  // Replace character '&' by '%26', by 'And' incase it exists on the _pageTitle;
-  _pageTitle = _pageTitle.replace(/&/g, "And");
-  _pageTitle = _pageTitle.replace(/%26/g, "And");
-
-  _pageTitle = _pageTitle.replace(".aspx", "");
-  //console.log("PageTitle : After : ", _pageTitle);
-
-  //get today's date and set it in a 'YYYY-MM-DD' format
-  var today = new Date();
-  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
-  // get siteUrl to check for duplicate item in the list 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-
-  // oData query to identify a record created today by a user for visiting the same page
-  var oDataUrlCareerPathUsageTracking = siteUrl + "/_api/web/lists/getbytitle('Career-Path-Usage-Tracking')/items?$select=Title,UserName,PageTitle,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + Title + "') and (PageTitle eq '" + _pageTitle + "')";
-  //console.log("oDataUrlHRHubResourceDownloadTracker: ", oDataUrlHRHubResourceDownloadTracker);
-
-  $.ajax({
-      url: oDataUrlCareerPathUsageTracking,
-      type: "GET",
-      dataType: "json",
-      headers: {
-          "accept": "application/json;odata=verbose"
-      }
-  }).done(function (data) {
-
-      var items = data.d.results;
-      //console.log("items: ",items);
-      var counter = items.length;
-
-      if (counter == 0) {
-
-          //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");         
-          createItemCareerPathUsageTracking(Title, _FullName, _pageTitle);
-
-      } else {
-          // duplicate item found, creating new item skipped
-          //console.log("Duplicate items found");
-      }
-
-  },
-      function (error) {
-
-          //console.error('Ooops error occured during ajax call - Outer', error);  
-      }
-  );
-};
-
-
-
-// function - Create item in 'Career Path Usage Tracking' list
-function createItemCareerPathUsageTracking(Title, _FullName, _pageTitle) {
-
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-
-  $.ajax({
-      async: true, // Async by default is set to “true” load the script asynchronously  
-      // URL to post data into sharepoint list  
-      url: siteUrl + "/_api/web/lists/GetByTitle('Career-Path-Usage-Tracking')/items",
-
-      method: "POST", //Specifies the operation to create the list item  
-      data: JSON.stringify({
-          '__metadata': {
-              'type': 'SP.Data.CareerPathUsageTrackingListItem' // it defines the ListEnitityTypeName  
-          },
-          //Pass the parameters
-
-          'Title': Title,
-          'UserName': _FullName,
-          'PageTitle': _pageTitle,
-
-      }),
-      headers: {
-          "accept": "application/json;odata=verbose", //It defines the Data format   
-          "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
-          "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
-      },
-      success: function (data) {
-
-          //swal("Item created successfully", "success"); // Used sweet alert for success message             
-
-      },
-      error: function (error) {
-
-          console.log(JSON.stringify(error));
-
-          // To reload and refresh the page when the system throws error. 
-          location.reload();
-
-      }
-  })
 }
 
 
