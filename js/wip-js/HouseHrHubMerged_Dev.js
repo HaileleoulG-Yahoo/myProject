@@ -1076,7 +1076,7 @@ function loadConnectionModals(){
                                                           <h2 class="accordion-header" id="flush-heading${_Position_1}${_Position_2}">
                                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                   data-bs-target="#flush-collapse${_Position_1}${_Position_2}" aria-expanded="false"
-                                                                  aria-controls="flush-collapse${_Position_1}${_Position_2}" onclick="careerPathUsageTracking('Caseworker to Field Representative')">
+                                                                  aria-controls="flush-collapse${_Position_1}${_Position_2}" onclick="careerPathUsageTracking('Caseworker to Field Representative','District','Connection')">
                                                                   <h4
                                                                       style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
                                                                       ${item.Starting_Position.Job_Title} <img
@@ -1127,7 +1127,7 @@ function loadConnectionModals(){
                                                           <h2 class="accordion-header" id="flush-heading${_Position_2}${_Position_1}">
                                                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                   data-bs-target="#flush-collapse${_Position_2}${_Position_1}" aria-expanded="false"
-                                                                  aria-controls="flush-collapse${_Position_2}${_Position_1}" onclick="careerPathUsageTracking('Field Representative to Caseworker')">
+                                                                  aria-controls="flush-collapse${_Position_2}${_Position_1}" onclick="careerPathUsageTracking('Field Representative to Caseworker','District','Connection')">
                                                                   <h4
                                                                       style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
                                                                       ${item.Desired_Position.Job_Title} <img
@@ -1418,7 +1418,7 @@ function Toggle_Career_Path_Map(){
 
 function hrHubAnalyticsArchive() {
   var oDataHRHubAnalticsArchive = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Analytics-Reports')/items?$select=MM_DD_YYYY,YYYY_MM_DD,URL&$top=500&$orderby=YYYY_MM_DD desc";
-  console.log("oDataHRHubAnalticsArchive: ", oDataHRHubAnalticsArchive);
+  //console.log("oDataHRHubAnalticsArchive: ", oDataHRHubAnalticsArchive);
 
   $.ajax({
 
@@ -1430,6 +1430,8 @@ function hrHubAnalyticsArchive() {
 
           var items = data.d.results;
 
+          //item = items[0]
+
           var htmlAnalytics = ``;
 
           items.forEach(function (item, index) {
@@ -1439,6 +1441,15 @@ function hrHubAnalyticsArchive() {
           });
 
           //console.log("htmlAnalytics: ",htmlAnalytics);
+
+          //console.log("Latest Report:", items[0].MM_DD_YYYY);
+
+
+          document.getElementById("publishingDate").innerHTML = `
+              <p id="page-description" style="text-align:center; padding-bottom:2rem; font-size:1.25rem; margin:0;">
+                        Published on ${items[0].MM_DD_YYYY}
+                    </p>          
+          `;
           document.getElementById("_div_Analytics").innerHTML = htmlAnalytics;
 
       },
@@ -1452,7 +1463,7 @@ function hrHubAnalyticsArchive() {
 
 function hrHubAnalyticsImages() {
   var oDataHRHubAnalticsImages = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('HR-HUB-Analytics')/items?$select=Image_Title,Image_URL,Image_Order_Number,Width&$top=500&$orderby=Image_Order_Number asc";
-  console.log("oDataHRHubAnalticsImages: ", oDataHRHubAnalticsImages);
+  //console.log("oDataHRHubAnalticsImages: ", oDataHRHubAnalticsImages);
 
   $.ajax({
 
@@ -1468,7 +1479,7 @@ function hrHubAnalyticsImages() {
 
           items.forEach(function (item, index) {
 
-              console.log(items.length);
+              //console.log(items.length);
 
               htmlAnalyticsImages = htmlAnalyticsImages + `<h1 style="color: #003349;">` + item.Image_Title + `</h1>
                                                           <img class="analyticImage" src="` + item.Image_URL + `"width="` + item.Width + `">
@@ -1691,7 +1702,7 @@ function checkDuplicateInHRHubResourceDownloadTracker(documentTitle) {
 
   _splitDispalyName = _DispalyName.split(" ");
   _FullName = _splitDispalyName[1] + " " + _splitDispalyName[0];
-  console.log("_FullName: ", _FullName);
+  //console.log("_FullName: ", _FullName);
 
   var _pageTitle = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
   //console.log("PageTitle : Before : ", _pageTitle);
@@ -1905,7 +1916,7 @@ function createItemSearchTags(_SearchKeyParam, _FullNameParam, _NumberOfResults)
 
 
 // function - Career Path Usage Tracking - Check the user is not hr team member
-function careerPathUsageTracking(Title) {
+function careerPathUsageTracking(Title,Track,PositionOrConnection) {
 
   var DisplayName = _spPageContextInfo.userDisplayName;
 
@@ -1926,7 +1937,7 @@ function careerPathUsageTracking(Title) {
     var hrTeamLength = items.length;
 
   //   console.log("hrTeamLength: ",hrTeamLength);
-      checkDuplicateInCareerPathUsageTracking(Title);
+      checkDuplicateInCareerPathUsageTracking(Title,Track,PositionOrConnection);
 
 
   //  if(hrTeamLength == 0){  
@@ -1950,7 +1961,7 @@ function careerPathUsageTracking(Title) {
 
 
 // function - To check for duplicate item in 'Career Path Usage Tracking' list
-function checkDuplicateInCareerPathUsageTracking(Title) {
+function checkDuplicateInCareerPathUsageTracking(Title,Track,PositionOrConnection) {
 
   var DisplayName = _spPageContextInfo.userDisplayName;
   var _DispalyName = DisplayName.replace(",", "");
@@ -1996,7 +2007,7 @@ function checkDuplicateInCareerPathUsageTracking(Title) {
       if (counter == 0) {
 
           //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");         
-          createItemCareerPathUsageTracking(Title, _FullName, _pageTitle);
+          createItemCareerPathUsageTracking(Title, _FullName, _pageTitle,Track,PositionOrConnection);
 
       } else {
           // duplicate item found, creating new item skipped
@@ -2014,7 +2025,7 @@ function checkDuplicateInCareerPathUsageTracking(Title) {
 
 
 // function - Create item in 'Career Path Usage Tracking' list
-function createItemCareerPathUsageTracking(Title, _FullName, _pageTitle) {
+function createItemCareerPathUsageTracking(Title, _FullName, _pageTitle,Track,PositionOrConnection) {
 
   var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
@@ -2033,6 +2044,8 @@ function createItemCareerPathUsageTracking(Title, _FullName, _pageTitle) {
           'Title': Title,
           'UserName': _FullName,
           'PageTitle': _pageTitle,
+          'Track': Track,
+          'PositionOrConnection': PositionOrConnection,
 
       }),
       headers: {

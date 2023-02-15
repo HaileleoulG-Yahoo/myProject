@@ -350,8 +350,6 @@
         }
 
 
-
-
         /* Style for top nav text font  */
 
         a.nav-link {
@@ -359,17 +357,12 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-
-
     
         /* To resize the captiol icons for rating of Featured Skills */
         .container img.capitol-icon {
             /* width: 6%; */
             width: 1.25rem;
         }
-
-
-
 
 
         /* Style for size of icons */
@@ -454,9 +447,7 @@
 
     <!-- Breadcrumb -->
     <div class="container-fluid" style="background-color:#f7f3f3;">
-
         <div class="row" style="padding:0% 8%;">
-
             <div class="row">
                 <nav aria-label="breadcrumb" style="font-size:18px;">
                     <ol class="breadcrumb" style="padding:1% 0%; margin:0;">
@@ -478,9 +469,7 @@
                     </ol>
                 </nav>
             </div>
-
         </div>
-
     </div>
 
 
@@ -488,60 +477,43 @@
 
     <!-- Page header -->
     <div class="container-fluid" style="background-color:#f7f3f3;">
-
         <div class="row" style="padding:0% 6%;">
-
             <div class="row">
-
                 <div class="container-fluid" style="padding-bottom:2rem;">
-
                     <div class="row">
-
                         <!-- <div class="col-1 d-flex align-items-center justify-content-center"> -->
                         <div class="col-1" style="padding-top:2rem;">
-
                             <img src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-HUB-Icon-Legislative.png"
                                 alt="" style="width:7rem;">
-
                         </div>
-
                         <div class="col-9" style="padding-left:3rem;">
-
                             <h1
                                 style="padding-top:1.5rem; padding-bottom:0.5rem; text-align:left; font-weight: bold; color: #005B8F; margin:0;">
                                 Legislative: House Career Path
                             </h1>
-
                             <div class="row" id="header">
-
                                 <p style="color:black; font-size:1.1em; text-align:justify;"> The Legislative Career Path outlines roles, responsibilities, skills, sample career
                                     options, and associated training opportunities for staff who are interested in
                                     important legislative functions of a House office. Click the button to the right to
                                     view an overview of what career development looks like within this path.
                                 </p>
-
                                 <p style="color:black; font-size:1.1em; text-align:justify;"> The career path below is interactive. Please click on the boxes or arrows to find out more about the specific position or additional information about moving from one position to another. Dotted lines represent more challenging
                                     career movements.
                                 </p>
-
                                 <p style="color:black; font-size:1.1em; text-align:justify; font-style:italic;">
                                     Note: The content presented is intended for developmental purposes only. Position
                                     titles, paths, and opportunities in individual Member offices may differ.
                                 </p>
-
                             </div>
-
                         </div>
 
                         <!-- <div class="col-2 d-flex align-items-center justify-content-center"> -->
                         <div class="col-2" style="padding-top:3rem;">
-
                             <a href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/Shared%20Documents/Career%20Paths/Legislative%20Path_01102023.pdf"
                                 target="blank" onclick="downloadResource('Legislative Career Path Overview');"><button
                                     type="button" class="btn"
                                     style="background-color:#5C868D; color:white; width:12rem;">Legislative
                                     Career<br>Path Overview</button></a>
-
                         </div>
 
                     </div>
@@ -559,152 +531,143 @@
 
     <!-- Legislative track image with mapping -->
     <div class="container-fluid" style="padding: 0rem 8%;">
-
         <div class="row">
-
             <div class="center-item">
-
                 <div class="container">
-
                     <img src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Career-Paths-Legislative-Track.png"
                         style="background-image:no-repeat; display:inline-flex;" usemap="#image-map"
                         class="map mx-auto d-block" alt="">
-
                 </div>
-
             </div>
 
             <!-- Map Details - START -->
 
             <map name="image-map">
 
-
                 <!-- Intern -->
                 <area shape="rect" coords="29,93.5,145,159.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#InternModalNew">
+                    data-bs-target="#InternModalNew" onclick="careerPathUsageTracking('Intern')">
 
                 <!-- Staff Assistant -->
                 <area shape="rect" coords="200,93.5,317,159.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#StaffAssistantModalNew">
+                    data-bs-target="#StaffAssistantModalNew" onclick="careerPathUsageTracking('Staff Assistant')">
 
                 <!-- Legislative Correspondent -->
                 <area shape="rect" coords="372,94.5,487,158.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeCorrespondentModalNew">
+                    data-bs-target="#LegislativeCorrespondentModalNew" onclick="careerPathUsageTracking('Legislative Correspondent')">
 
                 <!-- Press Assistant -->
                 <area shape="rect" coords="340,367.5,456,432.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#PressAssistantModalNew">
+                    data-bs-target="#PressAssistantModalNew" onclick="careerPathUsageTracking('Press Assistant')">
 
                 <!-- Legislative Assistant -->
                 <area shape="rect" coords="543,94.5,658,158.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeAssistantModalNew">
+                    data-bs-target="#LegislativeAssistantModalNew" onclick="careerPathUsageTracking('Legislative Assistant')">
 
                 <!-- Press Secretary - Position -->
                 <area shape="rect" coords="542.5,367.5,659,432.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#PressSecretaryModalNew">
+                    data-bs-target="#PressSecretaryModalNew" onclick="careerPathUsageTracking('Press Secretary')">
 
                 <!-- Field Representative - Position -->
                 <area shape="rect" coords="544,483,658,547" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#FieldRepresentativeModalNew">
+                    data-bs-target="#FieldRepresentativeModalNew" onclick="careerPathUsageTracking('Field Representative')">
 
                 <!-- Legislative Director - Position -->
                 <area shape="rect" coords="715,94.5,829,158.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeDirectorModalNew">
+                    data-bs-target="#LegislativeDirectorModalNew" onclick="careerPathUsageTracking('Legislative Director')">
 
                 <!-- District Director -->
                 <area shape="rect" coords="715,483,829,547" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#DistrictDirectorModalNew">
+                    data-bs-target="#DistrictDirectorModalNew" onclick="careerPathUsageTracking('District Director')">
 
                 <!-- Deputy Chief of Staff -->
                 <area shape="rect" coords="884,253,1000,319" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#DeputyChiefofStaffModalNew">
+                    data-bs-target="#DeputyChiefofStaffModalNew" onclick="careerPathUsageTracking('Deputy Chief of Staff')">
 
                 <!-- Chief of Staff -->
                 <area shape="rect" coords="1057,93.5,1173,159.5" alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#ChiefofStaffModalNew">
-
+                    data-bs-target="#ChiefofStaffModalNew" onclick="careerPathUsageTracking('Chief of Staff')">
 
                 <!-- Intern to Staff Assistant -->
                 <area shape="poly"
                     coords="145,121.5,180,121.5,180,113.5,204,126.5,180,139.5,180,131.5,145,131.5,145,121.5" alt=""
-                    onfocus="blur();" title="" data-bs-toggle="modal" data-bs-target="#Intern-to-StaffAssistantModalNew">
-
+                    onfocus="blur();" title="" data-bs-toggle="modal" data-bs-target="#Intern-to-StaffAssistantModalNew" onclick="careerPathUsageTracking('Intern to Staff Assistant')">
 
                 <!-- Staff Assistant To Legislative Correspondent -->
                 <area shape="poly"
                     coords="319,121.5,354,121.5,354,113.5,378,126.5,354,139.5,354,131.5,319,131.5,319,121.5" alt=""
                     onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#StaffAssistant-to-LegislativeCorrespondentModalNew">
+                    data-bs-target="#StaffAssistant-to-LegislativeCorrespondentModalNew" onclick="careerPathUsageTracking('Staff Assistant to Legislative Correspondent')">
 
 
                 <!-- Legislative Correspondent To Press Assistant -->
                 <area shape="poly"
                     coords="393,162.5,403,162.5,403,339.5,411,339.5,398,363.5,385,339.5,393,339.5,393,162.5" alt=""
                     onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeCorrespondent-to-PressAssistantModalNew">
+                    data-bs-target="#LegislativeCorrespondent-to-PressAssistantModalNew" onclick="careerPathUsageTracking('Legislative Correspondent to Press Assistant')">
 
 
                 <!-- Legislative Correspondent To Press Secretary -->
                 <area shape="poly"
                     coords="470,162.5,480,162.5,480,400,514,400,514,393,538,405,514,417,514,410,470,410,470,162.5"
                     alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeCorrespondent-to-PressSecretaryModalNew">
+                    data-bs-target="#LegislativeCorrespondent-to-PressSecretaryModalNew" onclick="careerPathUsageTracking('Legislative Correspondent to Press Secretary')">
 
 
                 <!-- Legislative Correspondent To Field Representative -->
                 <area shape="poly"
                     coords="470,162.5,480,162.5,480,511.5,514,511.5,514,504.5,538,516.5,514,528.5,514,521.5,470,521.5,470,162.5"
                     alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeCorrespondent-to-FieldRepresentativeModalNew">
+                    data-bs-target="#LegislativeCorrespondent-to-FieldRepresentativeModalNew" onclick="careerPathUsageTracking('Legislative Correspondent to Field Representative')">
 
 
                 <!-- Legislative Correspondent To Legislative Assistant -->
                 <area shape="poly"
                     coords="489,121.5,524,121.5,524,113.5,548,126.5,524,139.5,524,131.5,489,131.5,489,121.5" alt=""
                     onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeCorrespondent-to-LegislativeAssistantModalNew">
+                    data-bs-target="#LegislativeCorrespondent-to-LegislativeAssistantModalNew" onclick="careerPathUsageTracking('Legislative Correspondent to Legislative Assistant')">
 
 
                 <!-- Legislative Assistant To Press Secretary -->
                 <area shape="poly"
                     coords="598,162.5,608,162.5,608,339.5,616,339.5,603,363.5,590,339.5,598,339.5,598,162.5" alt=""
                     onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeAssistant-to-PressSecretaryModalNew">
+                    data-bs-target="#LegislativeAssistant-to-PressSecretaryModalNew" onclick="careerPathUsageTracking('Legislative Assistant to Press Secretary')">
 
 
                 <!-- Legislative Assistant To District Director -->
                 <area shape="poly"
                     coords="637,162.5,647,162.5,647,308.5,776,308.5,776,447.5,783,447.5,771,471.5,759,447.5,766,447.5,766,318.5,637,318.5,637,162.5"
                     alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeAssistant-to-DistrictDirectorModalNew">
+                    data-bs-target="#LegislativeAssistant-to-DistrictDirectorModalNew" onclick="careerPathUsageTracking('Legislative Assistant to District Director')">
 
 
                 <!-- Legislative Assistant To Legislative Director -->
                 <area shape="poly"
                     coords="660,121.5,696,121.5,696,113.5,720,126.5,696,139.5,696,131.5,660,131.5,660,121.5" alt=""
                     onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeAssistant-to-LegislativeDirectorModalNew">
+                    data-bs-target="#LegislativeAssistant-to-LegislativeDirectorModalNew" onclick="careerPathUsageTracking('Legislative Assistant to Legislative Director')">
 
 
                 <!-- Legislative Director To Deputy Chief of Staff-->
                 <area shape="poly"
                     coords="766,161.5,776,161.5,776,277,860,277,860,270,884,282,860,294,860,287,766,287,766,161.5"
                     alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeDirector-to-DeputyChiefofStaffModalNew">
+                    data-bs-target="#LegislativeDirector-to-DeputyChiefofStaffModalNew" onclick="careerPathUsageTracking('Legislative Director to Deputy Chief of Staff')">
 
 
                 <!-- Legislative Director To Chief of Staff-->
                 <area shape="poly"
                     coords="831,121.5,1035,121.5,1035,113.5,1059,126.5,1035,139.5,1035,131.5,831,131.5,831,121.5" alt=""
                     onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#LegislativeDirector-to-ChiefofStaffModalNew">
+                    data-bs-target="#LegislativeDirector-to-ChiefofStaffModalNew" onclick="careerPathUsageTracking('Legislative Director to Chief of Staff')">
 
 
                 <!-- Deputy Chief of Staff to Chief of Staff -->
                 <area shape="poly"
                     coords="1004,278,1108,278,1108,183.5,1101,183.5,1113,159.5,1125,183.5,1118,183.5,1118,288,1004,288,1004,278"
                     alt="" onfocus="blur();" title="" data-bs-toggle="modal"
-                    data-bs-target="#DeputyChiefofStaff-to-ChiefofStaffModalNew">
+                    data-bs-target="#DeputyChiefofStaff-to-ChiefofStaffModalNew" onclick="careerPathUsageTracking('Deputy Chief of Staff to Chief of Staff')">
 
             </map>
 
@@ -733,7 +696,6 @@
 
 
     <div class="container-fluid" style="padding: 0rem 10%; background-color: #f7f3f3;" id="CareerTracks">
-
         <p
             style="font-family:Arial, Helvetica, sans-serif; font-size:1.5rem; font-weight:bold; color:black; text-align:left; margin-bottom:0px;">
             Explore the various Career Paths at the U.S. House of Representatives</p>
@@ -743,73 +705,54 @@
 
         <div style="padding: 0rem 20%; background-color: #f7f3f3;">
             <div class="row">
-
                 <div class="container">
                     <div class="row" style="margin-bottom:2rem;">
                         <div class="col-md-3">
-
                             <div class="center-item">
-
                                 <a
                                     href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Administrative.aspx">
 
                                     <img class="zoom-icon"
                                         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Administrative.png"
                                         alt="">
-
                                 </a>
-
                             </div>
                             <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
                                 Administrative</P>
                         </div>
-
                         <div class="col-md-3">
-
                             <div class="center-item">
-
                                 <a
                                     href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Communications.aspx">
-
                                     <img class="zoom-icon"
                                         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Communications.png"
                                         alt="">
                                 </a>
-
                             </div>
                             <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
                                 Communications</P>
                         </div>
                         <div class="col-md-3">
                             <div class="center-item">
-
                                 <a
                                     href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/District.aspx">
-
                                     <img class="zoom-icon"
                                         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-District.png"
                                         alt="">
-
                                 </a>
-
                             </div>
                             <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
                                 District
                             </P>
-
                         </div>
                         <div class="col-md-3">
                             <div class="center-item">
-
                                 <a
                                     href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Legislative.aspx">
-
                                     <img class="zoom-icon"
                                         src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/HR-Hub-Icon-Legislative.png"
                                         alt="">
-
                                 </a>
-
                             </div>
                             <P style="font-family:Arial, Helvetica, sans-serif; font-size:1.25rem; color:black;">
                                 Legislative
@@ -817,40 +760,31 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 
 
     <!-- Modals -->
     <div class="container-fluid" style="padding: 0rem 2rem;">
 
-
         <div id="leftNavigation" Style="display:none;">
         </div>
-
 
         <!-- Intern -->
         <div id="Intern-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Staff Asssitant -->
         <div id="StaffAsssitant-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Scheduler/Executive Assistant -->
         <div id="SchedulerExecutiveAssistant-Position">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Operations Director -->
         <div id="OperationsDirector-Position">
@@ -868,203 +802,168 @@
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Chief of Staff -->
         <div id="ChiefofStaff-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <div id="PressAssistant-Position">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Press Secretary -->
         <div id="PressSecretary-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Communications Director -->
         <div id="CommunicationsDirector-Position">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Legislative Correspondent -->
         <div id="LegislativeCorrespondent-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- District Director -->
         <div id="DistrictDirector-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <div id="Caseworker-Position">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Field Representative -->
         <div id="FieldRepresentative-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- District Scheduler -->
         <div id="DistrictScheduler-Position">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Legislative Director -->
         <div id="LegislativeDirector-Position">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Intern' To 'Staff Assistant' -->
         <div id="Intern-to-StaffAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Deputy Chief of Staff' To 'Chief of Staff' -->
         <div id="DeputyChiefofStaff-to-ChiefofStaff-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Staff Assistant to Field Representative -->
         <div id="StaffAssistant-to-FieldRepresentative-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Staff Assistant to District Scheduler -->
         <div id="StaffAssistant-to-DistrictScheduler-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Field Representative to Scheduler/Executive Assistant -->
         <div id="FieldRepresentative-to-SchedulerExecutiveAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Caseworker - to - District Director -->
         <div id="Caseworker-to-DistrictDirector-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Caseworker - to - District Scheduler -->
         <div id="Caseworker-to-DistrictScheduler-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- Caseworker - to - Legislative Assistant -->
         <div id="Caseworker-to-LegislativeAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- Field Representative - to - District Director -->
         <div id="FieldRepresentative-to-DistrictDirector-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- District Director - to - Deputy Chief of Staff -->
         <div id="DistrictDirector-to-DeputyChiefofStaff-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- District Director - to - Chief of Staff -->
         <div id="DistrictDirector-to-ChiefofStaff-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'District Scheduler' To 'Legislative Assistant' -->
         <div id="DistrictScheduler-to-LegislativeAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Caseworker' To 'Field Representative' -->
         <div id="Caseworker-to-FieldRepresentative-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
-
 
         <!-- 'District Scheduler' To 'Field Representative' -->
         <div id="DistrictScheduler-to-FieldRepresentative-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'District Scheduler' To 'Scheduler/Executive Assistant' -->
         <div id="DistrictScheduler-to-SchedulerExecutiveAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'District Scheduler' To 'Caseworker' -->
         <div id="DistrictScheduler-to-Caseworker-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Staff Assistant' To 'Scheduler/Executive Assistant' -->
         <div id="StaffAssistant-to-SchedulerExecutiveAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Scheduler/Executive Assistant' To 'Operations Director' -->
         <div id="SchedulerExecutiveAssistant-to-OperationsDirector-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Scheduler/Executive Assistant' To 'Legislative Assistant' -->
         <div id="SchedulerExecutiveAssistant-to-LegislativeAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Operations Director' To 'Chief of Staff' -->
         <div id="OperationsDirector-to-ChiefofStaff-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Operations Director' To 'Deputy Chief ofS taff' -->
         <div id="OperationsDirector-to-DeputyChiefofStaff-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Staff Assistant' to 'Press Assistant' -->
         <div id="StaffAssistant-to-PressAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Press Assistant' to 'Press Secretary' -->
         <div id="PressAssistant-to-PressSecretary-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Press Secretary' to 'Communications Director' -->
         <div id="PressSecretary-to-CommunicationsDirector-Career-Path">
@@ -1096,66 +995,55 @@
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Press Assistant' to 'Legislative Assistant' -->
         <div id="PressAssistant-to-LegislativeAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Staff Assistant' to 'Legislative Correspondent' -->
         <div id="StaffAssistant-to-LegislativeCorrespondent-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Legislative Correspondent' To 'Press Assistant' -->
         <div id="LegislativeCorrespondent-to-PressAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Legislative Correspondent' To 'Press Secretary' -->
         <div id="LegislativeCorrespondent-to-PressSecretary-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Legislative Correspondent' To 'Field Representative' -->
         <div id="LegislativeCorrespondent-to-FieldRepresentative-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Legislative Correspondent' To 'Legislative Assistant' -->
         <div id="LegislativeCorrespondent-to-LegislativeAssistant-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Legislative Assistant' To 'Press Secretary' -->
         <div id="LegislativeAssistant-to-PressSecretary-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Legislative Assistant' To 'District Director' -->
         <div id="LegislativeAssistant-to-DistrictDirector-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Legislative Assistant' To 'Legislative Director' -->
         <div id="LegislativeAssistant-to-LegislativeDirector-Career-Path">
             <!-- populated dynamically  -->
         </div>
 
-
         <!-- 'Legislative Director' To - 'Deputy Chief of Staff' -->
         <div id="LegislativeDirector-to-DeputyChiefofStaff-Career-Path">
             <!-- populated dynamically  -->
         </div>
-
 
         <!-- 'Legislative Director' To - 'Chief of Staff' -->
         <div id="LegislativeDirector-to-ChiefofStaff-Career-Path">
@@ -1164,22 +1052,17 @@
 
         <!-- FieldRepresentative-to-Caseworker-Career-Path -->
         <div id="FieldRepresentative-to-Caseworker-Career-Path">
-
         </div>
 
         <!-- FieldRepresentative-to-LegislativeAssistant-Career-Path -->
         <div id="FieldRepresentative-to-LegislativeAssistant-Career-Path">
-
         </div>
 
         <!-- 'dummy id assigned for connections without document' -->
         <div id="dummy_id" style="display: none;">
-
         </div>
 
-
     </div>
-
 
 
 

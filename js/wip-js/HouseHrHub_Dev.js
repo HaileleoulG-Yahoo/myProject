@@ -170,11 +170,11 @@ $(document).ready(function () {
   var expand_retaining_dropdown = "";
 
 
-  if(currentUrl.includes('Hiring') || currentUrl.includes('Recruiting') ||currentUrl.includes('Salary&Benefits') || currentUrl.includes('Onboarding') || currentUrl.includes('SettingUpAnOffice')){
+  if (currentUrl.includes('Hiring') || currentUrl.includes('Recruiting') || currentUrl.includes('Salary&Benefits') || currentUrl.includes('Onboarding') || currentUrl.includes('SettingUpAnOffice')) {
     var expand_hiring_dropdown = "show";
-  } else if(currentUrl.includes('Developing') || currentUrl.includes('PerformanceManagement') ||currentUrl.includes('ProfessionalGrowth') ) {
+  } else if (currentUrl.includes('Developing') || currentUrl.includes('PerformanceManagement') || currentUrl.includes('ProfessionalGrowth')) {
     var expand_developing_dropdown = "show";
-  } else if (currentUrl.includes('Retaining') || currentUrl.includes('Engaging&SupportingStaff') ||currentUrl.includes('ManagingStaffTransitions') ){
+  } else if (currentUrl.includes('Retaining') || currentUrl.includes('Engaging&SupportingStaff') || currentUrl.includes('ManagingStaffTransitions')) {
     var expand_retaining_dropdown = "show";
   }
 
@@ -268,15 +268,12 @@ $(document).ready(function () {
   if (!_fullURL.includes('Home.aspx')) {
 
     document.getElementById('leftNavigation').innerHTML = htmlLeftNavigation;
-  }else {    
+  } else {
   }
-
 
   // Logic to check the page and set a variable to expand leftNav dropdown accordingly - START - END
 
-
 }); // jquery end
-
 
 
 
@@ -469,7 +466,7 @@ function getListItems() {
   var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
   var apiUrl = siteUrl + "/_api/web/lists/getbytitle('HR-HUB-Resources')/items?$select=Title,ResourceURL,Tag_01,Tag_02,Tag_03,Tag_04,Tag_05,Tag_06,Tag_07,Tag_08,Tag_09,Tag_10,Tag_11,Tag_12,Tag_13,Tag_14,Tag_15,Resource_Ready&$orderby=Title&$top=1000";
-  
+
 
   return $.ajax({
     url: apiUrl,
@@ -594,6 +591,7 @@ function searchResourceWithSearchKey(SearchCriteria) {
 
 }
 
+
 // A function that listens for enter key on search box and run the search accordingly
 function checkEnter() {
   $("#SearchKey").on('keyup', function (event) {
@@ -611,11 +609,11 @@ function checkEnter() {
         var _urlSearchPage = "https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Search.aspx?SearchCriteria=" + _searchKey;
         window.open(_urlSearchPage);
 
-      }else {     
+      } else {
 
         // Function call to do a search from 'Search.aspx'
         searchResource();
-        
+
       }
 
 
