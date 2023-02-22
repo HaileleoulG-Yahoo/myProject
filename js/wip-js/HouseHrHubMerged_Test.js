@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
   //Top navigation bar call
-  topNavigationBar();
+   topNavigationBar();
 
 
   // Left navigation bar call
@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 
   //Footer function call
-  footer();
+  footer ();
 
 
   //HR Hub Visitors function call
@@ -23,35 +23,35 @@ $(document).ready(function () {
 
   var path = window.location.pathname;
 
-  if ((path.includes("TestPage_02") || path.includes("TestPage_03") || path.includes("TestPage_04") || path.includes("TestPage_05") || path.includes("TestPage_07") || path.includes("TestPage_08") || path.includes("TestPage_09") || path.includes("TestPage_10") || path.includes("Administrative") || path.includes("Communications") || path.includes("District") || path.includes("Legislative"))) {
+  if((path.includes("TestPage_02") || path.includes("TestPage_03") || path.includes("TestPage_04") || path.includes("TestPage_05")  || path.includes("TestPage_07") || path.includes("TestPage_08") || path.includes("TestPage_09") || path.includes("TestPage_10") || path.includes("Administrative") || path.includes("Communications") ||  path.includes("District") || path.includes("Legislative"))){
 
     //Load Position modals function call, for pages House Career Compass track pages
-    loadPositionModals();
+      loadPositionModals();
 
     //Load Connection modals function call, for pages House Career Compass track pages
-    loadConnectionModals();
+      loadConnectionModals();
 
-  } else if (path.includes("TestPage_06") || path.includes("TestPage_11") || path.includes("ComparePositions")) {
+  } else if(path.includes("TestPage_06") || path.includes("TestPage_11") || path.includes("ComparePositions")) {
 
     //Retrive Starting Position function call for Compare Positions page to Starting Position drop downs  
     retrive_Starting_Positions();
 
-  } else if (path.includes("TestPage_12") || path.includes("Analytics")) {
+  }else if(path.includes("TestPage_12") || path.includes("Analytics")){
 
-    //HR Hub Analytics Archive and Images loading function call
-    hrHubAnalyticsArchive();
-    hrHubAnalyticsImages();
+      //HR Hub Analytics Archive and Images loading function call
+      hrHubAnalyticsArchive();
+      hrHubAnalyticsImages();
 
   }
 
 
-
+ 
 
 
 }); // jquery end
 
 
-function footer() {
+function footer(){
 
   document.getElementById('Footer').innerHTML = `
   <footer class="text-center text-lg-start text-muted" style="background: #003349;">  
@@ -85,9 +85,9 @@ function footer() {
 
 
 
-function topNavigationBar() {
-  // Top navbar - START
-  document.getElementById('topNavigationBar').innerHTML = `
+function topNavigationBar(){
+      // Top navbar - START
+      document.getElementById('topNavigationBar').innerHTML = `
 
       <div class="container-fluid" style="background: #003349;">
       <div id="House-HR-Hub-Logo-Row" class="row">
@@ -205,13 +205,13 @@ function topNavigationBar() {
     </div>
         
         `;
-  // Top navbar - END
+      // Top navbar - END
 }
 
 
 
 
-function leftNavigationBar() {
+function leftNavigationBar(){
 
   // Left navbar - START
 
@@ -227,11 +227,11 @@ function leftNavigationBar() {
   var expand_retaining_dropdown = "";
 
 
-  if (currentUrl.includes('Hiring') || currentUrl.includes('Recruiting') || currentUrl.includes('Salary&Benefits') || currentUrl.includes('Onboarding') || currentUrl.includes('SettingUpAnOffice')) {
+  if(currentUrl.includes('Hiring') || currentUrl.includes('Recruiting') ||currentUrl.includes('Salary&Benefits') || currentUrl.includes('Onboarding') || currentUrl.includes('SettingUpAnOffice')){
     var expand_hiring_dropdown = "show";
-  } else if (currentUrl.includes('Developing') || currentUrl.includes('PerformanceManagement') || currentUrl.includes('ProfessionalGrowth')) {
+  } else if(currentUrl.includes('Developing') || currentUrl.includes('PerformanceManagement') ||currentUrl.includes('ProfessionalGrowth') ) {
     var expand_developing_dropdown = "show";
-  } else if (currentUrl.includes('Retaining') || currentUrl.includes('Engaging&SupportingStaff') || currentUrl.includes('ManagingStaffTransitions')) {
+  } else if (currentUrl.includes('Retaining') || currentUrl.includes('Engaging&SupportingStaff') ||currentUrl.includes('ManagingStaffTransitions') ){
     var expand_retaining_dropdown = "show";
   }
 
@@ -325,7 +325,7 @@ function leftNavigationBar() {
   if (!_fullURL.includes('Home.aspx')) {
 
     document.getElementById('leftNavigation').innerHTML = htmlLeftNavigation;
-  } else {
+  }else {    
   }
 
 
@@ -345,7 +345,7 @@ function searchResource() {
   // spinner to appear when the page loads
   $('#spinner').show();
 
-  // setTimeOut function to delay execution to allow for spinner
+ // setTimeOut function to delay execution to allow for spinner
   setTimeout(function () {
 
     //spinner to hide after delay set in mili-seconds
@@ -403,7 +403,7 @@ function searchResource() {
               var _ResourceURL = item.ResourceURL
 
 
-              ResourceTitle = item.Title.replace(/&/g, "and");
+              ResourceTitle = item.Title.replace(/&/g,"and");              
 
               // check the resource is ready, if not avoid inserting resource url, instead insert 'coming soon!' after resource title
               if (item.Resource_Ready === "Yes") {
@@ -439,10 +439,10 @@ function searchResource() {
 
             console.log("Not even one record gets returned1");
 
-            // message when no record gets returned
-            mySearchHtml = `No records found for <b>"`;
-            mySearchHtml = mySearchHtml + _searchKey;
-            mySearchHtml = mySearchHtml + `"</b>, please try another term to search`;
+        // message when no record gets returned
+        mySearchHtml = `No records found for <b>"`;
+        mySearchHtml = mySearchHtml + _searchKey ;
+        mySearchHtml = mySearchHtml + `"</b>, please try another term to search`;
 
           } else {
 
@@ -454,7 +454,7 @@ function searchResource() {
             // mySearchHtml = `  Total of <b>` + SearchReturnCounter + `</b> document/s found for <b>"` + _searchKey + `"</b>.<br>` + mySearchHtml;
             mySearchHtml = SearchReturnCounter + `</b> result(s) found for <b>"` + _SearchCriteria + `"</b>.<br>` + mySearchHtml;
 
-            //function call to collect data for HR HUB Analytics
+           //function call to collect data for HR HUB Analytics
             tagSearches(_searchKey, SearchReturnCounter);
 
           }
@@ -524,7 +524,7 @@ function getListItems() {
   var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
   var apiUrl = siteUrl + "/_api/web/lists/getbytitle('HR-HUB-Resources')/items?$select=Title,ResourceURL,Tag_01,Tag_02,Tag_03,Tag_04,Tag_05,Tag_06,Tag_07,Tag_08,Tag_09,Tag_10,Tag_11,Tag_12,Tag_13,Tag_14,Tag_15,Resource_Ready&$orderby=Title&$top=1000";
-
+  
 
   return $.ajax({
     url: apiUrl,
@@ -583,25 +583,25 @@ function searchResourceWithSearchKey(SearchCriteria) {
           var _ResourceURL = item.ResourceURL
 
 
-          // check the resource is ready, if not avoid inserting resource url, instead insert 'coming soon!' after resource title
-          if (item.Resource_Ready === "Yes") {
-            //create row for SearchDataTable with clickable link to access the resource
-            mySearchHtml += `
+              // check the resource is ready, if not avoid inserting resource url, instead insert 'coming soon!' after resource title
+              if (item.Resource_Ready === "Yes") {
+                //create row for SearchDataTable with clickable link to access the resource
+                mySearchHtml += `
                             <tr>                            
                               <td style="text-align:left;"><a class="document" href="${_ResourceURL}" target="_blank">${item.Title}</a></td>                      
                             </tr>
                                         `;
-          } else {
-            //create row for SearchDataTable with non-clickable link, since the resource is not ready yet
-            mySearchHtml += `
+              } else {
+                //create row for SearchDataTable with non-clickable link, since the resource is not ready yet
+                mySearchHtml += `
                             <tr>                            
                               <td style="text-align:left;"><a class="document" href="javascript: void(0)">${item.Title} - <span style="font-weight:bold; color:black;">coming soon!</span></a></td>                      
                             </tr>
                                         `;
-          }
+              }
 
 
-          SearchReturnCounter = SearchReturnCounter + 1;
+          SearchReturnCounter=SearchReturnCounter + 1;
         }
 
       }// end of loop 
@@ -611,29 +611,29 @@ function searchResourceWithSearchKey(SearchCriteria) {
       // console.log("SearchReturnCounter : ",SearchReturnCounter);
 
 
-      if (SearchReturnCounter === 0 || _SearchCriteria == "") {
+      if(SearchReturnCounter===0 || _SearchCriteria==""){
 
         //console.log("Not even one record gets returned");
 
         // message when no record gets returned
         mySearchHtml = `No records found for <b>"`;
-        mySearchHtml = mySearchHtml + _SearchCriteria;
+        mySearchHtml = mySearchHtml + _SearchCriteria ;
         mySearchHtml = mySearchHtml + `"</b>, please try another term to search`;
 
-      } else {
+      }else{
 
         //console.log("At least one record gets returned");
 
-        mySearchHtml += `</tbody>
-        </table>`;
-
+        mySearchHtml +=`</tbody>
+        </table>`; 
+        
         // mySearchHtml = `  Total of <b>` + SearchReturnCounter + `</b> document/s found for <b>"` + _SearchCriteria + `"</b>.<br>` + mySearchHtml;
         mySearchHtml = SearchReturnCounter + `</b> result(s) found for <b>"` + _SearchCriteria + `"</b>.<br>` + mySearchHtml;
 
 
         //function call to collect data for HR HUB Analytics
         tagSearches(_SearchCriteria, SearchReturnCounter);
-
+        
       }
 
       $('#SearchDataTable').html(mySearchHtml);
@@ -671,11 +671,11 @@ function checkEnter() {
         var _urlSearchPage = "https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/Search.aspx?SearchCriteria=" + _searchKey;
         window.open(_urlSearchPage);
 
-      } else {
+      }else {     
 
         // Function call to do a search from 'Search.aspx'
         searchResource();
-
+        
       }
 
 
@@ -686,13 +686,13 @@ function checkEnter() {
 
 
 
-function loadPositionModals() {
-  var siteurl = _spPageContextInfo.webAbsoluteUrl;
-  oDataCareerPathPosition = siteurl + "/_api/web/lists/getbytitle('Career-Path-Position')/items?$select=Job_Title,Similar_Job_Titles,Job_Summary,Top_Skill_1/Skill_Name,Top_Skill_1_Rating,Top_Skill_2/Skill_Name,Top_Skill_2_Rating,Top_Skill_3/Skill_Name,Top_Skill_3_Rating,Top_Skill_4/Skill_Name,Top_Skill_4_Rating,Top_Skill_5/Skill_Name,Top_Skill_5_Rating,URL_PositionDescription,Top_Skill_2_Definition,Top_Skill_1_Definition,Top_Skill_3_Definition,Top_Skill_4_Definition,Top_Skill_5_Definition,Position_Div_ID&$expand=Top_Skill_1&$expand=Top_Skill_2&$expand=Top_Skill_3&$expand=Top_Skill_4&$expand=Top_Skill_5";
+function loadPositionModals(){
+var siteurl = _spPageContextInfo.webAbsoluteUrl;
+oDataCareerPathPosition = siteurl + "/_api/web/lists/getbytitle('Career-Path-Position')/items?$select=Job_Title,Similar_Job_Titles,Job_Summary,Top_Skill_1/Skill_Name,Top_Skill_1_Rating,Top_Skill_2/Skill_Name,Top_Skill_2_Rating,Top_Skill_3/Skill_Name,Top_Skill_3_Rating,Top_Skill_4/Skill_Name,Top_Skill_4_Rating,Top_Skill_5/Skill_Name,Top_Skill_5_Rating,URL_PositionDescription,Top_Skill_2_Definition,Top_Skill_1_Definition,Top_Skill_3_Definition,Top_Skill_4_Definition,Top_Skill_5_Definition,Position_Div_ID&$expand=Top_Skill_1&$expand=Top_Skill_2&$expand=Top_Skill_3&$expand=Top_Skill_4&$expand=Top_Skill_5";
 
-  //console.log(": ", oDataCareerPathPosition);
+//console.log(": ", oDataCareerPathPosition);
 
-  $.ajax({
+$.ajax({
 
     url: oDataCareerPathPosition,
     method: "GET",
@@ -700,74 +700,74 @@ function loadPositionModals() {
 
     success: function (data) {
 
-      var items = data.d.results;
+        var items = data.d.results;
 
-      items.forEach(function (item, index) {
+        items.forEach(function (item, index) {
 
-        //Cleaning Position Name - START
-        var _position = item.Job_Title;
+            //Cleaning Position Name - START
+            var _position = item.Job_Title;
 
-        // Count number of times space character in '_position';
-        var CountCharacter = (_position.split(" ").length - 1);
+            // Count number of times space character in '_position';
+            var CountCharacter = (_position.split(" ").length - 1);
 
-        // Remove space character/s from '_position' to be used as part of modal ID ;                
-        for (i = 0; i < CountCharacter; i++) {
-          var _position = _position.replace(" ", "");
-        }
+            // Remove space character/s from '_position' to be used as part of modal ID ;                
+            for (i = 0; i < CountCharacter; i++) {
+                var _position = _position.replace(" ", "");
+            }
 
-        // Count number of times '/' charcter in '_position';
-        var CountCharacter = (_position.split("/").length - 1);
+            // Count number of times '/' charcter in '_position';
+            var CountCharacter = (_position.split("/").length - 1);
 
-        // Remove '/' character/s from '_position' to be used as part of modal ID ;                
-        for (i = 0; i < CountCharacter; i++) {
-          var _position = _position.replace("/", "");
-        }
+            // Remove '/' character/s from '_position' to be used as part of modal ID ;                
+            for (i = 0; i < CountCharacter; i++) {
+                var _position = _position.replace("/", "");
+            }
 
-        //console.log("Position AFTER FOR LOOP", position);
-        //Cleaning Position Name - END
+            //console.log("Position AFTER FOR LOOP", position);
+            //Cleaning Position Name - END
 
-        var _Job_Title = item.Job_Title;
-        var _Similar_Job_Titles = item.Similar_Job_Titles;
-        var _Job_Summary = item.Job_Summary;
-        var _URL_PositionDescription = item.URL_PositionDescription;
-        var _Position_Div_ID = item.Position_Div_ID;
+            var _Job_Title = item.Job_Title;
+            var _Similar_Job_Titles = item.Similar_Job_Titles;
+            var _Job_Summary = item.Job_Summary;
+            var _URL_PositionDescription = item.URL_PositionDescription;
+            var _Position_Div_ID = item.Position_Div_ID;
 
-        var _Top_Skill_1 = item.Top_Skill_1.Skill_Name;
-        var _Top_Skill_1_Rating = item.Top_Skill_1_Rating;
-        var _Top_Skill_1_Definition = item.Top_Skill_1_Definition;
+            var _Top_Skill_1 = item.Top_Skill_1.Skill_Name;
+            var _Top_Skill_1_Rating = item.Top_Skill_1_Rating;
+            var _Top_Skill_1_Definition = item.Top_Skill_1_Definition;
 
-        var _Top_Skill_2 = item.Top_Skill_2.Skill_Name;
-        var _Top_Skill_2_Rating = item.Top_Skill_2_Rating;
-        var _Top_Skill_2_Definition = item.Top_Skill_2_Definition;
+            var _Top_Skill_2 = item.Top_Skill_2.Skill_Name;
+            var _Top_Skill_2_Rating = item.Top_Skill_2_Rating;
+            var _Top_Skill_2_Definition = item.Top_Skill_2_Definition;
 
-        var _Top_Skill_3 = item.Top_Skill_3.Skill_Name;
-        var _Top_Skill_3_Rating = item.Top_Skill_3_Rating;
-        var _Top_Skill_3_Definition = item.Top_Skill_3_Definition;
+            var _Top_Skill_3 = item.Top_Skill_3.Skill_Name;
+            var _Top_Skill_3_Rating = item.Top_Skill_3_Rating;
+            var _Top_Skill_3_Definition = item.Top_Skill_3_Definition;
 
-        var _Top_Skill_4 = item.Top_Skill_4.Skill_Name;
-        var _Top_Skill_4_Rating = item.Top_Skill_4_Rating;
-        var _Top_Skill_4_Definition = item.Top_Skill_4_Definition;
+            var _Top_Skill_4 = item.Top_Skill_4.Skill_Name;
+            var _Top_Skill_4_Rating = item.Top_Skill_4_Rating;
+            var _Top_Skill_4_Definition = item.Top_Skill_4_Definition;
 
-        var _Top_Skill_5 = item.Top_Skill_5.Skill_Name;
-        var _Top_Skill_5_Rating = item.Top_Skill_5_Rating;
-        var _Top_Skill_5_Definition = item.Top_Skill_5_Definition;
+            var _Top_Skill_5 = item.Top_Skill_5.Skill_Name;
+            var _Top_Skill_5_Rating = item.Top_Skill_5_Rating;
+            var _Top_Skill_5_Definition = item.Top_Skill_5_Definition;
 
 
-        var path = window.location.pathname;
+            var path = window.location.pathname;
 
-        // To insert 'District' before 'Intern' and 'Staff Assistant' positions only on District page
-        if ((path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) && (_Job_Title == "Intern" || _Job_Title == "Staff Assistant")) {
-          Init = " (District)";
-          //console.log("Init: ", Init);
-        } else {
-          Init = "";
-        }
+            // To insert 'District' before 'Intern' and 'Staff Assistant' positions only on District page
+            if ((path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) && (_Job_Title == "Intern" || _Job_Title == "Staff Assistant")) {
+                Init = " (District)";
+                //console.log("Init: ", Init);
+            } else {
+                Init = "";
+            }
 
-        if ((path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) && (_Job_Title == "Staff Assistant")) {
-          _Similar_Job_Titles = "N/A";
-        }
+            if((path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) && (_Job_Title == "Staff Assistant")){
+                _Similar_Job_Titles = "N/A";
+            }
 
-        var htmlPositionmodal = `<div class="modal fade" id="${_position}ModalNew" tabindex="-1" aria-labelledby="${_position}ModalLabel" aria-hidden="true"
+            var htmlPositionmodal = `<div class="modal fade" id="${_position}ModalNew" tabindex="-1" aria-labelledby="${_position}ModalLabel" aria-hidden="true"
             data-bs-backdrop="static">
             <div class="modal-dialog modal-lg">        
                 <div class="modal-content">        
@@ -800,17 +800,17 @@ function loadPositionModals() {
                                                 </div>
                                                 <div class="col" style="text-align:right;">`;
 
-        for (let i = 0; i < _Top_Skill_1_Rating; i++) {
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-        }
+            for (let i = 0; i < _Top_Skill_1_Rating; i++) {
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
+            }
 
-        var Skill_Rating_Gap = 5 - _Top_Skill_1_Rating;
+            var Skill_Rating_Gap = 5 - _Top_Skill_1_Rating;
 
-        for (let i = 0; i < Skill_Rating_Gap; i++) {
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-        }
+            for (let i = 0; i < Skill_Rating_Gap; i++) {
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
+            }
 
-        htmlPositionmodal = htmlPositionmodal + `                                                                
+            htmlPositionmodal = htmlPositionmodal + `                                                                
                                               </div>
                                             </div>
                                         </button>
@@ -833,21 +833,21 @@ function loadPositionModals() {
                                                 </div>
                                                 <div class="col" style="text-align:right;">`;
 
-        for (let i = 0; i < _Top_Skill_2_Rating; i++) {
+            for (let i = 0; i < _Top_Skill_2_Rating; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-        }
+            }
 
-        var Skill_Rating_Gap = 5 - _Top_Skill_2_Rating;
+            var Skill_Rating_Gap = 5 - _Top_Skill_2_Rating;
 
-        for (let i = 0; i < Skill_Rating_Gap; i++) {
+            for (let i = 0; i < Skill_Rating_Gap; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-        }
+            }
 
-        htmlPositionmodal = htmlPositionmodal + `                                                                
+            htmlPositionmodal = htmlPositionmodal + `                                                                
                                                 </div>
                                             </div>
                                         </button>
@@ -871,21 +871,21 @@ function loadPositionModals() {
                                                 </div>
                                                 <div class="col" style="text-align:right;">`;
 
-        for (let i = 0; i < _Top_Skill_3_Rating; i++) {
+            for (let i = 0; i < _Top_Skill_3_Rating; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-        }
+            }
 
-        var Skill_Rating_Gap = 5 - _Top_Skill_3_Rating;
+            var Skill_Rating_Gap = 5 - _Top_Skill_3_Rating;
 
-        for (let i = 0; i < Skill_Rating_Gap; i++) {
+            for (let i = 0; i < Skill_Rating_Gap; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-        }
+            }
 
-        htmlPositionmodal = htmlPositionmodal + `                                                                
+            htmlPositionmodal = htmlPositionmodal + `                                                                
                                                 </div>
                                             </div>
                                         </button>
@@ -908,21 +908,21 @@ function loadPositionModals() {
                                                 </div>
                                                 <div class="col" style="text-align:right;">`;
 
-        for (let i = 0; i < _Top_Skill_4_Rating; i++) {
+            for (let i = 0; i < _Top_Skill_4_Rating; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-        }
+            }
 
-        var Skill_Rating_Gap = 5 - _Top_Skill_4_Rating;
+            var Skill_Rating_Gap = 5 - _Top_Skill_4_Rating;
 
-        for (let i = 0; i < Skill_Rating_Gap; i++) {
+            for (let i = 0; i < Skill_Rating_Gap; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-        }
+            }
 
-        htmlPositionmodal = htmlPositionmodal + `                                                                
+            htmlPositionmodal = htmlPositionmodal + `                                                                
                                                 </div>
                                             </div>
                                         </button>
@@ -941,26 +941,26 @@ function loadPositionModals() {
                                             aria-controls="panelsStayOpen-collapseFive-${_position}">
                                             <div class="row" style="width:110%;">
                                                 <div class="col">
-                                                    <b>${_Top_Skill_5}</b>
+                                                    <b>${_Top_Skill_5}:</b>
                                                 </div>
         
                                                 <div class="col" style="text-align:right;">`;
 
-        for (let i = 0; i < _Top_Skill_5_Rating; i++) {
+            for (let i = 0; i < _Top_Skill_5_Rating; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Black.png"> `;
-        }
+            }
 
-        var Skill_Rating_Gap = 5 - _Top_Skill_5_Rating;
+            var Skill_Rating_Gap = 5 - _Top_Skill_5_Rating;
 
-        for (let i = 0; i < Skill_Rating_Gap; i++) {
+            for (let i = 0; i < Skill_Rating_Gap; i++) {
 
-          htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
+                htmlPositionmodal = htmlPositionmodal + `<img class="capitol-icon" 
                                                                                                 src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/Images/CareerPaths/Capitol-Icon-Gray.png"> `;
-        }
+            }
 
-        htmlPositionmodal = htmlPositionmodal + `                                                                
+            htmlPositionmodal = htmlPositionmodal +  `                                                                
                                                 </div>
                                             </div>
                                         </button>
@@ -968,7 +968,7 @@ function loadPositionModals() {
                                     <div id="panelsStayOpen-collapseFive-${_position}" class="accordion-collapse collapse"
                                         aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsFive">
                                         <div class="accordion-body">
-                                            <p style="color:black;">"${_Top_Skill_5_Definition}</p>
+                                            <p style="color:black;">${_Top_Skill_5_Definition}</p>
                                         </div>
                                     </div>
                                 </div>            
@@ -992,36 +992,36 @@ function loadPositionModals() {
             </div>`;
 
 
-        // insert 'htmlPositionmodal' to respective element id
-        document.getElementById(_Position_Div_ID).innerHTML = htmlPositionmodal;
+            // insert 'htmlPositionmodal' to respective element id
+            document.getElementById(_Position_Div_ID).innerHTML = htmlPositionmodal;
 
 
-      });
+        });
 
     },
     error: function (data) {
-      alert("Error: " + data);
+        alert("Error: " + data);
     }
-  });
+});
 }
 
 
 
-function loadConnectionModals() {
-  var path = window.location.pathname;
-  var siteurl = _spPageContextInfo.webAbsoluteUrl;
+function loadConnectionModals(){
+var path = window.location.pathname;
+var siteurl = _spPageContextInfo.webAbsoluteUrl;
 
-  if (path.includes("TestPage_02") || path.includes("TestPage_07") || path.includes("Administrative")) {
+if (path.includes("TestPage_02") || path.includes("TestPage_07") || path.includes("Administrative")) {
     oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'Administrative'";
-  } else if (path.includes("TestPage_03") || path.includes("TestPage_08") || path.includes("Communications")) {
+} else if (path.includes("TestPage_03") || path.includes("TestPage_08") || path.includes("Communications")) {
     oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'Communications'";
-  } else if (path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) {
+} else if (path.includes("TestPage_04") || path.includes("TestPage_09") || path.includes("District")) {
     oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,Reverse_URL_Featured_Skills,div_Id,URL_Connection_Document,Reverse_URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'District'";
-  } else if (path.includes("TestPage_05") || path.includes("TestPage_10") || path.includes("Legislative")) {
+} else if (path.includes("TestPage_05") || path.includes("TestPage_10") || path.includes("Legislative")) {
     oDataCareerPathConnection = siteurl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Featured_Skills,div_Id,URL_Connection_Document,Track,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Track eq 'Legislative'";
-  }
+}
 
-  $.ajax({
+$.ajax({
 
     url: oDataCareerPathConnection,
     method: "GET",
@@ -1029,37 +1029,37 @@ function loadConnectionModals() {
 
     success: function (data) {
 
-      //console.log("Sucess : Retured results :",results);
+        //console.log("Sucess : Retured results :",results);
 
-      var items = data.d.results;
+        var items = data.d.results;
 
-      //console.log("items :",items);
+        //console.log("items :",items);
 
-      items.forEach(function (item, index) {
+        items.forEach(function (item, index) {
 
-        var _Position_1 = item.Starting_Position.Job_Title.replace(" ", "");
-        var _Position_1 = _Position_1.replace(" ", "");
-        var _Position_1 = _Position_1.replace(" ", "");
-        var _Position_1 = _Position_1.replace("/", "");
+            var _Position_1 = item.Starting_Position.Job_Title.replace(" ", "");
+            var _Position_1 = _Position_1.replace(" ", "");
+            var _Position_1 = _Position_1.replace(" ", "");
+            var _Position_1 = _Position_1.replace("/", "");
 
-        var _Position_2 = item.Desired_Position.Job_Title.replace(" ", "");
-        var _Position_2 = _Position_2.replace(" ", "");
-        var _Position_2 = _Position_2.replace(" ", "");
-        var _Position_2 = _Position_2.replace("/", "");
+            var _Position_2 = item.Desired_Position.Job_Title.replace(" ", "");
+            var _Position_2 = _Position_2.replace(" ", "");
+            var _Position_2 = _Position_2.replace(" ", "");
+            var _Position_2 = _Position_2.replace("/", "");
 
-        var _URL_Featured_Skills = item.URL_Featured_Skills;
-        var _div_Id = item.div_Id;
-        var _URL_Connection_Document = item.URL_Connection_Document;
+            var _URL_Featured_Skills = item.URL_Featured_Skills;
+            var _div_Id = item.div_Id;
+            var _URL_Connection_Document = item.URL_Connection_Document;
 
-        var htmlCareerPathConnectionModal = ``;
+            var htmlCareerPathConnectionModal = ``;
 
-        if ((item.Starting_Position.Job_Title == "Caseworker") && (item.Desired_Position.Job_Title == "Field Representative")) {
+            if ((item.Starting_Position.Job_Title == "Caseworker") && (item.Desired_Position.Job_Title == "Field Representative")) {
 
-          var _Reverse_URL_Featured_Skills = item.Reverse_URL_Featured_Skills;
-          var _div_Id = item.div_Id;
-          var _Reverse_URL_Connection_Document = item.Reverse_URL_Connection_Document;
+                var _Reverse_URL_Featured_Skills = item.Reverse_URL_Featured_Skills;
+                var _div_Id = item.div_Id;
+                var _Reverse_URL_Connection_Document = item.Reverse_URL_Connection_Document;
 
-          htmlCareerPathConnectionModal = `
+                htmlCareerPathConnectionModal = `
                                 <div class="modal fade" id="${_Position_1}-to-${_Position_2}ModalNew" tabindex="-1"
                                     aria-labelledby="${_Position_1}-to-F${_Position_2}ModalNewLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
@@ -1076,7 +1076,7 @@ function loadConnectionModals() {
                                                         <h2 class="accordion-header" id="flush-heading${_Position_1}${_Position_2}">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                 data-bs-target="#flush-collapse${_Position_1}${_Position_2}" aria-expanded="false"
-                                                                aria-controls="flush-collapse${_Position_1}${_Position_2}" onclick="careerPathUsageTracking('Caseworker to Field Representative')">
+                                                                aria-controls="flush-collapse${_Position_1}${_Position_2}" onclick="careerPathUsageTracking('Caseworker to Field Representative','District','Connection')">
                                                                 <h4
                                                                     style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
                                                                     ${item.Starting_Position.Job_Title} <img
@@ -1127,7 +1127,7 @@ function loadConnectionModals() {
                                                         <h2 class="accordion-header" id="flush-heading${_Position_2}${_Position_1}">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                 data-bs-target="#flush-collapse${_Position_2}${_Position_1}" aria-expanded="false"
-                                                                aria-controls="flush-collapse${_Position_2}${_Position_1}" onclick="careerPathUsageTracking('Field Representative to Caseworker')">
+                                                                aria-controls="flush-collapse${_Position_2}${_Position_1}" onclick="careerPathUsageTracking('Field Representative to Caseworker','District','Connection')">
                                                                 <h4
                                                                     style="text-align:left; color:black; margin-left:auto;margin-right:auto; width:95%;">
                                                                     ${item.Desired_Position.Job_Title} <img
@@ -1180,9 +1180,9 @@ function loadConnectionModals() {
                                     </div>
                                 </div>`;
 
-        } else {
+            } else {
 
-          htmlCareerPathConnectionModal = `
+                htmlCareerPathConnectionModal = `
                                 <div class="modal fade" id="${_Position_1}-to-${_Position_2}ModalNew" tabindex="-1" aria-labelledby="${_Position_1}-to-${_Position_2}ModalNewLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content" style="background:rgb(247, 245, 245);">
@@ -1217,22 +1217,22 @@ function loadConnectionModals() {
                                     </div>
                                 </div>`;
 
-        };
+            };
 
-        //console.log("htmlCareerPathConnectionModal: ",htmlCareerPathConnectionModal);
+            //console.log("htmlCareerPathConnectionModal: ",htmlCareerPathConnectionModal);
 
-        document.getElementById(_div_Id).innerHTML = htmlCareerPathConnectionModal;
+            document.getElementById(_div_Id).innerHTML = htmlCareerPathConnectionModal;
 
-      });
+        });
 
 
     },
     error: function (data) {
 
-      console.log("Error : Ajax failed ");
-      alert("Error: " + data);
+        console.log("Error : Ajax failed ");
+        alert("Error: " + data);
     }
-  });
+});
 }
 
 
@@ -1240,10 +1240,10 @@ function loadConnectionModals() {
 function ComparePositions() {
 
 
-  document.getElementById("spinner").style.display = "block";
-  document.getElementById("FullComparingPositions").style.display = "none";
+document.getElementById("spinner").style.display = "block";
+document.getElementById("FullComparingPositions").style.display = "none";
 
-  setTimeout(() => {
+setTimeout(() => {
 
     document.getElementById("alertMessage").style.display = "none";
 
@@ -1252,23 +1252,23 @@ function ComparePositions() {
 
     if (DesiredPositionValue == "Select desired position") {
 
-      document.getElementById("alertMessage").style.display = "block";
-      document.getElementById("spinner").style.display = "none";
+        document.getElementById("alertMessage").style.display = "block";
+        document.getElementById("spinner").style.display = "none";
 
     } else {
 
-      var oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
+        var oDataCompareTwoPositions = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Career-Path-Connection-Data')/items?$select=URL_Full_Comparing_Positions,Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$filter=Starting_Position/Job_Title eq '" + StartingPositionValue + "' and Desired_Position/Job_Title eq '" + DesiredPositionValue + "'&$top=1";
 
-      $.ajax({
+        $.ajax({
 
-        url: oDataCompareTwoPositions,
-        method: "GET",
-        headers: { "Accept": "application/json; odata=verbose" },
-        success: function (data) {
-          //console.log("Sucess : Retured results :",results);
-          var items = data.d.results;
-          var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
-          var htmlFullComparingPositions = `
+            url: oDataCompareTwoPositions,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                //console.log("Sucess : Retured results :",results);
+                var items = data.d.results;
+                var URL_Full_Comparing_Positions_Value = data.d.results[0].URL_Full_Comparing_Positions;
+                var htmlFullComparingPositions = `
                                                    <div class="center-item">    
                                                         <img src="${URL_Full_Comparing_Positions_Value}" alt="">                                                                
                                                     </div>
@@ -1277,105 +1277,105 @@ function ComparePositions() {
                                                         <p style="color:black; font-style:italic; font-size:1.25rem;">Note: Specialized skills may not apply to all positions.</p>
                                                     </div>
                                                 `;
-          //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
-          document.getElementById("spinner").style.display = "none";
-          document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
-          document.getElementById("FullComparingPositions").style.display = "block";
+                //console.log("htmlFullComparingPositions : ", htmlFullComparingPositions);
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("FullComparingPositions").innerHTML = htmlFullComparingPositions;
+                document.getElementById("FullComparingPositions").style.display = "block";
 
-        },
-        error: function (data) {
-          console.log("Error : Ajax failed ");
-          alert("Error: " + data);
-        }
-      });
+            },
+            error: function (data) {
+                console.log("Error : Ajax failed ");
+                alert("Error: " + data);
+            }
+        });
     }
-  }, 2000); //set the delay to 3000 miliseconds
+}, 2000); //set the delay to 3000 miliseconds
 
 }
 
 
 function change_Starting_Position() {
 
-  var Starting_Position_Text = $("#Starting_Position option:selected").text();
-  var CompareTwoPositions = $.grep(Compare_Two_Positions, function (element) {
+var Starting_Position_Text = $("#Starting_Position option:selected").text();
+var CompareTwoPositions = $.grep(Compare_Two_Positions, function (element) {
     return element.Starting_Position.Job_Title == Starting_Position_Text;
-  })
+})
 
-  console.log("CompareTwoPositions: ", CompareTwoPositions);
+console.log("CompareTwoPositions: ",CompareTwoPositions);
 
-  $('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
+$('#Desired_Position').empty().append('<option value="0">Select desired position</option>');
 
-  //Initialize array to capture and sort desired position on dropdown
-  let _Job_Title_Array = [];
+//Initialize array to capture and sort desired position on dropdown
+let _Job_Title_Array = [];
 
-  for (var i = 0; i < CompareTwoPositions.length; i++) {
+for (var i = 0; i < CompareTwoPositions.length; i++) {
     var item = CompareTwoPositions[i];
 
     //console.log("item @ index: ", i, item.Desired_Position.Job_Title);
 
     _Job_Title_Array[i] = item.Desired_Position.Job_Title;
 
-  }
+}
 
-  //Sort desired position on dropdown
-  _Job_Title_Array = _Job_Title_Array.sort();
+//Sort desired position on dropdown
+_Job_Title_Array = _Job_Title_Array.sort(); 
 
-  //Remove duplicate element/s from array
-  var _unique_Job_Title_Array = _Job_Title_Array.filter(function (element, index) {
-    return _Job_Title_Array.indexOf(element) === index;
-  });
+//Remove duplicate element/s from array
+var _unique_Job_Title_Array = _Job_Title_Array.filter(function(element, index) {
+        return _Job_Title_Array.indexOf(element) === index;
+    });  
 
-  //console.log(_unique_Job_Title_Array);
+//console.log(_unique_Job_Title_Array);
 
-  //Populate desired position dropdown
-  for (var i = 0; i < _unique_Job_Title_Array.length; i++) {
+//Populate desired position dropdown
+for (var i = 0; i < _unique_Job_Title_Array.length; i++) {
     $("#Desired_Position").append("<option value='" + item.ID + "'>" + _unique_Job_Title_Array[i] + "</option>");
-  }
+}
 
 }
 
 
 
 function retrive_Starting_Positions() {
-  // use internal name of each column as required
-  $.ajax
+// use internal name of each column as required
+$.ajax
     ({
-      url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc&$top=500",
-      type: "GET",
-      async: false,
-      headers:
-      {
-        "Accept": "application/json;odata=verbose",
-        "Content-Type": "application/json;odata=verbose",
-        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
-        "IF-MATCH": "*",
-        "X-HTTP-Method": null
-      },
-      cache: false,
-      success: function (data) {
-        Compare_Two_Positions = data.d.results;
-        for (var i = 0; i < data.d.results.length; i++) {
-          var item = data.d.results[i];
-          //  $("#Desired_Position").append("<option value='"+item.ID+"' health-monitor='"+item.HealthMonitorId+"'>"+item.Title+"</option>");  
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Career-Path-Connection-Data')/items?$select=Starting_Position/Job_Title,Desired_Position/Job_Title&$expand=Starting_Position&$expand=Desired_Position&$orderby=Starting_Position asc&$top=500",
+        type: "GET",
+        async: false,
+        headers:
+        {
+            "Accept": "application/json;odata=verbose",
+            "Content-Type": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "IF-MATCH": "*",
+            "X-HTTP-Method": null
+        },
+        cache: false,
+        success: function (data) {
+            Compare_Two_Positions = data.d.results;                        
+            for (var i = 0; i < data.d.results.length; i++) {
+                var item = data.d.results[i];
+                //  $("#Desired_Position").append("<option value='"+item.ID+"' health-monitor='"+item.HealthMonitorId+"'>"+item.Title+"</option>");  
+            }
+
+            var lookup = {};
+            var items = data.d.results;
+            var result = [];
+
+            for (var item, i = 0; item = items[i++];) {
+                var name = item.Starting_Position.Job_Title;
+
+                if (!(name in lookup)) {
+                    lookup[name] = 1;
+                    result.push(name);
+                    $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");                                
+                }
+            }
+        },
+        error: function (data) {
+            alert(data.responseJSON.error);
         }
-
-        var lookup = {};
-        var items = data.d.results;
-        var result = [];
-
-        for (var item, i = 0; item = items[i++];) {
-          var name = item.Starting_Position.Job_Title;
-
-          if (!(name in lookup)) {
-            lookup[name] = 1;
-            result.push(name);
-            $("#Starting_Position").append("<option value='" + item.ID + "'>" + item.Starting_Position.Job_Title + "</option>");
-          }
-        }
-      },
-      error: function (data) {
-        alert(data.responseJSON.error);
-      }
 
     });
 
@@ -1385,42 +1385,42 @@ function retrive_Starting_Positions() {
 
 function Reset() {
 
-  window.location.reload();
+window.location.reload();
 
-  setTimeout(function () {
+setTimeout(function () {
 
     document.getElementById("CompareTwoPositions").scrollIntoView({ behavior: 'smooth' });
     console.log("After 3 seconds... ");
 
-  }, 3000);
+}, 3000);
 
 }
 
 
 
-function Toggle_Career_Path_Map() {
+function Toggle_Career_Path_Map(){
 
-  if (document.getElementById('career_path_map').style.display === "none") {
+if(document.getElementById('career_path_map').style.display==="none"){
 
     document.getElementById('career_path_map').style.display = "block";
     document.getElementById('Minus').style.display = "block";
     document.getElementById('Plus').style.display = "none";
 
-  } else {
+}else{
     document.getElementById('career_path_map').style.display = "none";
     document.getElementById('Minus').style.display = "none";
     document.getElementById('Plus').style.display = "block";
-  }
+}
 
 }
 
 
 
 function hrHubAnalyticsArchive() {
-  var oDataHRHubAnalticsArchive = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Analytics-Reports')/items?$select=MM_DD_YYYY,YYYY_MM_DD,URL&$top=500&$orderby=YYYY_MM_DD desc";
-  console.log("oDataHRHubAnalticsArchive: ", oDataHRHubAnalticsArchive);
+var oDataHRHubAnalticsArchive = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Analytics-Reports')/items?$select=MM_DD_YYYY,YYYY_MM_DD,URL&$top=500&$orderby=YYYY_MM_DD desc";
+//console.log("oDataHRHubAnalticsArchive: ", oDataHRHubAnalticsArchive);
 
-  $.ajax({
+$.ajax({
 
     url: oDataHRHubAnalticsArchive,
     method: "GET",
@@ -1428,33 +1428,44 @@ function hrHubAnalyticsArchive() {
 
     success: function (data) {
 
-      var items = data.d.results;
+        var items = data.d.results;
 
-      var htmlAnalytics = ``;
+        //item = items[0]
 
-      items.forEach(function (item, index) {
+        var htmlAnalytics = ``;
 
-        //console.log(items.length);         
-        htmlAnalytics = htmlAnalytics + `<p><a id="pptLink" href="` + item.URL + `?web=1" target="_blank">CAO HR Analytics : ` + item.MM_DD_YYYY + `</a></p>`;
-      });
+        items.forEach(function (item, index) {
 
-      //console.log("htmlAnalytics: ",htmlAnalytics);
-      document.getElementById("_div_Analytics").innerHTML = htmlAnalytics;
+            //console.log(items.length);         
+            htmlAnalytics = htmlAnalytics + `<p><a id="pptLink" href="` + item.URL + `?web=1" target="_blank">CAO HR Analytics : ` + item.MM_DD_YYYY + `</a></p>`;
+        });
+
+        //console.log("htmlAnalytics: ",htmlAnalytics);
+
+        //console.log("Latest Report:", items[0].MM_DD_YYYY);
+
+
+        document.getElementById("publishingDate").innerHTML = `
+            <p id="page-description" style="text-align:center; padding-bottom:2rem; font-size:1.25rem; margin:0;">
+                      Published on ${items[0].MM_DD_YYYY}
+                  </p>          
+        `;
+        document.getElementById("_div_Analytics").innerHTML = htmlAnalytics;
 
     },
     error: function (data) {
-      alert("Error: " + data);
+        alert("Error: " + data);
     }
-  });
+});
 }
 
 
 
 function hrHubAnalyticsImages() {
-  var oDataHRHubAnalticsImages = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('HR-HUB-Analytics')/items?$select=Image_Title,Image_URL,Image_Order_Number,Width&$top=500&$orderby=Image_Order_Number asc";
-  console.log("oDataHRHubAnalticsImages: ", oDataHRHubAnalticsImages);
+var oDataHRHubAnalticsImages = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('HR-HUB-Analytics')/items?$select=Image_Title,Image_URL,Image_Order_Number,Width&$top=500&$orderby=Image_Order_Number asc";
+//console.log("oDataHRHubAnalticsImages: ", oDataHRHubAnalticsImages);
 
-  $.ajax({
+$.ajax({
 
     url: oDataHRHubAnalticsImages,
     method: "GET",
@@ -1462,177 +1473,177 @@ function hrHubAnalyticsImages() {
 
     success: function (data) {
 
-      var items = data.d.results;
+        var items = data.d.results;
 
-      var htmlAnalyticsImages = `<div class="container-fluid" style="padding: 3rem 0rem; min-height:500px; text-align:center;">`;
+        var htmlAnalyticsImages = `<div class="container-fluid" style="padding: 3rem 0rem; min-height:500px; text-align:center;">`;
 
-      items.forEach(function (item, index) {
+        items.forEach(function (item, index) {
 
-        console.log(items.length);
+            //console.log(items.length);
 
-        htmlAnalyticsImages = htmlAnalyticsImages + `<h1 style="color: #003349;">` + item.Image_Title + `</h1>
+            htmlAnalyticsImages = htmlAnalyticsImages + `<h1 style="color: #003349;">` + item.Image_Title + `</h1>
                                                         <img class="analyticImage" src="` + item.Image_URL + `"width="` + item.Width + `">
                                                         <div style="height:5rem;"></div>`;
-      });
+        });
 
-      htmlAnalyticsImages = htmlAnalyticsImages + `</div>`;
+        htmlAnalyticsImages = htmlAnalyticsImages + `</div>`;
 
-      //console.log("htmlAnalytics: ",htmlAnalytics);
-      document.getElementById("_div_Analytics_Images").innerHTML = htmlAnalyticsImages;
+        //console.log("htmlAnalytics: ",htmlAnalytics);
+        document.getElementById("_div_Analytics_Images").innerHTML = htmlAnalyticsImages;
 
     },
     error: function (data) {
-      alert("Error: " + data);
+        alert("Error: " + data);
     }
-  });
+});
 }
 
 
-function HrHubVisitors(PageTitle) {
+function HrHubVisitors(PageTitle){
 
-  //console.log("PageTitle: ",PageTitle);
+//console.log("PageTitle: ",PageTitle);
 
-  var DisplayName = _spPageContextInfo.userDisplayName;
+var DisplayName = _spPageContextInfo.userDisplayName;
 
-  // OData : to confirm the user is not member of hr team
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-  var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
+// OData : to confirm the user is not member of hr team
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
 
-  $.ajax({
-    url: oDataUrlHRTeam,
-    type: "GET",
-    dataType: "json",
-    headers: {
-      "accept": "application/json;odata=verbose"
-    }
-  }).done(function (data) {
+$.ajax({
+  url: oDataUrlHRTeam,
+  type: "GET",
+  dataType: "json",
+  headers: {
+    "accept": "application/json;odata=verbose"
+  }
+}).done(function (data) {   
+    
+  var items = data.d.results;
+  var hrTeamLength = items.length;
 
-    var items = data.d.results;
-    var hrTeamLength = items.length;
-
-    //console.log("hrTeamLength: ",hrTeamLength);
-    _HRHubVisitorNewItemCreate(PageTitle, DisplayName);
-
-
-
-    //   if(hrTeamLength == 0){  
-
-    //     console.log(DisplayName, " is not member of hr team");
-    //     _HRHubVisitorNewItemCreate(PageTitle,DisplayName);
-
-    //  }else {
-
-    //     console.log(DisplayName, " is member of hr team");
-
-    //   }  
-
-
-  },
-    function (error) {
-
-      //console.error('Ooops error occured during ajax call - Outer', error);
-
-    }
-  );
-}
+  //console.log("hrTeamLength: ",hrTeamLength);
+  _HRHubVisitorNewItemCreate(PageTitle,DisplayName);
 
 
 
-function _HRHubVisitorNewItemCreate(PageTitle, DisplayName) {
+//   if(hrTeamLength == 0){  
 
-  //Replace '&' character with '%26', if needed, to avoid confilict on OData query 
-  //console.log("PageTitle: ",PageTitle); 
-  PageTitle = PageTitle.replace("&", " and ");
+//     console.log(DisplayName, " is not member of hr team");
+//     _HRHubVisitorNewItemCreate(PageTitle,DisplayName);
 
-  var _DispalyName = DisplayName.replace(",", "");
+//  }else {
 
-  _splitDispalyName = _DispalyName.split(" ");
-  _DispalyName = _splitDispalyName[1] + " " + _splitDispalyName[0];
-  //console.log("_DispalyName: ",_DispalyName);
+//     console.log(DisplayName, " is member of hr team");
 
-  //get today's date and set it in a 'YYYY-MM-DD' format
-  var today = new Date();
-  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+//   }  
+  
+  
+},
+  function (error) {
 
-  //get the window width 
-  var screenWidth = window.screen.width;
-  // console.log("screenWidth : ",screenWidth);
+    //console.error('Ooops error occured during ajax call - Outer', error);
 
-  // get siteUrl to check for duplicate item in the list 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-
-  // oData query to identify a record created today by a user for visiting the same page
-  var oDataUrlHRHUBVisitors = siteUrl + "/_api/web/lists/getbytitle('HRHUBVisitors')/items?$select=VisitedPage,UserName,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _DispalyName + "') and (VisitedPage eq '" + PageTitle + "')";
-
-  $.ajax({
-    url: oDataUrlHRHUBVisitors,
-    type: "GET",
-    dataType: "json",
-    headers: {
-      "accept": "application/json;odata=verbose"
-    }
-  }).done(function (data) {
-
-    var items = data.d.results;
-    var counter = items.length;
-
-    if (counter == 0) {
-
-      //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
-      _createListItemPageVisitor(PageTitle, _DispalyName, screenWidth);
-
-    } else {
-      // duplicate item found, creating new item skipped
-      //console.log("Duplicate items found");
-    }
-
-  },
-    function (error) {
-
-      //console.error('Ooops error occured during ajax call - Outer', error);
-
-    }
-  );
-
+  }
+);
 }
 
 
 
+function _HRHubVisitorNewItemCreate(PageTitle,DisplayName){
 
-function _createListItemPageVisitor(_PageTitle, _DispalyName, screenWidth) {
+//Replace '&' character with '%26', if needed, to avoid confilict on OData query 
+//console.log("PageTitle: ",PageTitle); 
+PageTitle = PageTitle.replace("&"," and ");
 
-  //console.log("_PageTitle: ", _PageTitle, "_DispalyName: ", _DispalyName," screenWidth: ", screenWidth);
+var _DispalyName = DisplayName.replace(",","");
 
-  $.ajax({
+_splitDispalyName = _DispalyName.split(" ");
+_DispalyName = _splitDispalyName[1] + " " + _splitDispalyName[0];
+//console.log("_DispalyName: ",_DispalyName);
+
+//get today's date and set it in a 'YYYY-MM-DD' format
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+//get the window width 
+var screenWidth = window.screen.width;
+// console.log("screenWidth : ",screenWidth);
+
+// get siteUrl to check for duplicate item in the list 
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+
+// oData query to identify a record created today by a user for visiting the same page
+ var oDataUrlHRHUBVisitors = siteUrl + "/_api/web/lists/getbytitle('HRHUBVisitors')/items?$select=VisitedPage,UserName,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _DispalyName + "') and (VisitedPage eq '" + PageTitle + "')";
+
+$.ajax({
+  url: oDataUrlHRHUBVisitors,
+  type: "GET",
+  dataType: "json",
+  headers: {
+    "accept": "application/json;odata=verbose"
+  }
+}).done(function (data) {
+
+  var items = data.d.results;
+  var counter = items.length;
+
+  if (counter == 0) {
+
+    //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
+    _createListItemPageVisitor(PageTitle, _DispalyName, screenWidth);
+
+  } else {
+    // duplicate item found, creating new item skipped
+    //console.log("Duplicate items found");
+  }
+
+},
+  function (error) {
+
+    //console.error('Ooops error occured during ajax call - Outer', error);
+
+  }
+); 
+
+}
+
+
+
+
+function _createListItemPageVisitor(_PageTitle, _DispalyName,screenWidth) {
+
+//console.log("_PageTitle: ", _PageTitle, "_DispalyName: ", _DispalyName," screenWidth: ", screenWidth);
+
+$.ajax({
     async: true, // Async by default is set to “true” load the script asynchronously  
     // URL to post data into sharepoint list  
     url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('HRHUBVisitors')/items",
     method: "POST", //Specifies the operation to create the list item  
     data: JSON.stringify({
-      '__metadata': {
-        'type': 'SP.Data.HRHUBVisitorsListItem' // it defines the ListEnitityTypeName  
-      },
-      //Pass the parameters
+        '__metadata': {
+            'type': 'SP.Data.HRHUBVisitorsListItem' // it defines the ListEnitityTypeName  
+        },
+        //Pass the parameters
 
-      'VisitedPage': _PageTitle,
-      'UserName': _DispalyName,
-      'screenWidth': screenWidth
+        'VisitedPage': _PageTitle,
+        'UserName': _DispalyName,
+        'screenWidth':screenWidth
 
     }),
     headers: {
-      "accept": "application/json;odata=verbose", //It defines the Data format   
-      "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
-      "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
+        "accept": "application/json;odata=verbose", //It defines the Data format   
+        "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
+        "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
     },
     success: function (data) {
-      //swal("Item created successfully", "success"); // Used sweet alert for success message  
+        //swal("Item created successfully", "success"); // Used sweet alert for success message  
     },
     error: function (error) {
-      console.log(JSON.stringify(error));
+        console.log(JSON.stringify(error));
 
     }
 
-  })
+})
 
 }
 
@@ -1640,45 +1651,45 @@ function _createListItemPageVisitor(_PageTitle, _DispalyName, screenWidth) {
 
 function downloadResource(documentTitle) {
 
-  var DisplayName = _spPageContextInfo.userDisplayName;
+var DisplayName = _spPageContextInfo.userDisplayName;
 
-  // Check/Confirm the user is not member of hr team
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-  var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
+// Check/Confirm the user is not member of hr team
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
 
-  $.ajax({
-    url: oDataUrlHRTeam,
-    type: "GET",
-    dataType: "json",
-    headers: {
-      "accept": "application/json;odata=verbose"
-    }
-  }).done(function (data) {
+$.ajax({
+  url: oDataUrlHRTeam,
+  type: "GET",
+  dataType: "json",
+  headers: {
+    "accept": "application/json;odata=verbose"
+  }
+}).done(function (data) {   
+    
+  var items = data.d.results;
+  var hrTeamLength = items.length;
 
-    var items = data.d.results;
-    var hrTeamLength = items.length;
-
-    //   console.log("hrTeamLength: ",hrTeamLength);
+//   console.log("hrTeamLength: ",hrTeamLength);
     checkDuplicateInHRHubResourceDownloadTracker(documentTitle);
 
 
 
-    //  if(hrTeamLength == 0){  
+//  if(hrTeamLength == 0){  
 
-    //    console.log(DisplayName, " is not member of hr team");
-    //    checkDuplicateInHRHubResourceDownloadTracker(documentTitle);
+//    console.log(DisplayName, " is not member of hr team");
+//    checkDuplicateInHRHubResourceDownloadTracker(documentTitle);
 
-    // }else {
+// }else {
 
-    //    console.log(DisplayName, " is member of hr team");
+//    console.log(DisplayName, " is member of hr team");
 
-    // }
+ // }
 
-  },
-    function (error) {
-      //console.error('Ooops error occured during ajax call - Outer', error);
-    }
-  );
+},
+  function (error) {
+    //console.error('Ooops error occured during ajax call - Outer', error);
+  }
+);
 
 }
 
@@ -1686,60 +1697,60 @@ function downloadResource(documentTitle) {
 
 function checkDuplicateInHRHubResourceDownloadTracker(documentTitle) {
 
-  var DisplayName = _spPageContextInfo.userDisplayName;
-  var _DispalyName = DisplayName.replace(",", "");
+var DisplayName = _spPageContextInfo.userDisplayName;
+var _DispalyName = DisplayName.replace(",", "");
 
-  _splitDispalyName = _DispalyName.split(" ");
-  _FullName = _splitDispalyName[1] + " " + _splitDispalyName[0];
-  //console.log("_FullName: ", _FullName);
+_splitDispalyName = _DispalyName.split(" ");
+_FullName = _splitDispalyName[1] + " " + _splitDispalyName[0];
+//console.log("_FullName: ", _FullName);
 
-  var _pageTitle = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
-  //console.log("PageTitle : Before : ", _pageTitle);
+var _pageTitle = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
+//console.log("PageTitle : Before : ", _pageTitle);
 
-  // Replace character '&' by '%26', by 'And' incase it exists on the _pageTitle;
-  _pageTitle = _pageTitle.replace(/&/g, "And");
-  _pageTitle = _pageTitle.replace(/%26/g, "And");
-  //console.log("PageTitle : After : ", _pageTitle);
+// Replace character '&' by '%26', by 'And' incase it exists on the _pageTitle;
+_pageTitle = _pageTitle.replace(/&/g, "And");
+_pageTitle = _pageTitle.replace(/%26/g, "And");
+//console.log("PageTitle : After : ", _pageTitle);
 
-  //get today's date and set it in a 'YYYY-MM-DD' format
-  var today = new Date();
-  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+//get today's date and set it in a 'YYYY-MM-DD' format
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
-  // get siteUrl to check for duplicate item in the list 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+// get siteUrl to check for duplicate item in the list 
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
-  // oData query to identify a record created today by a user for visiting the same page
-  var oDataUrlHRHubResourceDownloadTracker = siteUrl + "/_api/web/lists/getbytitle('ResourcesDownloadTracker')/items?$select=Title,UserName,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + documentTitle + "')";
-  //console.log("oDataUrlHRHubResourceDownloadTracker: ", oDataUrlHRHubResourceDownloadTracker);
+// oData query to identify a record created today by a user for visiting the same page
+var oDataUrlHRHubResourceDownloadTracker = siteUrl + "/_api/web/lists/getbytitle('ResourcesDownloadTracker')/items?$select=Title,UserName,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + documentTitle + "')";
+//console.log("oDataUrlHRHubResourceDownloadTracker: ", oDataUrlHRHubResourceDownloadTracker);
 
-  $.ajax({
+$.ajax({
     url: oDataUrlHRHubResourceDownloadTracker,
     type: "GET",
     dataType: "json",
     headers: {
-      "accept": "application/json;odata=verbose"
+        "accept": "application/json;odata=verbose"
     }
-  }).done(function (data) {
+}).done(function (data) {
 
     var items = data.d.results;
     var counter = items.length;
 
     if (counter == 0) {
 
-      //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
-      createItemHRHubResourceDownloadTracker(documentTitle, _FullName, _pageTitle);
+        //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
+        createItemHRHubResourceDownloadTracker(documentTitle, _FullName, _pageTitle);
 
     } else {
-      // duplicate item found, creating new item skipped
-      // console.log("Duplicate items found");
+        // duplicate item found, creating new item skipped
+        // console.log("Duplicate items found");
     }
 
-  },
+},
     function (error) {
 
-      //console.error('Ooops error occured during ajax call - Outer', error);  
+        //console.error('Ooops error occured during ajax call - Outer', error);  
     }
-  );
+);
 };
 
 
@@ -1747,91 +1758,91 @@ function checkDuplicateInHRHubResourceDownloadTracker(documentTitle) {
 
 function createItemHRHubResourceDownloadTracker(documentTitle, _FullName, _pageTitle) {
 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
-  $.ajax({
+$.ajax({
     async: true, // Async by default is set to “true” load the script asynchronously  
     // URL to post data into sharepoint list  
     url: siteUrl + "/_api/web/lists/GetByTitle('ResourcesDownloadTracker')/items",
 
     method: "POST", //Specifies the operation to create the list item  
     data: JSON.stringify({
-      '__metadata': {
-        'type': 'SP.Data.ResourcesDownloadTrackerListItem' // it defines the ListEnitityTypeName  
-      },
-      //Pass the parameters
+        '__metadata': {
+            'type': 'SP.Data.ResourcesDownloadTrackerListItem' // it defines the ListEnitityTypeName  
+        },
+        //Pass the parameters
 
-      'Title': documentTitle,
-      'UserName': _FullName,
-      'PageTitle': _pageTitle,
+        'Title': documentTitle,
+        'UserName': _FullName,
+        'PageTitle': _pageTitle,
 
     }),
     headers: {
-      "accept": "application/json;odata=verbose", //It defines the Data format   
-      "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
-      "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
+        "accept": "application/json;odata=verbose", //It defines the Data format   
+        "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
+        "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
     },
     success: function (data) {
 
-      //swal("Item created successfully", "success"); // Used sweet alert for success message             
+        //swal("Item created successfully", "success"); // Used sweet alert for success message             
 
     },
     error: function (error) {
 
-      console.log(JSON.stringify(error));
+        console.log(JSON.stringify(error));
 
-      // To reload and refresh the page when the system throws error. 
-      location.reload();
+        // To reload and refresh the page when the system throws error. 
+        location.reload();
 
     }
-  })
+})
 }
 
 
 
 function tagSearches(SearchKey, NumberOfResults) {
 
-  var userName = _spPageContextInfo.userLoginName;
+var userName = _spPageContextInfo.userLoginName;
 
-  //indentify the location of '@' and extract the user name
-  var _index = userName.indexOf("@");
-  var _FullName = userName.substring(0, _index);
+//indentify the location of '@' and extract the user name
+var _index = userName.indexOf("@");
+var _FullName = userName.substring(0, _index);
 
-  //split full using period character
-  var splitFullName = _FullName.split(".");
-  var _FirstName = splitFullName[0];
-  var _LastName = splitFullName[1];
+//split full using period character
+var splitFullName = _FullName.split(".");
+var _FirstName = splitFullName[0];
+var _LastName = splitFullName[1];
 
-  //to change the first character of first name and last name to capital letter
-  _FirstName = _FirstName.charAt(0).toUpperCase() + _FirstName.slice(1);
-  _LastName = _LastName.charAt(0).toUpperCase() + _LastName.slice(1);
+//to change the first character of first name and last name to capital letter
+_FirstName = _FirstName.charAt(0).toUpperCase() + _FirstName.slice(1);
+_LastName = _LastName.charAt(0).toUpperCase() + _LastName.slice(1);
 
-  // concatenate the first name and last name to form full name
-  _FullName = _FirstName + " " + _LastName;
+// concatenate the first name and last name to form full name
+_FullName = _FirstName + " " + _LastName;
 
-  //console.log("Full Name : ", _FullName);
-  //console.log("SearchKey : ", SearchKey);
-  //console.log("NumberOfResults : ", NumberOfResults);
+//console.log("Full Name : ", _FullName);
+//console.log("SearchKey : ", SearchKey);
+//console.log("NumberOfResults : ", NumberOfResults);
 
-  //get today's date and set it in a 'YYYY-MM-DD' format
-  var today = new Date();
-  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+//get today's date and set it in a 'YYYY-MM-DD' format
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 
-  // get siteUrl to check for duplicate item in the list 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+// get siteUrl to check for duplicate item in the list 
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
-  // oData query to identify a record created today by a user for visiting the same page
-  var oDataUrlTagSearches = siteUrl + "/_api/web/lists/getbytitle('TagSearches')/items?$select=Title,UserName,NumberOfResults&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + SearchKey + "')";
+// oData query to identify a record created today by a user for visiting the same page
+var oDataUrlTagSearches = siteUrl + "/_api/web/lists/getbytitle('TagSearches')/items?$select=Title,UserName,NumberOfResults&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + SearchKey + "')";
 
-  $.ajax({
+$.ajax({
     url: oDataUrlTagSearches,
     type: "GET",
     dataType: "json",
     headers: {
-      "accept": "application/json;odata=verbose"
+        "accept": "application/json;odata=verbose"
     }
-  }).done(function (data) {
+}).done(function (data) {
 
     var items = data.d.results;
     var counter = items.length;
@@ -1840,21 +1851,21 @@ function tagSearches(SearchKey, NumberOfResults) {
 
     if (counter == 0) {
 
-      // duplicate item NOT found, new item TO BE CREATED
-      //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
-      createItemSearchTags(SearchKey, _FullName, NumberOfResults);
+        // duplicate item NOT found, new item TO BE CREATED
+        //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");
+        createItemSearchTags(SearchKey, _FullName, NumberOfResults);
 
     } else {
 
-      // duplicate item found, creating new item skipped
-      //console.log("Duplicate items found");
+        // duplicate item found, creating new item skipped
+        //console.log("Duplicate items found");
     }
-  },
+},
     function (error) {
 
-      //console.error('Ooops error occured during ajax call - Outer', error);
+        //console.error('Ooops error occured during ajax call - Outer', error);
     }
-  );
+);
 
 };
 
@@ -1863,131 +1874,131 @@ function tagSearches(SearchKey, NumberOfResults) {
 
 function createItemSearchTags(_SearchKeyParam, _FullNameParam, _NumberOfResults) {
 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
-  var oDataUrlTagSearches = siteUrl + "/_api/web/lists/getbytitle('TagSearches')/items?$select=Title,UserName,NumberOfResults";
+var oDataUrlTagSearches = siteUrl + "/_api/web/lists/getbytitle('TagSearches')/items?$select=Title,UserName,NumberOfResults";
 
-  $.ajax({
+$.ajax({
     async: true, // Async by default is set to “true” load the script asynchronously  
     // URL to post data into sharepoint list  
     url: oDataUrlTagSearches,
 
     method: "POST", //Specifies the operation to create the list item  
     data: JSON.stringify({
-      '__metadata': {
-        'type': 'SP.Data.TagSearchesListItem' // it defines the ListEnitityTypeName  
-      },
-      //Pass the parameters
+        '__metadata': {
+            'type': 'SP.Data.TagSearchesListItem' // it defines the ListEnitityTypeName  
+        },
+        //Pass the parameters
 
-      'Title': _SearchKeyParam,
-      'UserName': _FullNameParam,
-      'NumberOfResults': _NumberOfResults,
+        'Title': _SearchKeyParam,
+        'UserName': _FullNameParam,
+        'NumberOfResults': _NumberOfResults,
 
     }),
     headers: {
-      "accept": "application/json;odata=verbose", //It defines the Data format   
-      "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
-      "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
+        "accept": "application/json;odata=verbose", //It defines the Data format   
+        "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
+        "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
     },
     success: function (data) {
 
-      //            swal("Item created successfully", "success"); // Used sweet alert for success message  
+        //            swal("Item created successfully", "success"); // Used sweet alert for success message  
 
     },
     error: function (error) {
 
-      console.log(JSON.stringify(error));
+        console.log(JSON.stringify(error));
 
     }
-  })
+})
 
 }
 
 
 // function - Career Path Usage Tracking - Check the user is not hr team member
-function careerPathUsageTracking(Title) {
+function careerPathUsageTracking(Title,Track,PositionOrConnection) {
 
-  var DisplayName = _spPageContextInfo.userDisplayName;
+var DisplayName = _spPageContextInfo.userDisplayName;
 
-  // Check/Confirm the user is not member of hr team
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
-  var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
+// Check/Confirm the user is not member of hr team
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+var oDataUrlHRTeam = siteUrl + "/_api/web/lists/getbytitle('HR-Team')/items?$select=Name&$filter=Name eq '" + DisplayName + "'";
 
-  $.ajax({
-    url: oDataUrlHRTeam,
-    type: "GET",
-    dataType: "json",
-    headers: {
-      "accept": "application/json;odata=verbose"
-    }
-  }).done(function (data) {
+$.ajax({
+  url: oDataUrlHRTeam,
+  type: "GET",
+  dataType: "json",
+  headers: {
+    "accept": "application/json;odata=verbose"
+  }
+}).done(function (data) {   
+    
+  var items = data.d.results;
+  var hrTeamLength = items.length;
 
-    var items = data.d.results;
-    var hrTeamLength = items.length;
-
-    //   console.log("hrTeamLength: ",hrTeamLength);
-    checkDuplicateInCareerPathUsageTracking(Title);
+//   console.log("hrTeamLength: ",hrTeamLength);
+    checkDuplicateInCareerPathUsageTracking(Title,Track,PositionOrConnection);
 
 
-    //  if(hrTeamLength == 0){  
+//  if(hrTeamLength == 0){  
 
-    //    console.log(DisplayName, " is not member of hr team");
-    //    checkDuplicateInCareerPathUsageTracking(Title);
+//    console.log(DisplayName, " is not member of hr team");
+//    checkDuplicateInCareerPathUsageTracking(Title);
 
-    // }else {
+// }else {
 
-    //    console.log(DisplayName, " is member of hr team");
+//    console.log(DisplayName, " is member of hr team");
 
-    // }
+ // }
 
-  },
-    function (error) {
-      //console.error('Ooops error occured during ajax call - Outer', error);
-    }
-  );
+},
+  function (error) {
+    //console.error('Ooops error occured during ajax call - Outer', error);
+  }
+);
 
 }
 
 
 // function - To check for duplicate item in 'Career Path Usage Tracking' list
-function checkDuplicateInCareerPathUsageTracking(Title) {
+function checkDuplicateInCareerPathUsageTracking(Title,Track,PositionOrConnection) {
 
-  var DisplayName = _spPageContextInfo.userDisplayName;
-  var _DispalyName = DisplayName.replace(",", "");
+var DisplayName = _spPageContextInfo.userDisplayName;
+var _DispalyName = DisplayName.replace(",", "");
 
-  _splitDispalyName = _DispalyName.split(" ");
-  _FullName = _splitDispalyName[1] + " " + _splitDispalyName[0];
-  //console.log("_FullName: ", _FullName);
+_splitDispalyName = _DispalyName.split(" ");
+_FullName = _splitDispalyName[1] + " " + _splitDispalyName[0];
+//console.log("_FullName: ", _FullName);
 
-  var _pageTitle = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
-  //console.log("PageTitle : Before : ", _pageTitle);
+var _pageTitle = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
+//console.log("PageTitle : Before : ", _pageTitle);
 
-  // Replace character '&' by '%26', by 'And' incase it exists on the _pageTitle;
-  _pageTitle = _pageTitle.replace(/&/g, "And");
-  _pageTitle = _pageTitle.replace(/%26/g, "And");
+// Replace character '&' by '%26', by 'And' incase it exists on the _pageTitle;
+_pageTitle = _pageTitle.replace(/&/g, "And");
+_pageTitle = _pageTitle.replace(/%26/g, "And");
 
-  _pageTitle = _pageTitle.replace(".aspx", "");
-  //console.log("PageTitle : After : ", _pageTitle);
+_pageTitle = _pageTitle.replace(".aspx", "");
+//console.log("PageTitle : After : ", _pageTitle);
 
-  //get today's date and set it in a 'YYYY-MM-DD' format
-  var today = new Date();
-  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+//get today's date and set it in a 'YYYY-MM-DD' format
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
-  // get siteUrl to check for duplicate item in the list 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+// get siteUrl to check for duplicate item in the list 
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
-  // oData query to identify a record created today by a user for visiting the same page
-  var oDataUrlCareerPathUsageTracking = siteUrl + "/_api/web/lists/getbytitle('Career-Path-Usage-Tracking')/items?$select=Title,UserName,PageTitle,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + Title + "') and (PageTitle eq '" + _pageTitle + "')";
-  //console.log("oDataUrlHRHubResourceDownloadTracker: ", oDataUrlHRHubResourceDownloadTracker);
+// oData query to identify a record created today by a user for visiting the same page
+var oDataUrlCareerPathUsageTracking = siteUrl + "/_api/web/lists/getbytitle('Career-Path-Usage-Tracking')/items?$select=Title,UserName,PageTitle,Created&$filter=(Created ge '" + date + "') and (UserName eq '" + _FullName + "') and (Title eq '" + Title + "') and (PageTitle eq '" + _pageTitle + "')";
+//console.log("oDataUrlHRHubResourceDownloadTracker: ", oDataUrlHRHubResourceDownloadTracker);
 
-  $.ajax({
+$.ajax({
     url: oDataUrlCareerPathUsageTracking,
     type: "GET",
     dataType: "json",
     headers: {
-      "accept": "application/json;odata=verbose"
+        "accept": "application/json;odata=verbose"
     }
-  }).done(function (data) {
+}).done(function (data) {
 
     var items = data.d.results;
     //console.log("items: ",items);
@@ -1995,65 +2006,67 @@ function checkDuplicateInCareerPathUsageTracking(Title) {
 
     if (counter == 0) {
 
-      //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");         
-      createItemCareerPathUsageTracking(Title, _FullName, _pageTitle);
+        //console.log("NO duplicate items found, READY TO CREATE A NEW ONE !!");         
+        createItemCareerPathUsageTracking(Title, _FullName, _pageTitle,Track,PositionOrConnection);
 
     } else {
-      // duplicate item found, creating new item skipped
-      //console.log("Duplicate items found");
+        // duplicate item found, creating new item skipped
+        //console.log("Duplicate items found");
     }
 
-  },
+},
     function (error) {
 
-      //console.error('Ooops error occured during ajax call - Outer', error);  
+        //console.error('Ooops error occured during ajax call - Outer', error);  
     }
-  );
+);
 };
 
 
 
 // function - Create item in 'Career Path Usage Tracking' list
-function createItemCareerPathUsageTracking(Title, _FullName, _pageTitle) {
+function createItemCareerPathUsageTracking(Title, _FullName, _pageTitle,Track,PositionOrConnection) {
 
-  var siteUrl = _spPageContextInfo.webAbsoluteUrl;
+var siteUrl = _spPageContextInfo.webAbsoluteUrl;
 
-  $.ajax({
+$.ajax({
     async: true, // Async by default is set to “true” load the script asynchronously  
     // URL to post data into sharepoint list  
     url: siteUrl + "/_api/web/lists/GetByTitle('Career-Path-Usage-Tracking')/items",
 
     method: "POST", //Specifies the operation to create the list item  
     data: JSON.stringify({
-      '__metadata': {
-        'type': 'SP.Data.CareerPathUsageTrackingListItem' // it defines the ListEnitityTypeName  
-      },
-      //Pass the parameters
+        '__metadata': {
+            'type': 'SP.Data.CareerPathUsageTrackingListItem' // it defines the ListEnitityTypeName  
+        },
+        //Pass the parameters
 
-      'Title': Title,
-      'UserName': _FullName,
-      'PageTitle': _pageTitle,
+        'Title': Title,
+        'UserName': _FullName,
+        'PageTitle': _pageTitle,
+        'Track': Track,
+        'PositionOrConnection': PositionOrConnection,
 
     }),
     headers: {
-      "accept": "application/json;odata=verbose", //It defines the Data format   
-      "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
-      "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
+        "accept": "application/json;odata=verbose", //It defines the Data format   
+        "content-type": "application/json;odata=verbose", //It defines the content type as JSON  
+        "X-RequestDigest": $("#__REQUESTDIGEST").val() //It gets the digest value   
     },
     success: function (data) {
 
-      //swal("Item created successfully", "success"); // Used sweet alert for success message             
+        //swal("Item created successfully", "success"); // Used sweet alert for success message             
 
     },
     error: function (error) {
 
-      console.log(JSON.stringify(error));
+        console.log(JSON.stringify(error));
 
-      // To reload and refresh the page when the system throws error. 
-      location.reload();
+        // To reload and refresh the page when the system throws error. 
+        location.reload();
 
     }
-  })
+})
 }
 
 

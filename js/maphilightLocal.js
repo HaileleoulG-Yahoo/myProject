@@ -344,7 +344,7 @@
 	var path = window.location.pathname;
 	//console.log("path: ",path);
 
-if(path.includes("Home")){
+if(path.includes("Home") || path.includes("TestPage_12")){
 
 	$.fn.maphilight.defaults = {
 		fill: true,

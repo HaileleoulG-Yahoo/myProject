@@ -956,15 +956,13 @@
             AccordionHtml('Onboarding');
 
 
-
-
         }); // jquery end
 
 
 
         function AccordionHtml(Section) {
 
-            var myNewString="";
+            var myNewString = "";
 
             var oDataHRHUBSections = _spPageContextInfo.webAbsoluteUrl + `/_api/web/lists/getbytitle('HR-HUB-Subsections')/items?$select=Title,Section/Title,Icon_Url_Black,Icon_Url_White,Order_Subsection&$expand=Section/Title&$filter=Section/Title eq '${Section}'&$orderby=Order_Subsection asc`;
             //console.log("oDataHRHUBSections: ", oDataHRHUBSections);
@@ -980,39 +978,53 @@
                     var items = data.d.results;
 
                     //console.log("Total Resources: ", items.length);
-                    console.log("items: ", items);
-
-
+                    //console.log("items: ", items);
 
                     for (i = 0; i < items.length; i++) {
 
                         item = items[i];
 
-                        _Title=item.Title;
+                        _Title = item.Title;
+
                         //console.log("_Title: ", _Title, "  index: ",i);
-                        myNewString = myNewString + HRHUBResourcesHtml(_Title);
+
+                        //myNewString = myNewString + HRHUBResourcesHtml(_Title);
+
+                        console.log("HRHUBResourcesHtml(_Title) for Accordion Title =", _Title, " ", HRHUBResourcesHtml(_Title));
+
+                        //innerItems = JSON.stringify(HRHUBResourcesHtml(_Title));
+
+                        //console.log("innerItems: ",innerItems);
+
+                        //console.log("innerItems.length: ",innerItems.length);
+
+                        // for(var j=0;j<HRHUBResourcesHtml(_Title).length; j++){
+                        //     console.log("Inside inner for loop.")
+                        //     console.log("HRHUBResourcesHtml(_Title).results.Title: ",  HRHUBResourcesHtml(_Title).responseJSON.d.results[j].Title);
+                        // }
 
                     }
 
                     console.log("Final myNewString: ", myNewString);
-               
+                    //return myNewString;
 
                 },
                 error: function (data) {
                     alert("Error: " + data);
                 }
             });
+
         }
 
 
         function HRHUBResourcesHtml(_Title) {
 
-            var stringFromHRHUBResourcesHtml="";
+            var stringFromHRHUBResourcesHtml = "";
 
             var oDataHRHUBResources = _spPageContextInfo.webAbsoluteUrl + `/_api/web/lists/getbytitle('HR-HUB-Resources')/items?$select=Title,Subsection/Title,ResourceURL,Order_Resource&$expand=Subsection/Title&$filter=Subsection/Title eq '${_Title}'&$orderby=Order_Resource asc`;
-            console.log("oDataHRHUBResources: ", oDataHRHUBResources);
+            //console.log("oDataHRHUBResources: ", oDataHRHUBResources);
 
-            $.ajax({
+            return $.ajax({
 
                 url: oDataHRHUBResources,
                 method: "GET",
@@ -1022,33 +1034,32 @@
 
                     var items = data.d.results;
 
-                    console.log("Resources in ",_Title, " is/are", items.length);
+                    console.log("Resources in ", _Title, " is/are", items.length);
 
                     for (i = 0; i < items.length; i++) {
 
                         item = items[i];
 
-                        _ResourceTitle=item.Title;
+                        _ResourceTitle = item.Title;
 
                         stringFromHRHUBResourcesHtml = _ResourceTitle;
 
-                        console.log("stringFromHRHUBResourcesHtml inside a for loop : ",stringFromHRHUBResourcesHtml);
+                        console.log("stringFromHRHUBResourcesHtml inside a for loop : ", stringFromHRHUBResourcesHtml);
 
                     }
 
-                    return stringFromHRHUBResourcesHtml;               
-                                 
+                    //console.log("stringFromHRHUBResourcesHtml outside a for loop : ",stringFromHRHUBResourcesHtml);
+                    //return stringFromHRHUBResourcesHtml;                                   
+
                 },
                 error: function (data) {
                     alert("Error: " + data);
                 }
             });
 
-
-            //console.log("stringFromHRHUBResourcesHtml outside a for loop : ",stringFromHRHUBResourcesHtml);
-              
-
         }
+
+
 
         function iconToggleFunction(param) {
 
@@ -1142,16 +1153,11 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- HouseHrHub JS    -->
-    <script src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHub.js"></script>
 
-    <!-- HouseHrHubVisitors JS    -->
-    <script
-        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/HouseHrHubVisitors.js"></script>
 
-    <!-- DownloadResource JS    -->
+    <!-- House HrHub Merged JS    -->
     <script
-        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/DownloadResource.js"></script>
+        src="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SiteAssets/js/wip-js/HouseHrHubMerged_Dev.js"></script>
 
 
 </body>

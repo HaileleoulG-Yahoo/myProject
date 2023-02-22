@@ -16,17 +16,18 @@
 
 /* Customized styles - START */
 
-/* hovering effect on New Member Resources dropdown */
-ul#new-member-resources-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
-  background: #A89968;
-  color: white;
-  text-decoration: none;
-  font-style: italic;
-}
-
-/* Font size for New Member Resources dropdown */
-ul#new-member-resources-dropdown.dropdown-menu.fade-up {
-  font-size: 22px;
+@media all and (min-width: 992px) {
+  /* hovering effect on House Career Paths dropdown */
+  ul#house-career-paths-dropdown.dropdown-menu.fade-up>li>a.dropdown-item:hover {
+      background: #007A53;
+      color: white;
+      text-decoration: none;
+      font-style: italic;
+  }
+  /* Font size for House Career Paths dropdown */
+  ul#house-career-paths-dropdown.dropdown-menu.fade-up {
+      font-size: 22px;
+  }
 }
 
 
@@ -46,6 +47,8 @@ li#NewMemberResources_link>a#NewMemberResources {
 #NewMemberResources {
   color: white;
 }
+
+
 
 /* Customized styles - END */
 

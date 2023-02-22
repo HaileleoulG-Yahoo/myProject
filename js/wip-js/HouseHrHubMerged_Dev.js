@@ -183,13 +183,13 @@ $(document).ready(function () {
                   </li>
       
                   <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" style="background-color:#A89968;" 
-                  href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/NewMemberResources.aspx" 
+                  <a class="nav-link dropdown-toggle" style="background-color:#007A53;" 
+                  href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx" 
                   data-bs-toggle="dropdown">           
-                  NEW MEMBER RESOURCES </a>
-                  <ul id="new-member-resources-dropdown" class="dropdown-menu fade-up">
+                  HOUSE CAREER PATHS </a>
+                  <ul id="house-career-paths-dropdown" class="dropdown-menu fade-up">
                     <li><a class="dropdown-item" 
-                    href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/NewMemberResources.aspx#" onclick="downloadResource('New Member Resources - Top Nav Bar')"> New Member Resources  
+                    href="https://ushouse.sharepoint.com/sites/HumanResources/CAOHRHUB/SitePages/CareerPaths.aspx#"> House Career Paths  
                     </a></li>
                   </ul>
                 </li>            
@@ -941,7 +941,7 @@ function loadPositionModals(){
                                               aria-controls="panelsStayOpen-collapseFive-${_position}">
                                               <div class="row" style="width:110%;">
                                                   <div class="col">
-                                                      <b>${_Top_Skill_5}</b>
+                                                      <b>${_Top_Skill_5}:</b>
                                                   </div>
           
                                                   <div class="col" style="text-align:right;">`;
@@ -968,7 +968,7 @@ function loadPositionModals(){
                                       <div id="panelsStayOpen-collapseFive-${_position}" class="accordion-collapse collapse"
                                           aria-labelledby="panelsStayOpen-${_position}FeaturedSkillsFive">
                                           <div class="accordion-body">
-                                              <p style="color:black;">"${_Top_Skill_5_Definition}</p>
+                                              <p style="color:black;">${_Top_Skill_5_Definition}</p>
                                           </div>
                                       </div>
                                   </div>            
